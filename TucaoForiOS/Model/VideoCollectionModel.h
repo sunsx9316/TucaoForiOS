@@ -53,7 +53,7 @@
 /**
  *  弹幕数
  */
-@property (assign, nonatomic) NSUInteger mukio;
+@property (assign, nonatomic) NSString *mukio;
 /**
  *  分 p 数量
  */
@@ -61,7 +61,7 @@
 /**
  *  播放数
  */
-@property (assign, nonatomic) NSUInteger play;
+@property (assign, nonatomic) NSString *play;
 /**
  *  缩略图
  */

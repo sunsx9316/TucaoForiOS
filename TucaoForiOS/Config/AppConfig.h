@@ -21,6 +21,7 @@
 
 //项目主色调
 #define MAIN_COLOR RGBCOLOR(255, 51, 102)
+#define BACK_GROUND_COLOR [UIColor whiteColor]
 
 //屏幕宽高
 #define WIDTH [UIScreen mainScreen].bounds.size.width
@@ -42,5 +43,8 @@ cell.preservesSuperviewLayoutMargins = NO; \
 
 //吐槽的 appkey
 #define TUCAO_APPKEY @"25tids8f1ew1821ed"
+
+//YYWebImage 默认加载方法
+#define YYWEBIMAGE_DEFAULT_OPTION YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation
 
 #endif /* AppConfig_h */

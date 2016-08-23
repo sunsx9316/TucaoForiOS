@@ -9,7 +9,9 @@
 #import "HomePageNetManager.h"
 
 @implementation HomePageNetManager
-+ (void)batchGETRankWithSections:(NSArray <NSString *>*)sections completionBlock:(void(^)(NSArray <VideoCollectionModel *>*responseObjects))completionBlock {
++ (void)batchGETRankWithSections:(NSArray <NSString *>*)sections
+                   progressBlock:(void(^)(NSUInteger numberOfFinishedOperations, VideoCollectionModel *model))progressBlock
+                 completionBlock:(void(^)())completionBlock {
     //http://www.tucao.tv/api_v2/rank.php?tid=19&apikey=25tids8f1ew1821ed&date=0
     NSMutableArray *tempArr = [NSMutableArray array];
     
@@ -19,15 +21,21 @@
     
     [self batchGETDataWithPaths:tempArr progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations, __autoreleasing id *responseObj) {
         NSLog(@"%ld %ld", numberOfFinishedOperations, totalNumberOfOperations);
-    } completionBlock:^(NSArray *responseObjects, NSArray<NSURLSessionTask *> *tasks) {
-        NSMutableArray *responseArr = [NSMutableArray array];
-        for (NSData *data in responseObjects) {
-            VideoCollectionModel *model = [VideoCollectionModel yy_modelWithJSON:data];
-            if (model) {
-                [responseArr addObject:model];
-            }
+        if (progressBlock) {
+            progressBlock(numberOfFinishedOperations, [VideoCollectionModel yy_modelWithJSON:*responseObj]);
         }
-        completionBlock(responseArr);
+    } completionBlock:^(NSArray *responseObjects, NSArray<NSURLSessionTask *> *tasks) {
+        if (completionBlock) {
+            completionBlock();
+        }
+//        NSMutableArray *responseArr = [NSMutableArray array];
+//        for (NSData *data in responseObjects) {
+//            VideoCollectionModel *model = [VideoCollectionModel yy_modelWithJSON:data];
+//            if (model) {
+//                [responseArr addObject:model];
+//            }
+//        }
+//        completionBlock(responseArr);
     }];
 }
 @end

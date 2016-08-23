@@ -7,6 +7,8 @@
 //
 
 #import "HomePageSectionTableViewCell.h"
+#import "HomePageSectionCollectionViewCell.h"
+
 @interface HomePageSectionTableViewCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) UICollectionView *collectionView;
 @end
@@ -20,11 +22,19 @@
     _model = model;
     
     [self.collectionView reloadData];
-    
     [self.collectionView setNeedsUpdateConstraints];
     [self.collectionView updateConstraintsIfNeeded];
-    
     return self.collectionView.collectionViewLayout.collectionViewContentSize.height;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = BACK_GROUND_COLOR;
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+    }
+    return self;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -33,7 +43,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    HomePageSectionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomePageSectionCollectionViewCell" forIndexPath:indexPath];
+    cell.model = _model.videos[indexPath.item];
+    return cell;
 }
 
 - (UICollectionView *)collectionView {
@@ -44,6 +56,12 @@
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         layout.itemSize = CGSizeMake((WIDTH - 30) / 2, (WIDTH - 30) / 2);
 		_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.scrollEnabled = NO;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = BACK_GROUND_COLOR;
+        [_collectionView registerClass:[HomePageSectionCollectionViewCell class] forCellWithReuseIdentifier:@"HomePageSectionCollectionViewCell"];
+        [self.contentView addSubview:_collectionView];
 	}
 	return _collectionView;
 }

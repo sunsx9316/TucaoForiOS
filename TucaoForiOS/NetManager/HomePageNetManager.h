@@ -10,5 +10,7 @@
 #import "VideoCollectionModel.h"
 
 @interface HomePageNetManager : BaseNetManager
-+ (void)batchGETRankWithSections:(NSArray <NSString *>*)sections completionBlock:(void(^)(NSArray <VideoCollectionModel *>*responseObjects))completionBlock;
++ (void)batchGETRankWithSections:(NSArray <NSString *>*)sections
+                   progressBlock:(void(^)(NSUInteger numberOfFinishedOperations, VideoCollectionModel *model))progressBlock
+                 completionBlock:(void(^)())completionBlock;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "VideoCollectionModel.h"
+#import "NSString+Tools.h"
 
 @implementation VideoCollectionModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
@@ -25,6 +26,15 @@
 
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"desc":@"description", @"keyWords":@"keywords", @"typeId":@"typeid", @"typeName":@"typename", @"userId": @"userid", @"URLs": @"video"};
+}
+
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+//    NSString *play = dic[@"play"];
+//    _play = [NSString stringWithFormatNum:play.integerValue];
+    
+//    NSString *mukio = dic[@"mukio"];
+//    _mukio = [NSString stringWithFormatNum:mukio.integerValue];
+    return YES;
 }
 @end
 

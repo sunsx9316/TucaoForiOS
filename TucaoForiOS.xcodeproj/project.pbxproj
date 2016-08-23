@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		8930E9901D6BFEBF003C1B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E98F1D6BFEBF003C1B44 /* main.m */; };
 		8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9921D6BFEBF003C1B44 /* AppDelegate.m */; };
-		8930E99B1D6BFEBF003C1B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */; };
-		8930E99E1D6BFEBF003C1B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */; };
 		8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9AB1D6C0133003C1B44 /* MainViewController.m */; };
 		8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */; };
 		8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9B31D6C0318003C1B44 /* AnimationViewController.m */; };
@@ -29,6 +27,10 @@
 		8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */; };
 		8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E91D6C32B1003C1B44 /* BaseModel.m */; };
 		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
+		89C760FE1D6C804000635384 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FD1D6C804000635384 /* Assets.xcassets */; };
+		89C761011D6C804600635384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FF1D6C804600635384 /* LaunchScreen.storyboard */; };
+		89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */; };
+		89C761081D6C84C200635384 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C761071D6C84C200635384 /* NSString+Tools.m */; };
 		8A78418F8C547705F1053D8D /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,6 @@
 		8930E98F1D6BFEBF003C1B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8930E9911D6BFEBF003C1B44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8930E9921D6BFEBF003C1B44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		8930E99D1D6BFEBF003C1B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8930E99F1D6BFEBF003C1B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		8930E9AA1D6C0133003C1B44 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.h; sourceTree = "<group>"; };
 		8930E9AB1D6C0133003C1B44 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.m; sourceTree = "<group>"; };
@@ -78,6 +78,12 @@
 		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.m; sourceTree = "<group>"; };
 		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageSectionTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
 		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageSectionTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
+		89C760FD1D6C804000635384 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TucaoForiOS/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		89C761001D6C804600635384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TucaoForiOS/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		89C761021D6C80F900635384 /* HomePageSectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionCollectionViewCell.h; sourceTree = "<group>"; };
+		89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionCollectionViewCell.m; sourceTree = "<group>"; };
+		89C761061D6C84C200635384 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Tools.h"; path = "TucaoForiOS/Tools/NSString+Tools.h"; sourceTree = SOURCE_ROOT; };
+		89C761071D6C84C200635384 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tools.m"; path = "TucaoForiOS/Tools/NSString+Tools.m"; sourceTree = SOURCE_ROOT; };
 		98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
 		DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,11 +133,11 @@
 			children = (
 				8930E9911D6BFEBF003C1B44 /* AppDelegate.h */,
 				8930E9921D6BFEBF003C1B44 /* AppDelegate.m */,
+				89C760FC1D6C803600635384 /* Resource */,
 				8930E9DB1D6C2E83003C1B44 /* Tools */,
 				8930E9A51D6BFF27003C1B44 /* Config */,
 				8930E9A61D6BFF27003C1B44 /* Model */,
 				8930E9A71D6BFF27003C1B44 /* NetManager */,
-				8930E9A81D6BFF27003C1B44 /* Resource */,
 				8930E9A91D6BFF27003C1B44 /* ViewController */,
 				8930E98E1D6BFEBF003C1B44 /* Supporting Files */,
 			);
@@ -178,15 +184,6 @@
 				8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */,
 			);
 			path = NetManager;
-			sourceTree = "<group>";
-		};
-		8930E9A81D6BFF27003C1B44 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */,
-				8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		8930E9A91D6BFF27003C1B44 /* ViewController */ = {
@@ -294,6 +291,7 @@
 		8930E9DB1D6C2E83003C1B44 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				89C761051D6C838500635384 /* Category */,
 				8930E9DC1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.h */,
 				8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */,
 			);
@@ -306,8 +304,28 @@
 			children = (
 				8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */,
 				8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */,
+				89C761021D6C80F900635384 /* HomePageSectionCollectionViewCell.h */,
+				89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		89C760FC1D6C803600635384 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				89C760FF1D6C804600635384 /* LaunchScreen.storyboard */,
+				89C760FD1D6C804000635384 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		89C761051D6C838500635384 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				89C761061D6C84C200635384 /* NSString+Tools.h */,
+				89C761071D6C84C200635384 /* NSString+Tools.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		ADA51879AAABC34BB60EA45C /* Frameworks */ = {
@@ -378,8 +396,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8930E99E1D6BFEBF003C1B44 /* LaunchScreen.storyboard in Resources */,
-				8930E99B1D6BFEBF003C1B44 /* Assets.xcassets in Resources */,
+				89C760FE1D6C804000635384 /* Assets.xcassets in Resources */,
+				89C761011D6C804600635384 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,8 +460,10 @@
 				8930E9C31D6C0381003C1B44 /* MovieViewController.m in Sources */,
 				8930E9C81D6C03A5003C1B44 /* BangumiViewController.m in Sources */,
 				8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */,
+				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */,
 				8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */,
+				89C761081D6C84C200635384 /* NSString+Tools.m in Sources */,
 				8930E9BC1D6C0340003C1B44 /* GameViewController.m in Sources */,
 				8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */,
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
@@ -464,13 +484,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */ = {
+		89C760FF1D6C804600635384 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8930E99D1D6BFEBF003C1B44 /* Base */,
+				89C761001D6C804600635384 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
