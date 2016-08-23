@@ -9,10 +9,27 @@
 /* Begin PBXBuildFile section */
 		8930E9901D6BFEBF003C1B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E98F1D6BFEBF003C1B44 /* main.m */; };
 		8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9921D6BFEBF003C1B44 /* AppDelegate.m */; };
-		8930E9961D6BFEBF003C1B44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9951D6BFEBF003C1B44 /* ViewController.m */; };
-		8930E9991D6BFEBF003C1B44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8930E9971D6BFEBF003C1B44 /* Main.storyboard */; };
 		8930E99B1D6BFEBF003C1B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */; };
 		8930E99E1D6BFEBF003C1B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */; };
+		8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9AB1D6C0133003C1B44 /* MainViewController.m */; };
+		8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */; };
+		8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9B31D6C0318003C1B44 /* AnimationViewController.m */; };
+		8930E9B81D6C032D003C1B44 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9B71D6C032D003C1B44 /* MusicViewController.m */; };
+		8930E9BC1D6C0340003C1B44 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9BB1D6C0340003C1B44 /* GameViewController.m */; };
+		8930E9C01D6C0372003C1B44 /* ThreeDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9BF1D6C0372003C1B44 /* ThreeDViewController.m */; };
+		8930E9C31D6C0381003C1B44 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9C21D6C0381003C1B44 /* MovieViewController.m */; };
+		8930E9C81D6C03A5003C1B44 /* BangumiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9C71D6C03A5003C1B44 /* BangumiViewController.m */; };
+		8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9CB1D6C060C003C1B44 /* SectionViewController.m */; };
+		8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9D11D6C206D003C1B44 /* MineViewController.m */; };
+		8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9D61D6C2649003C1B44 /* BaseViewController.m */; };
+		8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9D91D6C2E5B003C1B44 /* BaseNetManager.m */; };
+		8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */; };
+		8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E01D6C2EA8003C1B44 /* TucaoErrorModel.m */; };
+		8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */; };
+		8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */; };
+		8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E91D6C32B1003C1B44 /* BaseModel.m */; };
+		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
+		8A78418F8C547705F1053D8D /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +37,50 @@
 		8930E98F1D6BFEBF003C1B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8930E9911D6BFEBF003C1B44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8930E9921D6BFEBF003C1B44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8930E9941D6BFEBF003C1B44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8930E9951D6BFEBF003C1B44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8930E9981D6BFEBF003C1B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8930E99D1D6BFEBF003C1B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8930E99F1D6BFEBF003C1B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8930E99F1D6BFEBF003C1B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		8930E9AA1D6C0133003C1B44 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.h; sourceTree = "<group>"; };
+		8930E9AB1D6C0133003C1B44 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.m; sourceTree = "<group>"; };
+		8930E9AE1D6C02F4003C1B44 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageViewController.h; sourceTree = "<group>"; };
+		8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageViewController.m; sourceTree = "<group>"; };
+		8930E9B21D6C0318003C1B44 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/AnimationViewController.h; sourceTree = "<group>"; };
+		8930E9B31D6C0318003C1B44 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/AnimationViewController.m; sourceTree = "<group>"; };
+		8930E9B61D6C032D003C1B44 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MusicViewController.h; sourceTree = "<group>"; };
+		8930E9B71D6C032D003C1B44 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MusicViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MusicViewController.m; sourceTree = "<group>"; };
+		8930E9BA1D6C0340003C1B44 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/GameViewController.h; sourceTree = "<group>"; };
+		8930E9BB1D6C0340003C1B44 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/GameViewController.m; sourceTree = "<group>"; };
+		8930E9BE1D6C0372003C1B44 /* ThreeDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeDViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/ThreeDViewController.h; sourceTree = "<group>"; };
+		8930E9BF1D6C0372003C1B44 /* ThreeDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeDViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/ThreeDViewController.m; sourceTree = "<group>"; };
+		8930E9C11D6C0381003C1B44 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MovieViewController.h; sourceTree = "<group>"; };
+		8930E9C21D6C0381003C1B44 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MovieViewController.m; sourceTree = "<group>"; };
+		8930E9C61D6C03A5003C1B44 /* BangumiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BangumiViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BangumiViewController.h; sourceTree = "<group>"; };
+		8930E9C71D6C03A5003C1B44 /* BangumiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BangumiViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BangumiViewController.m; sourceTree = "<group>"; };
+		8930E9CA1D6C060C003C1B44 /* SectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/SectionViewController.h; sourceTree = "<group>"; };
+		8930E9CB1D6C060C003C1B44 /* SectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/SectionViewController.m; sourceTree = "<group>"; };
+		8930E9D01D6C206D003C1B44 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MineViewController.h; sourceTree = "<group>"; };
+		8930E9D11D6C206D003C1B44 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MineViewController.m; sourceTree = "<group>"; };
+		8930E9D31D6C23E7003C1B44 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppConfig.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Config/AppConfig.h; sourceTree = "<group>"; };
+		8930E9D41D6C2434003C1B44 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8930E9D51D6C2649003C1B44 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BaseViewController.h; sourceTree = "<group>"; };
+		8930E9D61D6C2649003C1B44 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BaseViewController.m; sourceTree = "<group>"; };
+		8930E9D81D6C2E5B003C1B44 /* BaseNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetManager.h; sourceTree = "<group>"; };
+		8930E9D91D6C2E5B003C1B44 /* BaseNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetManager.m; sourceTree = "<group>"; };
+		8930E9DC1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPDataResponseSerializer.h; sourceTree = "<group>"; };
+		8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPDataResponseSerializer.m; sourceTree = "<group>"; };
+		8930E9DF1D6C2EA8003C1B44 /* TucaoErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TucaoErrorModel.h; sourceTree = "<group>"; };
+		8930E9E01D6C2EA8003C1B44 /* TucaoErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TucaoErrorModel.m; sourceTree = "<group>"; };
+		8930E9E21D6C3016003C1B44 /* HomePageNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageNetManager.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/HomePageNetManager.h; sourceTree = "<group>"; };
+		8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageNetManager.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/HomePageNetManager.m; sourceTree = "<group>"; };
+		8930E9E51D6C32A3003C1B44 /* VideoCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoCollectionModel.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/VideoCollectionModel.h; sourceTree = "<group>"; };
+		8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoCollectionModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/VideoCollectionModel.m; sourceTree = "<group>"; };
+		8930E9E81D6C32B1003C1B44 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.h; sourceTree = "<group>"; };
+		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.m; sourceTree = "<group>"; };
+		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageSectionTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
+		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageSectionTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
+		98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
+		DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +88,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A78418F8C547705F1053D8D /* libPods-TucaoForiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01FCF8F6F32E7E77B860A14B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */,
+				C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8930E9821D6BFEBF003C1B44 = {
 			isa = PBXGroup;
 			children = (
 				8930E98D1D6BFEBF003C1B44 /* TucaoForiOS */,
 				8930E98C1D6BFEBF003C1B44 /* Products */,
+				01FCF8F6F32E7E77B860A14B /* Pods */,
+				ADA51879AAABC34BB60EA45C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,12 +127,12 @@
 			children = (
 				8930E9911D6BFEBF003C1B44 /* AppDelegate.h */,
 				8930E9921D6BFEBF003C1B44 /* AppDelegate.m */,
-				8930E9941D6BFEBF003C1B44 /* ViewController.h */,
-				8930E9951D6BFEBF003C1B44 /* ViewController.m */,
-				8930E9971D6BFEBF003C1B44 /* Main.storyboard */,
-				8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */,
-				8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */,
-				8930E99F1D6BFEBF003C1B44 /* Info.plist */,
+				8930E9DB1D6C2E83003C1B44 /* Tools */,
+				8930E9A51D6BFF27003C1B44 /* Config */,
+				8930E9A61D6BFF27003C1B44 /* Model */,
+				8930E9A71D6BFF27003C1B44 /* NetManager */,
+				8930E9A81D6BFF27003C1B44 /* Resource */,
+				8930E9A91D6BFF27003C1B44 /* ViewController */,
 				8930E98E1D6BFEBF003C1B44 /* Supporting Files */,
 			);
 			path = TucaoForiOS;
@@ -79,6 +146,178 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8930E9A51D6BFF27003C1B44 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8930E99F1D6BFEBF003C1B44 /* Info.plist */,
+				8930E9D31D6C23E7003C1B44 /* AppConfig.h */,
+				8930E9D41D6C2434003C1B44 /* PrefixHeader.pch */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8930E9A61D6BFF27003C1B44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9DF1D6C2EA8003C1B44 /* TucaoErrorModel.h */,
+				8930E9E01D6C2EA8003C1B44 /* TucaoErrorModel.m */,
+				8930E9E81D6C32B1003C1B44 /* BaseModel.h */,
+				8930E9E91D6C32B1003C1B44 /* BaseModel.m */,
+				8930E9E51D6C32A3003C1B44 /* VideoCollectionModel.h */,
+				8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8930E9A71D6BFF27003C1B44 /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9D81D6C2E5B003C1B44 /* BaseNetManager.h */,
+				8930E9D91D6C2E5B003C1B44 /* BaseNetManager.m */,
+				8930E9E21D6C3016003C1B44 /* HomePageNetManager.h */,
+				8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */,
+			);
+			path = NetManager;
+			sourceTree = "<group>";
+		};
+		8930E9A81D6BFF27003C1B44 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8930E99A1D6BFEBF003C1B44 /* Assets.xcassets */,
+				8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		8930E9A91D6BFF27003C1B44 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9D51D6C2649003C1B44 /* BaseViewController.h */,
+				8930E9D61D6C2649003C1B44 /* BaseViewController.m */,
+				8930E9CF1D6C205D003C1B44 /* 我的 */,
+				8930E9C91D6C0600003C1B44 /* 分区 */,
+				8930E9C51D6C0394003C1B44 /* 新番 */,
+				8930E9C41D6C0385003C1B44 /* 影剧 */,
+				8930E9BD1D6C0349003C1B44 /* 三次元 */,
+				8930E9B91D6C0330003C1B44 /* 游戏 */,
+				8930E9B51D6C031C003C1B44 /* 音乐 */,
+				8930E9B11D6C02F8003C1B44 /* 动画 */,
+				8930E9AD1D6C02E4003C1B44 /* 首页 */,
+				8930E9AA1D6C0133003C1B44 /* MainViewController.h */,
+				8930E9AB1D6C0133003C1B44 /* MainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8930E9AD1D6C02E4003C1B44 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9EE1D6C5354003C1B44 /* View */,
+				8930E9AE1D6C02F4003C1B44 /* HomePageViewController.h */,
+				8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		8930E9B11D6C02F8003C1B44 /* 动画 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9B21D6C0318003C1B44 /* AnimationViewController.h */,
+				8930E9B31D6C0318003C1B44 /* AnimationViewController.m */,
+			);
+			name = "动画";
+			sourceTree = "<group>";
+		};
+		8930E9B51D6C031C003C1B44 /* 音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9B61D6C032D003C1B44 /* MusicViewController.h */,
+				8930E9B71D6C032D003C1B44 /* MusicViewController.m */,
+			);
+			name = "音乐";
+			sourceTree = "<group>";
+		};
+		8930E9B91D6C0330003C1B44 /* 游戏 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9BA1D6C0340003C1B44 /* GameViewController.h */,
+				8930E9BB1D6C0340003C1B44 /* GameViewController.m */,
+			);
+			name = "游戏";
+			sourceTree = "<group>";
+		};
+		8930E9BD1D6C0349003C1B44 /* 三次元 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9BE1D6C0372003C1B44 /* ThreeDViewController.h */,
+				8930E9BF1D6C0372003C1B44 /* ThreeDViewController.m */,
+			);
+			name = "三次元";
+			sourceTree = "<group>";
+		};
+		8930E9C41D6C0385003C1B44 /* 影剧 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9C11D6C0381003C1B44 /* MovieViewController.h */,
+				8930E9C21D6C0381003C1B44 /* MovieViewController.m */,
+			);
+			name = "影剧";
+			sourceTree = "<group>";
+		};
+		8930E9C51D6C0394003C1B44 /* 新番 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9C61D6C03A5003C1B44 /* BangumiViewController.h */,
+				8930E9C71D6C03A5003C1B44 /* BangumiViewController.m */,
+			);
+			name = "新番";
+			sourceTree = "<group>";
+		};
+		8930E9C91D6C0600003C1B44 /* 分区 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9CA1D6C060C003C1B44 /* SectionViewController.h */,
+				8930E9CB1D6C060C003C1B44 /* SectionViewController.m */,
+			);
+			name = "分区";
+			sourceTree = "<group>";
+		};
+		8930E9CF1D6C205D003C1B44 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9D01D6C206D003C1B44 /* MineViewController.h */,
+				8930E9D11D6C206D003C1B44 /* MineViewController.m */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
+		8930E9DB1D6C2E83003C1B44 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9DC1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.h */,
+				8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */,
+			);
+			name = Tools;
+			path = ../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Tools;
+			sourceTree = "<group>";
+		};
+		8930E9EE1D6C5354003C1B44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */,
+				8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		ADA51879AAABC34BB60EA45C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8930E9A21D6BFEBF003C1B44 /* Build configuration list for PBXNativeTarget "TucaoForiOS" */;
 			buildPhases = (
+				BF4D34E34AC4A06D3B464136 /* Check Pods Manifest.lock */,
 				8930E9871D6BFEBF003C1B44 /* Sources */,
 				8930E9881D6BFEBF003C1B44 /* Frameworks */,
 				8930E9891D6BFEBF003C1B44 /* Resources */,
+				EDF0CFDF13DBE840519CFA88 /* Embed Pods Frameworks */,
+				75D046E6524FD6A38F740366 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,19 +380,83 @@
 			files = (
 				8930E99E1D6BFEBF003C1B44 /* LaunchScreen.storyboard in Resources */,
 				8930E99B1D6BFEBF003C1B44 /* Assets.xcassets in Resources */,
-				8930E9991D6BFEBF003C1B44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		75D046E6524FD6A38F740366 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF4D34E34AC4A06D3B464136 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDF0CFDF13DBE840519CFA88 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8930E9871D6BFEBF003C1B44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8930E9961D6BFEBF003C1B44 /* ViewController.m in Sources */,
+				8930E9B81D6C032D003C1B44 /* MusicViewController.m in Sources */,
+				8930E9C31D6C0381003C1B44 /* MovieViewController.m in Sources */,
+				8930E9C81D6C03A5003C1B44 /* BangumiViewController.m in Sources */,
+				8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */,
+				8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */,
+				8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */,
+				8930E9BC1D6C0340003C1B44 /* GameViewController.m in Sources */,
 				8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */,
+				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
+				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
+				8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */,
+				8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */,
+				8930E9C01D6C0372003C1B44 /* ThreeDViewController.m in Sources */,
+				8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */,
+				8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */,
+				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
+				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
+				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
+				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,20 +464,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8930E9971D6BFEBF003C1B44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8930E9981D6BFEBF003C1B44 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8930E99C1D6BFEBF003C1B44 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8930E99D1D6BFEBF003C1B44 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,9 +560,12 @@
 		};
 		8930E9A31D6BFEBF003C1B44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimHuang.TucaoForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,9 +574,12 @@
 		};
 		8930E9A41D6BFEBF003C1B44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimHuang.TucaoForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +605,7 @@
 				8930E9A41D6BFEBF003C1B44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

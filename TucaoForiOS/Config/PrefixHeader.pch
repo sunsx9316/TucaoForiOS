@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  TucaoForiOS
+//
+//  Created by JimHuang on 16/8/23.
+//  Copyright © 2016年 jimHuang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import <YYWebImage.h>
+#import <YYCategories.h>
+#import <MJRefresh.h>
+#import <Masonry.h>
+#import "TucaoErrorModel.h"
+#import "AppConfig.h"
+#endif
+
+#endif /* PrefixHeader_pch */
