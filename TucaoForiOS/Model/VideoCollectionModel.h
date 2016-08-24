@@ -53,7 +53,7 @@
 /**
  *  弹幕数
  */
-@property (assign, nonatomic) NSString *mukio;
+@property (copy, nonatomic) NSString *mukio;
 /**
  *  分 p 数量
  */
@@ -61,7 +61,7 @@
 /**
  *  播放数
  */
-@property (assign, nonatomic) NSString *play;
+@property (copy, nonatomic) NSString *play;
 /**
  *  缩略图
  */
@@ -74,5 +74,8 @@
 
 @interface VideoURLModel : BaseModel
 @property (copy, nonatomic) NSString *type;
+/**
+ *  视频 id
+ */
 @property (copy, nonatomic) NSString *vid;
 @end

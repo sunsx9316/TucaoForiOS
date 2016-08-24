@@ -16,26 +16,29 @@
     NSMutableArray *tempArr = [NSMutableArray array];
     
     [sections enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [tempArr addObject:[NSString stringWithFormat:@"http://www.tucao.tv/api_v2/rank.php?tid=%@&apikey=%@&date=0", obj, TUCAO_APPKEY]];
+        [tempArr addObject:[NSString stringWithFormat:@"http://www.tucao.tv/api_v2/list.php?tid=%@&page=1&pagesize=21&apikey=%@&date=0", obj, TUCAO_APPKEY]];
     }];
     
     [self batchGETDataWithPaths:tempArr progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations, __autoreleasing id *responseObj) {
         NSLog(@"%ld %ld", numberOfFinishedOperations, totalNumberOfOperations);
         if (progressBlock) {
-            progressBlock(numberOfFinishedOperations, [VideoCollectionModel yy_modelWithJSON:*responseObj]);
+            if (responseObj != nil) {
+                NSDictionary *tempDic = [NSJSONSerialization JSONObjectWithData:*responseObj options:NSJSONReadingAllowFragments error:nil][@"result"];
+                if ([tempDic isKindOfClass:[NSDictionary class]]) {
+                    progressBlock(numberOfFinishedOperations, [VideoCollectionModel yy_modelWithDictionary:@{@"result":tempDic.allValues}]);
+                }
+                else if ([tempDic isKindOfClass:[NSArray class]]) {
+                    progressBlock(numberOfFinishedOperations, [VideoCollectionModel yy_modelWithDictionary:@{@"result":tempDic}]);
+                }
+            }
+            else {
+                progressBlock(numberOfFinishedOperations, nil);
+            }
         }
     } completionBlock:^(NSArray *responseObjects, NSArray<NSURLSessionTask *> *tasks) {
         if (completionBlock) {
             completionBlock();
         }
-//        NSMutableArray *responseArr = [NSMutableArray array];
-//        for (NSData *data in responseObjects) {
-//            VideoCollectionModel *model = [VideoCollectionModel yy_modelWithJSON:data];
-//            if (model) {
-//                [responseArr addObject:model];
-//            }
-//        }
-//        completionBlock(responseArr);
     }];
 }
 @end

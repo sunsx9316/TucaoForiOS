@@ -8,12 +8,13 @@
 
 #import "HomePageSectionCollectionViewCell.h"
 @interface HomePageSectionCollectionViewCell ()
-@property (strong, nonatomic) UIImageView *coverImgView;
+@property (strong, nonatomic) YYAnimatedImageView *coverImgView;
 @property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UIImageView *playCountIconImgView;
 @property (strong, nonatomic) UILabel *playCountLabel;
 @property (strong, nonatomic) UIImageView *danmakuCountIconImgView;
 @property (strong, nonatomic) UILabel *danmakuCountLabel;
+@property (strong, nonatomic) UIImageView *shadowImgView;
 @end
 
 @implementation HomePageSectionCollectionViewCell
@@ -23,6 +24,11 @@
         [self.coverImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.mas_equalTo(0);
             make.height.mas_equalTo(self.mas_height).multipliedBy(0.6);
+        }];
+        
+        [self.shadowImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.left.right.equalTo(self.coverImgView);
+            make.height.mas_equalTo(self.coverImgView).multipliedBy(0.4);
         }];
         
         [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,6 +55,7 @@
             make.bottom.equalTo(self.playCountIconImgView);
             make.right.equalTo(self.danmakuCountLabel.mas_left).mas_offset(-5);
         }];
+        
     }
     return self;
 }
@@ -63,9 +70,9 @@
 }
 
 #pragma mark - 懒加载
-- (UIImageView *)coverImgView {
+- (YYAnimatedImageView *)coverImgView {
 	if(_coverImgView == nil) {
-		_coverImgView = [[UIImageView alloc] init];
+		_coverImgView = [[YYAnimatedImageView alloc] init];
         _coverImgView.clipsToBounds = YES;
         _coverImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_coverImgView];
@@ -79,7 +86,7 @@
         _nameLabel.font = [UIFont systemFontOfSize:15];
         _nameLabel.numberOfLines = 2;
         _nameLabel.lineBreakMode = NSLineBreakByClipping;
-        _nameLabel.textColor = [UIColor whiteColor];
+        _nameLabel.textColor = [UIColor darkGrayColor];
         [self addSubview:_nameLabel];
 	}
 	return _nameLabel;
@@ -115,9 +122,18 @@
 	if(_danmakuCountLabel == nil) {
 		_danmakuCountLabel = [[UILabel alloc] init];
         _danmakuCountLabel.font = [UIFont systemFontOfSize:13];
+        _danmakuCountLabel.textColor = [UIColor whiteColor];
         [self addSubview:_danmakuCountLabel];
 	}
 	return _danmakuCountLabel;
+}
+
+- (UIImageView *)shadowImgView {
+	if(_shadowImgView == nil) {
+		_shadowImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"splitter_onlyshadow_down"]];
+        [self addSubview:_shadowImgView];
+	}
+	return _shadowImgView;
 }
 
 @end

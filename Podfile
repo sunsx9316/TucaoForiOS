@@ -11,5 +11,7 @@ pod 'MJRefresh'
 pod 'YYWebImage'
 pod 'MBProgressHUD'
 pod 'YYCategories'
+pod 'GDataXML-HTML'
+pod 'JHDanmakuRender'
 end
 

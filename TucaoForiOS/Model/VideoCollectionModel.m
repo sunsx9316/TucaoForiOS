@@ -29,11 +29,11 @@
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
-//    NSString *play = dic[@"play"];
-//    _play = [NSString stringWithFormatNum:play.integerValue];
+    NSString *play = dic[@"play"];
+    _play = [NSString stringWithFormatNum:play.integerValue];
     
-//    NSString *mukio = dic[@"mukio"];
-//    _mukio = [NSString stringWithFormatNum:mukio.integerValue];
+    NSString *mukio = dic[@"mukio"];
+    _mukio = [NSString stringWithFormatNum:mukio.integerValue];
     return YES;
 }
 @end

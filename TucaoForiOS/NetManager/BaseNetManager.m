@@ -110,8 +110,9 @@
         dispatch_group_enter(group);
         
         NSURLSessionDataTask *dataTask = [manager GET:path parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            NSLog(@"请求成功：%@", path);
             if (progressBlock) {
-                progressBlock(i, paths.count, nil);
+                progressBlock(i, paths.count, &responseObject);
             }
             
             @synchronized (responseObjectArr) {
@@ -126,6 +127,7 @@
             }
             dispatch_group_leave(group);
         } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"请求失败：%@", path);
             if (progressBlock) {
                 progressBlock(i, paths.count, nil);
             }

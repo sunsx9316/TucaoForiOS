@@ -20,7 +20,8 @@
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
 //项目主色调
-#define MAIN_COLOR RGBCOLOR(255, 51, 102)
+#define MAIN_COLOR RGBCOLOR(51, 151, 252)
+#define MAIN_DARK_COLOR RGBCOLOR(53, 60, 59)
 #define BACK_GROUND_COLOR [UIColor whiteColor]
 
 //屏幕宽高
@@ -28,10 +29,14 @@
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 //导航栏
 //设置成默认样式
-#define SET_NAV_BAR_DEFAULT self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
-[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"common_img_bar_top"] forBarMetrics:UIBarMetricsDefault];\
+#define SET_NAV_BAR_DEFAULT self.navigationController.navigationBar.barTintColor = MAIN_COLOR;\
+[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];\
 self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];\
 self.navigationController.navigationBar.translucent = NO;
+//透明
+#define SET_NAVIGATION_COLOR_CLEAR self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
+[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];\
+self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 
 //移除iOS7之后，cell默认左侧的分割线边距
 #define kRemoveCellSeparator \

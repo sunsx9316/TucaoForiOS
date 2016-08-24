@@ -12,7 +12,7 @@
 #ifdef __OBJC__
 #import <YYWebImage.h>
 #import <YYCategories.h>
-#import <MJRefresh.h>
+#import "MJRefreshNormalHeader+DefaultRefreshStyle.h"
 #import <Masonry.h>
 #import "TucaoErrorModel.h"
 #import "AppConfig.h"

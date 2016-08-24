@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GDataXML-HTML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JHDanmakuRender.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F0DBE0EFEE116C2FFC8EE475FE12987</key>
+		<key>198662E3386EE01E9A92FD6D8ADE96DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D32FC64EB3A3F4F94D210D90A3C5D25</key>
+		<key>5098755469F4AECF06FE55A6EDB18116</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>589E4AF7C4AA611868EACA6C2FF18F01</key>
+		<key>59EA63A1B660C0AF9B8C23E4A751D4B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69F05A8D7C9C500F66FFDB2FF088DC8F</key>
+		<key>5CE82B4DE9FC569FA2EB315603C22999</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>661266EBD6EA604C675CD4D5D02CF971</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB3DD7C8524EAA2E001FE759F83934F5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DEBAE99B9EA7F7A962C62D8A1A867F93</key>
+		<key>D4ACE90E8A38885B9BCFA483BE82762B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E65956B82B04C9587800EED0018E61C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA5B9A5D71310E7CE396F9F3E3CA50C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
