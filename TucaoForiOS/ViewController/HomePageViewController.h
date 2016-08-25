@@ -6,10 +6,10 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 /**
  *  首页控制器
  */
-@interface HomePageViewController : BaseViewController
+@interface HomePageViewController : UIViewController
 
 @end

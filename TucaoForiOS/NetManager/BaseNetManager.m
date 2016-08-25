@@ -33,17 +33,6 @@
     return [self GETDataWithPath:path parameters:parameters completionHandler:^(id responseObj, TucaoErrorModel *error) {
         complete([NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingAllowFragments error:&error], error);
     }];
-//    return [[self sharedHTTPSessionManager] GET:path parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"请求成功：%@", path);
-//        if (complete) {
-//            complete(responseObject, nil);
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"请求失败：%@", path);
-//        if (complete) {
-//            complete(nil, [TucaoErrorModel ErrorWithError:error]);
-//        }
-//    }];
 }
 
 + (NSURLSessionDataTask *)GETDataWithPath:(NSString*)path parameters:(NSDictionary*)parameters completionHandler:(void(^)(id responseObj, TucaoErrorModel *error))complete {

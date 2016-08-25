@@ -34,6 +34,9 @@
     
     NSString *mukio = dic[@"mukio"];
     _mukio = [NSString stringWithFormatNum:mukio.integerValue];
+    
+    NSString *creat = dic[@"create"];
+    _create = [NSString stringWithCreatTime:creat];
     return YES;
 }
 @end

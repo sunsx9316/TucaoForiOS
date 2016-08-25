@@ -7,7 +7,7 @@
 //
 
 #import "BaseModel.h"
-@class VideoModel;
+@class VideoModel, VideoURLModel;
 @interface VideoCollectionModel : BaseModel
 @property (strong, nonatomic) NSArray <VideoModel *>*videos;
 @end
@@ -69,10 +69,17 @@
 /**
  *  路径集合
  */
-@property (strong, nonatomic) NSArray *URLs;
+@property (strong, nonatomic) NSArray <VideoURLModel *>*URLs;
 @end
 
 @interface VideoURLModel : BaseModel
+/**
+ *  视频名称
+ */
+@property (strong, nonatomic) NSString *title;
+/**
+ *  视频源类型
+ */
 @property (copy, nonatomic) NSString *type;
 /**
  *  视频 id

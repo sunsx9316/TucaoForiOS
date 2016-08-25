@@ -7,6 +7,8 @@
 //
 
 #import "HomePageViewController.h"
+#import "VideoInfoViewController.h"
+
 #import "HomePageNetManager.h"
 #import "HomePageSectionTableViewCell.h"
 #import "HomePageSectionHeaderFooterView.h"
@@ -19,6 +21,11 @@
 @end
 
 @implementation HomePageViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    SET_NAV_BAR_DEFAULT
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +48,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomePageSectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageSectionTableViewCell" forIndexPath:indexPath];
     self.cellHeightDic[indexPath] = @([cell cellHeightWithModel:self.responseObjects[@(indexPath.section)]]);
+    @weakify(self)
+    [cell setTouchItemAtIndex:^(VideoModel *model) {
+        @strongify(self)
+        if (!self) return;
+        
+        VideoInfoViewController *vc = [[VideoInfoViewController alloc] init];
+        vc.model = model;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     return cell;
 }
 
@@ -118,7 +135,6 @@
 		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-//        _tableView.estimatedRowHeight = 50;
         [_tableView registerClass:[HomePageSectionTableViewCell class] forCellReuseIdentifier:@"HomePageSectionTableViewCell"];
         [_tableView registerClass:[HomePageSectionHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"HomePageSectionHeaderFooterView"];
         @weakify(self)

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JHDanmakuRender.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>198662E3386EE01E9A92FD6D8ADE96DA</key>
+		<key>05A5420F0DFF242566D3E20DACE583A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5098755469F4AECF06FE55A6EDB18116</key>
+		<key>3604F8E8E980ACE48722B31325310A04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59EA63A1B660C0AF9B8C23E4A751D4B3</key>
+		<key>5CE82B4DE9FC569FA2EB315603C22999</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CE82B4DE9FC569FA2EB315603C22999</key>
+		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A2F16B92A72EB543AE23CA4B62E9DCB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC13F33D1D364BCFDAA7DBE3996A3F4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C06C1438D8C680AE7A798AE0D2DF2F4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1A9AA6FE36392C05EDF4306AC380138</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D4ACE90E8A38885B9BCFA483BE82762B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E65956B82B04C9587800EED0018E61C0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA5B9A5D71310E7CE396F9F3E3CA50C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -29,14 +29,15 @@
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 //导航栏
 //设置成默认样式
-#define SET_NAV_BAR_DEFAULT self.navigationController.navigationBar.barTintColor = MAIN_COLOR;\
+#define SET_NAV_BAR_DEFAULT self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
 [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];\
 self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];\
 self.navigationController.navigationBar.translucent = NO;
 //透明
-#define SET_NAVIGATION_COLOR_CLEAR self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
+#define SET_NAVIGATION_BAR_CLEAR self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
 [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];\
-self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];\
+self.navigationController.navigationBar.translucent = YES;
 
 //移除iOS7之后，cell默认左侧的分割线边距
 #define kRemoveCellSeparator \

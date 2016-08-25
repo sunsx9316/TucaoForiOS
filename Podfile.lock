@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - GDataXML-HTML (1.3.0)
+  - GPUImage (0.1.7)
   - JHDanmakuRender (1.21)
   - Masonry (1.0.1)
   - MBProgressHUD (1.0.0)
@@ -34,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - GDataXML-HTML
+  - GPUImage
   - JHDanmakuRender
   - Masonry
   - MBProgressHUD
@@ -45,6 +47,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   GDataXML-HTML: 7adc03668cab35c288f1dbb8929a179f0fece898
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   JHDanmakuRender: 3aff6264e27d382e10266fcbe0a77678a20e16dd
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a

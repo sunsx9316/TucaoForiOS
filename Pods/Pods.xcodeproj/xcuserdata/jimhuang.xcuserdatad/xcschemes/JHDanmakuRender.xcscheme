@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BA447C5731FDD5C44533E284'
+               BlueprintIdentifier = 'DD15F44D44D02B6541695B95'
                BlueprintName = 'JHDanmakuRender'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libJHDanmakuRender.a'>

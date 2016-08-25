@@ -11,4 +11,5 @@
 
 @interface HomePageSectionTableViewCell : UITableViewCell
 - (CGFloat)cellHeightWithModel:(VideoCollectionModel *)model;
+@property (copy, nonatomic) void(^touchItemAtIndex)(VideoModel *model);
 @end
