@@ -13,6 +13,6 @@ pod 'MBProgressHUD'
 pod 'YYCategories'
 pod 'GDataXML-HTML'
 pod 'JHDanmakuRender'
-pod 'GPUImage'
+pod 'WMPageController'
 end
 

@@ -11,4 +11,5 @@
 
 @interface VideoInfoEpisodeTableViewCell : UITableViewCell
 - (CGFloat)cellHeightWithModels:(NSArray <VideoURLModel *>*)models;
+@property (copy, nonatomic) void(^touchItemAtIndex)(NSUInteger);
 @end

@@ -10,7 +10,7 @@
 #import "VideoCollectionModel.h"
 
 @interface VideoInfoContainerTableViewCell : UITableViewCell
-- (CGFloat)cellHeightWithModel:(VideoModel *)model;
+@property (strong, nonatomic) VideoModel *model;
 @property (copy, nonatomic) void(^tableViewDidScroll)(CGFloat contentOffsetY);
 @property (copy, nonatomic) void(^touchUserRow)(NSString *userName, NSString *userId);
 @end

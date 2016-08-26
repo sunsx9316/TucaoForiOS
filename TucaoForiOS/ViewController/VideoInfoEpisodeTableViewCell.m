@@ -47,6 +47,13 @@
     return cell;
 }
 
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.touchItemAtIndex) {
+        self.touchItemAtIndex(indexPath.item);
+    }
+}
+
 #pragma mark - 懒加载
 - (UICollectionView *)collectionView {
 	if(_collectionView == nil) {

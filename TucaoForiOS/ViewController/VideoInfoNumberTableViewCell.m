@@ -41,6 +41,7 @@
     return self;
 }
 
+
 #pragma mark - 懒加载
 - (UIImageView *)playIconImgView {
 	if(_playIconImgView == nil) {

@@ -18,7 +18,6 @@
 
 @implementation VideoInfoContainerTableViewCell
 {
-    VideoModel *_model;
     CGFloat _episodesCellHeight;
 }
 
@@ -29,14 +28,6 @@
         }];
     }
     return self;
-}
-
-- (CGFloat)cellHeightWithModel:(VideoModel *)model {
-    _model = model;
-    [self.tableView reloadData];
-    [self.tableView layoutIfNeeded];
-    self.tableView.contentSize = [self.tableView sizeThatFits:CGSizeMake(self.tableView.bounds.size.width, CGFLOAT_MAX)];
-    return self.tableView.contentSize.height;
 }
 
 #pragma mark - UITableViewDataSource

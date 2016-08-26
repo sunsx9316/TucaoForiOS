@@ -22,7 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = BACK_GROUND_COLOR;
     [self configLeftItem];
+}
+
+- (void)dealloc {
+    NSLog(@"ViewController dealloc");
 }
 
 #pragma mark - 私有方法

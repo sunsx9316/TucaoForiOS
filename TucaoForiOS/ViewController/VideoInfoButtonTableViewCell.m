@@ -19,13 +19,13 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         [self.downloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.mas_offset(10);
-            make.bottom.mas_offset(-10);
+            make.size.top.equalTo(self.favouriteButton);
+            make.left.equalTo(self.favouriteButton.mas_right).mas_offset(20);
         }];
         
         [self.favouriteButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.top.equalTo(self.downloadButton);
-            make.left.equalTo(self.downloadButton.mas_right).mas_offset(20);
+            make.top.left.mas_offset(10);
+            make.bottom.mas_offset(-10);
         }];
     }
     return self;

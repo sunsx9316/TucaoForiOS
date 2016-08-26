@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GPUImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JHDanmakuRender.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +35,11 @@
 			<false/>
 		</dict>
 		<key>Pods-TucaoForiOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WMPageController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,12 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05A5420F0DFF242566D3E20DACE583A2</key>
+		<key>0BBFEAD1A621F971A15D56F27CF6777D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3604F8E8E980ACE48722B31325310A04</key>
+		<key>0F03F6D803ACDD7EA247DE058DC7A973</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C637EAC53962A89CF3EE8A88D2C9342</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>5CE82B4DE9FC569FA2EB315603C22999</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2F16B92A72EB543AE23CA4B62E9DCB1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BC13F33D1D364BCFDAA7DBE3996A3F4D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C06C1438D8C680AE7A798AE0D2DF2F4D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C1A9AA6FE36392C05EDF4306AC380138</key>
+		<key>A95F1C6EACACEE4B96EECBD6FE9A9693</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB72114099FCD7BDC5C9C67D7EE5F800</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F38A7DDD9E4DD3D68872EF0E875FE7D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2D0088A2F93F00C123CEC3CBFB2A0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
