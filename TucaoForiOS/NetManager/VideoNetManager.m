@@ -7,7 +7,7 @@
 //
 
 #import "VideoNetManager.h"
-#import <GDataXMLNode.h>
+#import "GDataXMLNode.h"
 
 @implementation VideoNetManager
 + (NSURLSessionDataTask *)videoPlayURLWithType:(NSString *)type vid:(NSString *)vid completionHandler:(void(^)(NSArray *URLs, TucaoErrorModel *error))complete {

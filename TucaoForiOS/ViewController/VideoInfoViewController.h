@@ -2,14 +2,13 @@
 //  VideoInfoViewController.h
 //  TucaoForiOS
 //
-//  Created by JimHuang on 16/8/25.
+//  Created by JimHuang on 16/8/27.
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-//#import "BaseViewController.h"
+#import "BaseViewController.h"
 #import "VideoCollectionModel.h"
-#import <WMPageController.h>
 
-@interface VideoInfoContainerViewController : WMPageController
+@interface VideoInfoViewController : BaseViewController
 @property (strong, nonatomic) VideoModel *model;
 @end

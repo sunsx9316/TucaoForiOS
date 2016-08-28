@@ -12,7 +12,7 @@
 #import "ScrollDanmaku.h"
 #import "FloatDanmaku.h"
 #import "JHDanmakuEngine+Tools.h"
-#import <GDataXMLNode.h>
+#import "GDataXMLNode.h"
 
 typedef void(^callBackBlock)(DanmakuModel *model);
 @implementation DanmakuDataFormatter

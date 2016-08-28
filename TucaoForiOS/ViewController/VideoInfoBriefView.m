@@ -1,31 +1,37 @@
 //
-//  VideoInfoContainerTableViewCell.m
+//  VideoInfoBriefView.m
 //  TucaoForiOS
 //
-//  Created by JimHuang on 16/8/25.
+//  Created by JimHuang on 16/8/28.
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import "VideoInfoContainerTableViewCell.h"
+#import "VideoInfoBriefView.h"
 #import "VideoInfoNumberTableViewCell.h"
 #import "VideoInfoButtonTableViewCell.h"
 #import "VideoInfoEpisodeTableViewCell.h"
 #import "VideoInfoUserTableViewCell.h"
+#import "VideoInfoTextTableViewCell.h"
 
-@interface VideoInfoContainerTableViewCell ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+
+@interface VideoInfoBriefView()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
+
 @end
 
-@implementation VideoInfoContainerTableViewCell
+@implementation VideoInfoBriefView
 {
     CGFloat _episodesCellHeight;
+    VideoModel *_model;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+- (instancetype)initWithFrame:(CGRect)frame model:(VideoModel *)model {
+    if (self = [super initWithFrame:frame]) {
+        _model = model;
+        [self addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
-        }];
+        }];        
     }
     return self;
 }
@@ -37,23 +43,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 || indexPath.row == 2) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
+        VideoInfoTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoTextTableViewCell" forIndexPath:indexPath];
         
         if (indexPath.row == 0) {
-            cell.textLabel.textColor = [UIColor blackColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.numberOfLines = 1;
-            cell.textLabel.text = _model.title;
+            cell.titleLabel.textColor = [UIColor blackColor];
+            cell.titleLabel.font = [UIFont systemFontOfSize:14];
+            cell.titleLabel.text = _model.title;
         }
         else if (indexPath.row == 2) {
-            cell.textLabel.textColor = [UIColor lightGrayColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:13];
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.text = _model.desc;
+            cell.titleLabel.textColor = [UIColor lightGrayColor];
+            cell.titleLabel.font = [UIFont systemFontOfSize:13];
+            cell.titleLabel.text = _model.desc;
         }
         return cell;
     }
@@ -81,6 +81,11 @@
     return nil;
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SCROLL_VIEW_DID_SCROLL" object:@(scrollView.contentOffset.y)];
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 2 || indexPath.row == 0 || indexPath.row == 4) {
@@ -101,35 +106,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 4) {
-        if (self.touchUserRow) {
-            self.touchUserRow(_model.user, _model.userId);
+        if (self.touchUserRowCallBack) {
+            self.touchUserRowCallBack(_model.user, _model.userId);
         }
     }
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.tableViewDidScroll) {
-        self.tableViewDidScroll(scrollView.contentOffset.y);
-    }
-}
-
-
 #pragma mark - 懒加载
 - (UITableView *)tableView {
-	if(_tableView == nil) {
-		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    if(_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.estimatedRowHeight = 50;
+        _tableView.tableFooterView = [[UIView alloc] init];
         [_tableView registerClass:[VideoInfoButtonTableViewCell class] forCellReuseIdentifier:@"VideoInfoButtonTableViewCell"];
         [_tableView registerClass:[VideoInfoNumberTableViewCell class] forCellReuseIdentifier:@"VideoInfoNumberTableViewCell"];
         [_tableView registerClass:[VideoInfoEpisodeTableViewCell class] forCellReuseIdentifier:@"VideoInfoEpisodeTableViewCell"];
         [_tableView registerClass:[VideoInfoUserTableViewCell class] forCellReuseIdentifier:@"VideoInfoUserTableViewCell"];
-        [self.contentView addSubview:_tableView];
-	}
-	return _tableView;
+        [_tableView registerClass:[VideoInfoTextTableViewCell class] forCellReuseIdentifier:@"VideoInfoTextTableViewCell"];
+        [self addSubview:_tableView];
+    }
+    return _tableView;
 }
-
 @end

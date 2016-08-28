@@ -15,9 +15,9 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(20);
-            make.top.mas_offset(10);
+            make.left.top.mas_offset(10);
         }];
         
         [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {

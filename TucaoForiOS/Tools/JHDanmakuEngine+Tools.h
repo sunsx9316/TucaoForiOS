@@ -6,7 +6,7 @@
 //  Copyright © 2016年 JimHuang. All rights reserved.
 //
 
-#import <JHDanmakuEngine.h>
+#import "JHDanmakuEngine.h"
 #import "DanmakuModel.h"
 
 @interface JHDanmakuEngine (Tools)

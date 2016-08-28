@@ -16,7 +16,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     SET_NAV_BAR_DEFAULT
-    self.hidesBottomBarWhenPushed = YES;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
 }
 

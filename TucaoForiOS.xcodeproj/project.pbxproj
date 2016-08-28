@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89154B811D6E80220039E551 /* VideoInfoContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B801D6E80220039E551 /* VideoInfoContainerViewController.m */; };
-		89154B851D6E867F0039E551 /* VideoInfoContainerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B841D6E867F0039E551 /* VideoInfoContainerTableViewCell.m */; };
+		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
 		89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */; };
 		89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8B1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m */; };
 		89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */; };
 		89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B911D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m */; };
 		89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */; };
-		892EB1E21D7013E80082A10F /* VideoInfoBriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892EB1E11D7013E80082A10F /* VideoInfoBriefViewController.m */; };
-		892EB1E51D7015A80082A10F /* VideoInfoReplayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892EB1E41D7015A80082A10F /* VideoInfoReplayWebViewController.m */; };
 		8930E9901D6BFEBF003C1B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E98F1D6BFEBF003C1B44 /* main.m */; };
 		8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9921D6BFEBF003C1B44 /* AppDelegate.m */; };
 		8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9AB1D6C0133003C1B44 /* MainViewController.m */; };
@@ -36,6 +33,8 @@
 		8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */; };
 		8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E91D6C32B1003C1B44 /* BaseModel.m */; };
 		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
+		899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FC41D7134B50073964D /* VideoInfoViewController.m */; };
+		899D0FEB1D7143AB0073964D /* VideoInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */; };
 		89C760FE1D6C804000635384 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FD1D6C804000635384 /* Assets.xcassets */; };
 		89C761011D6C804600635384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FF1D6C804600635384 /* LaunchScreen.storyboard */; };
 		89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */; };
@@ -49,14 +48,13 @@
 		89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */; };
 		89EE83D01D6EF5AD006A85AD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83CF1D6EF5AD006A85AD /* WebViewController.m */; };
 		89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */; };
-		8A78418F8C547705F1053D8D /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */; };
+		89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */; };
+		89F959E51D72EC8E0024D67D /* VideoInfoBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */; };
+		89F959E81D72F0D00024D67D /* VideoInfoContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		89154B7F1D6E80220039E551 /* VideoInfoContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoContainerViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoContainerViewController.h; sourceTree = "<group>"; };
-		89154B801D6E80220039E551 /* VideoInfoContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoContainerViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoContainerViewController.m; sourceTree = "<group>"; };
-		89154B831D6E867F0039E551 /* VideoInfoContainerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoContainerTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoContainerTableViewCell.h; sourceTree = "<group>"; };
-		89154B841D6E867F0039E551 /* VideoInfoContainerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoContainerTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoContainerTableViewCell.m; sourceTree = "<group>"; };
+		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoNumberTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoNumberTableViewCell.h; sourceTree = "<group>"; };
 		89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoNumberTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoNumberTableViewCell.m; sourceTree = "<group>"; };
 		89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoButtonTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -67,10 +65,6 @@
 		89154B911D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoEpisodeCollectionViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoEpisodeCollectionViewCell.m; sourceTree = "<group>"; };
 		89154B931D6EEEBF0039E551 /* VideoInfoUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoUserTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoUserTableViewCell.h; sourceTree = "<group>"; };
 		89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoUserTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoUserTableViewCell.m; sourceTree = "<group>"; };
-		892EB1E01D7013E80082A10F /* VideoInfoBriefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoBriefViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoBriefViewController.h; sourceTree = "<group>"; };
-		892EB1E11D7013E80082A10F /* VideoInfoBriefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoBriefViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoBriefViewController.m; sourceTree = "<group>"; };
-		892EB1E31D7015A80082A10F /* VideoInfoReplayWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoReplayWebViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoReplayWebViewController.h; sourceTree = "<group>"; };
-		892EB1E41D7015A80082A10F /* VideoInfoReplayWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoReplayWebViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoReplayWebViewController.m; sourceTree = "<group>"; };
 		8930E98B1D6BFEBF003C1B44 /* TucaoForiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TucaoForiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8930E98F1D6BFEBF003C1B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8930E9911D6BFEBF003C1B44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +108,11 @@
 		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.m; sourceTree = "<group>"; };
 		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageSectionTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
 		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageSectionTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
+		893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		899D0FC31D7134B50073964D /* VideoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoViewController.h; sourceTree = "<group>"; };
+		899D0FC41D7134B50073964D /* VideoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewController.m; sourceTree = "<group>"; };
+		899D0FE91D7143AB0073964D /* VideoInfoTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoTextTableViewCell.h; sourceTree = "<group>"; };
+		899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoTextTableViewCell.m; sourceTree = "<group>"; };
 		89C760FD1D6C804000635384 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TucaoForiOS/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		89C761001D6C804600635384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TucaoForiOS/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		89C761021D6C80F900635384 /* HomePageSectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionCollectionViewCell.h; sourceTree = "<group>"; };
@@ -138,9 +137,13 @@
 		89EE83CF1D6EF5AD006A85AD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoWebViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/UserInfoWebViewController.h; sourceTree = "<group>"; };
 		89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoWebViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/UserInfoWebViewController.m; sourceTree = "<group>"; };
-		98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
-		DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoReplayWebView.h; sourceTree = "<group>"; };
+		89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoReplayWebView.m; sourceTree = "<group>"; };
+		89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoBriefView.h; sourceTree = "<group>"; };
+		89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoBriefView.m; sourceTree = "<group>"; };
+		89F959E61D72F0D00024D67D /* VideoInfoContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoContentTableViewCell.h; sourceTree = "<group>"; };
+		89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoContentTableViewCell.m; sourceTree = "<group>"; };
+		F77412BFF43BE10877EBD114 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,32 +151,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A78418F8C547705F1053D8D /* libPods-TucaoForiOS.a in Frameworks */,
+				82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01FCF8F6F32E7E77B860A14B /* Pods */ = {
+		5138A53264CA1513BA0EE30E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */,
-				C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */,
+				893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		89154B7E1D6E80020039E551 /* 视频详情 */ = {
 			isa = PBXGroup;
 			children = (
 				89154B821D6E85CE0039E551 /* View */,
-				89154B7F1D6E80220039E551 /* VideoInfoContainerViewController.h */,
-				89154B801D6E80220039E551 /* VideoInfoContainerViewController.m */,
-				892EB1E01D7013E80082A10F /* VideoInfoBriefViewController.h */,
-				892EB1E11D7013E80082A10F /* VideoInfoBriefViewController.m */,
-				892EB1E31D7015A80082A10F /* VideoInfoReplayWebViewController.h */,
-				892EB1E41D7015A80082A10F /* VideoInfoReplayWebViewController.m */,
+				899D0FC31D7134B50073964D /* VideoInfoViewController.h */,
+				899D0FC41D7134B50073964D /* VideoInfoViewController.m */,
 				89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */,
 				89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */,
 			);
@@ -183,8 +181,6 @@
 		89154B821D6E85CE0039E551 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89154B831D6E867F0039E551 /* VideoInfoContainerTableViewCell.h */,
-				89154B841D6E867F0039E551 /* VideoInfoContainerTableViewCell.m */,
 				89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */,
 				89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */,
 				89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */,
@@ -193,8 +189,16 @@
 				89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */,
 				89154B901D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.h */,
 				89154B911D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m */,
+				899D0FE91D7143AB0073964D /* VideoInfoTextTableViewCell.h */,
+				899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */,
 				89154B931D6EEEBF0039E551 /* VideoInfoUserTableViewCell.h */,
 				89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */,
+				89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */,
+				89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */,
+				89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */,
+				89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */,
+				89F959E61D72F0D00024D67D /* VideoInfoContentTableViewCell.h */,
+				89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -204,8 +208,8 @@
 			children = (
 				8930E98D1D6BFEBF003C1B44 /* TucaoForiOS */,
 				8930E98C1D6BFEBF003C1B44 /* Products */,
-				01FCF8F6F32E7E77B860A14B /* Pods */,
-				ADA51879AAABC34BB60EA45C /* Frameworks */,
+				C6E73EAB12B5F5BE69E32E52 /* Pods */,
+				5138A53264CA1513BA0EE30E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -434,12 +438,13 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
-		ADA51879AAABC34BB60EA45C /* Frameworks */ = {
+		C6E73EAB12B5F5BE69E32E52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DEFF8E80096138AD5DD22B9D /* libPods-TucaoForiOS.a */,
+				62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */,
+				F77412BFF43BE10877EBD114 /* Pods-TucaoForiOS.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,12 +454,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8930E9A21D6BFEBF003C1B44 /* Build configuration list for PBXNativeTarget "TucaoForiOS" */;
 			buildPhases = (
-				BF4D34E34AC4A06D3B464136 /* Check Pods Manifest.lock */,
+				9FE3840769B458D2BCA2D0F1 /* [CP] Check Pods Manifest.lock */,
 				8930E9871D6BFEBF003C1B44 /* Sources */,
 				8930E9881D6BFEBF003C1B44 /* Frameworks */,
 				8930E9891D6BFEBF003C1B44 /* Resources */,
-				EDF0CFDF13DBE840519CFA88 /* Embed Pods Frameworks */,
-				75D046E6524FD6A38F740366 /* Copy Pods Resources */,
+				9182AB4894F196700561A444 /* [CP] Embed Pods Frameworks */,
+				B1A3FE579C18D7DB793B7BF6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -510,29 +515,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		75D046E6524FD6A38F740366 /* Copy Pods Resources */ = {
+		9182AB4894F196700561A444 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF4D34E34AC4A06D3B464136 /* Check Pods Manifest.lock */ = {
+		9FE3840769B458D2BCA2D0F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,19 +545,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EDF0CFDF13DBE840519CFA88 /* Embed Pods Frameworks */ = {
+		B1A3FE579C18D7DB793B7BF6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,10 +567,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899D0FEB1D7143AB0073964D /* VideoInfoTextTableViewCell.m in Sources */,
 				8930E9B81D6C032D003C1B44 /* MusicViewController.m in Sources */,
 				89EE83D01D6EF5AD006A85AD /* WebViewController.m in Sources */,
 				8930E9C31D6C0381003C1B44 /* MovieViewController.m in Sources */,
 				8930E9C81D6C03A5003C1B44 /* BangumiViewController.m in Sources */,
+				89F959E51D72EC8E0024D67D /* VideoInfoBriefView.m in Sources */,
 				8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */,
 				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */,
@@ -580,7 +587,6 @@
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
 				8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */,
 				8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */,
-				892EB1E21D7013E80082A10F /* VideoInfoBriefViewController.m in Sources */,
 				8930E9C01D6C0372003C1B44 /* ThreeDViewController.m in Sources */,
 				89D3C13A1D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m in Sources */,
 				89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */,
@@ -590,18 +596,18 @@
 				89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */,
 				89D3C1401D6D99390064FA67 /* VideoNetManager.m in Sources */,
 				89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */,
-				89154B851D6E867F0039E551 /* VideoInfoContainerTableViewCell.m in Sources */,
+				899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */,
 				89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */,
 				8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */,
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
-				89154B811D6E80220039E551 /* VideoInfoContainerViewController.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
-				892EB1E51D7015A80082A10F /* VideoInfoReplayWebViewController.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,
 				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
+				89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
+				89F959E81D72F0D00024D67D /* VideoInfoContentTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,23 +709,26 @@
 		};
 		8930E9A31D6BFEBF003C1B44 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98D3DBD3C278E1085AA91BB1 /* Pods-TucaoForiOS.debug.xcconfig */;
+			baseConfigurationReference = 62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimHuang.TucaoForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8930E9A41D6BFEBF003C1B44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1AB8FC78F8D58BBDBE8CC50 /* Pods-TucaoForiOS.release.xcconfig */;
+			baseConfigurationReference = F77412BFF43BE10877EBD114 /* Pods-TucaoForiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
