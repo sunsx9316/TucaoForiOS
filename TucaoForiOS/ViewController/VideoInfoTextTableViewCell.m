@@ -7,7 +7,6 @@
 //
 
 #import "VideoInfoTextTableViewCell.h"
-
 @implementation VideoInfoTextTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -15,8 +14,8 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.mas_offset(10);
-            make.bottom.mas_offset(-10);
             make.right.mas_lessThanOrEqualTo(-10);
+            make.bottom.mas_offset(-10);
         }];
     }
     return self;

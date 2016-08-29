@@ -22,9 +22,11 @@
 @property (strong, nonatomic) WMMenuView *menuView;
 @property (strong, nonatomic) NSArray *contentViewArr;
 @property (strong, nonatomic) iCarousel *pageView;
+@property (strong, nonatomic) UIView *holdView;
 @end
 
 @implementation VideoInfoViewController
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     SET_NAVIGATION_BAR_CLEAR
@@ -53,7 +55,7 @@
         make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
     
-    [self.view addSubview:self.pageView];
+    [self.view addSubview:self.holdView];
 }
 
 #pragma mark - WMMenuViewDataSource
@@ -67,8 +69,8 @@
 
 #pragma mark - WMMenuViewDelegate
 - (void)menuView:(WMMenuView *)menu didSelesctedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
+    objc_setAssociatedObject(self.pageView, @"_isAnimate".UTF8String, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self.pageView scrollToItemAtIndex:index animated:YES];
-//    [self.pageViewController setViewControllers:@[self.VCArr[index]] direction:index < currentIndex animated:YES completion:nil];
 }
 
 - (CGFloat)menuView:(WMMenuView *)menu titleSizeForState:(WMMenuItemState)state {
@@ -79,40 +81,15 @@
     return state == WMMenuItemStateSelected ? MAIN_COLOR : [UIColor lightGrayColor];
 }
 
-//#pragma mark - UIPageViewControllerDataSource
-//- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-//    NSInteger index = [self.VCArr indexOfObject:viewController];
-//    if (index == 0) {
-//        return self.VCArr.lastObject;
-//    }
-//    return self.VCArr[index - 1];
-//}
-//
-//- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-//    NSInteger index = [self.VCArr indexOfObject:viewController];
-//    if (index == self.VCArr.count - 1) {
-//        return self.VCArr.firstObject;
-//    }
-//    return self.VCArr[index + 1];
-//}
-//
-//#pragma mark - UIPageViewControllerDelegate
-//- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-//        NSInteger index = [self.VCArr indexOfObject:previousViewControllers.firstObject];
-//    NSLog(@"%ld", index);
-////        [self.menuView selectItemAtIndex:index];
-//}
 #pragma mark - iCarouselDelegate
-- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
-    if (option == iCarouselOptionWrap) {
-        return YES;
-    }
-    return value;
-}
 
 - (void)carouselDidScroll:(iCarousel *)carousel {
-//    NSLog(@"%f", carousel.scrollOffset);
-//    [self.menuView slideMenuAtProgress:carousel.scrollOffset];
+    if ([objc_getAssociatedObject(self.pageView, @"_isAnimate".UTF8String) boolValue] == YES) return;
+    [self.menuView slideMenuAtProgress:carousel.scrollOffset];
+}
+
+- (void)carouselWillBeginDragging:(iCarousel *)carousel {
+    objc_setAssociatedObject(self.pageView, @"_isAnimate".UTF8String, @(NO), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - iCarouselDataSource
@@ -144,16 +121,9 @@
         offsetY = 0;
     }
     
-    NSLog(@"%f", HEAD_VIEW_HEGHT - offsetY);
-
-    CGRect frame = self.menuView.frame;
+    CGRect frame = self.holdView.frame;
     frame.origin.y = HEAD_VIEW_HEGHT - offsetY;
-    self.menuView.frame = frame;
-    
-    frame.size = self.pageView.size;
-    frame.origin.y += self.menuView.height;
-    self.pageView.frame = frame;
-//    [self.pageView layoutIfNeeded];
+    self.holdView.frame = frame;
 }
 
 #pragma mark - 懒加载
@@ -163,7 +133,6 @@
         _headImgView.contentMode = UIViewContentModeScaleAspectFill;
         _headImgView.clipsToBounds = YES;
         _headImgView.userInteractionEnabled = YES;
-//        [_headImgView addSubview:self.playControlButton];
         [self.view addSubview:_headImgView];
     }
     return _headImgView;
@@ -183,19 +152,18 @@
 
 - (WMMenuView *)menuView {
 	if(_menuView == nil) {
-		_menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, HEAD_VIEW_HEGHT, self.view.width, MENU_HEIGHT)];
+		_menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, MENU_HEIGHT)];
         _menuView.style = WMMenuViewStyleLine;
         _menuView.backgroundColor = BACK_GROUND_COLOR;
         _menuView.delegate = self;
         _menuView.dataSource = self;
-        [self.view addSubview:_menuView];
 	}
 	return _menuView;
 }
 
 - (iCarousel *)pageView {
 	if(_pageView == nil) {
-		_pageView = [[iCarousel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), self.view.width, self.view.height +  CGRectGetMaxY(self.navigationController.navigationBar.frame) - CGRectGetMaxY(self.menuView.frame))];
+		_pageView = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.menuView.height, self.view.width, self.view.height - self.menuView.height - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
         _pageView.type = iCarouselTypeLinear;
         _pageView.delegate = self;
         _pageView.dataSource = self;
@@ -209,28 +177,22 @@
 - (NSArray *)contentViewArr {
 	if(_contentViewArr == nil) {
         VideoInfoBriefView *briefTableView = [[VideoInfoBriefView alloc] initWithFrame:self.view.bounds model:_model];
-//        VideoInfoReplayWebView *replayWebTableView = [[VideoInfoReplayWebView alloc] initWithFrame:self.view.bounds typeId:_model.typeId videoId:_model.hid];
-		_contentViewArr = @[briefTableView];
+        briefTableView.topHeight = HEAD_VIEW_HEGHT + MENU_HEIGHT;
+        
+        VideoInfoReplayWebView *replayWebTableView = [[VideoInfoReplayWebView alloc] initWithFrame:self.view.bounds typeId:_model.typeId videoId:_model.hid];
+		_contentViewArr = @[briefTableView, replayWebTableView];
 	}
 	return _contentViewArr;
 }
 
-//- (UIView *)holdView {
-//	if(_holdView == nil) {
-//		_holdView = [[UIView alloc] initWithFrame:CGRectZero];
-//        [_holdView addSubview:self.menuView];
-//        [_holdView addSubview:self.pageView];
-//        [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.left.right.mas_equalTo(0);
-//            make.height.mas_equalTo(MENU_HEIGHT);
-//        }];
-//        [self.pageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.menuView.mas_bottom);
-//            make.left.right.bottom.mas_equalTo(0);
-//        }];
-//        [self.view addSubview:_holdView];
-//	}
-//	return _holdView;
-//}
+- (UIView *)holdView {
+	if(_holdView == nil) {
+		_holdView = [[UIView alloc] initWithFrame:CGRectZero];
+        [_holdView addSubview:self.menuView];
+        [_holdView addSubview:self.pageView];
+        _holdView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), self.view.width, self.pageView.height + self.menuView.height);
+	}
+	return _holdView;
+}
 
 @end

@@ -15,5 +15,6 @@ pod 'GDataXML-HTML'
 pod 'JHDanmakuRender'
 pod 'iCarousel'
 pod 'WMPageController'
+pod 'UITableView+FDTemplateLayoutCell'
 end
 

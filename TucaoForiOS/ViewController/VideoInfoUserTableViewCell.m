@@ -7,9 +7,10 @@
 //
 
 #import "VideoInfoUserTableViewCell.h"
-@interface VideoInfoUserTableViewCell ()
-
-@end
+//@interface VideoInfoUserTableViewCell ()
+//@property (strong, nonatomic) UILabel *userNameLabel;
+//@property (strong, nonatomic) UILabel *timeLabel;
+//@end
 
 @implementation VideoInfoUserTableViewCell
 
@@ -18,15 +19,28 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.mas_offset(10);
+            make.right.mas_lessThanOrEqualTo(-10);
         }];
         
         [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.userNameLabel);
+            make.left.mas_offset(10);
             make.top.equalTo(self.userNameLabel.mas_bottom).mas_offset(5);
+            make.right.mas_lessThanOrEqualTo(-10);
             make.bottom.mas_offset(-10);
         }];
     }
     return self;
+}
+
+- (CGFloat)cellHeightWithUserName:(NSString *)userName time:(NSString *)time {
+    self.timeLabel.text = time;
+    self.userNameLabel.text = userName;
+    
+//    [self setNeedsUpdateConstraints];
+//    [self updateConstraintsIfNeeded];
+    CGFloat cellHeight = [userName sizeForFont:self.userNameLabel.font size:CGSizeMake(WIDTH - 20, CGFLOAT_MAX) mode:NSLineBreakByWordWrapping].height;
+    cellHeight += [time sizeForFont:self.timeLabel.font size:CGSizeMake(WIDTH - 20, CGFLOAT_MAX) mode:NSLineBreakByWordWrapping].height + 25;
+    return cellHeight;
 }
 
 #pragma mark - 懒加载

@@ -11,4 +11,5 @@
 @interface VideoInfoUserTableViewCell : UITableViewCell
 @property (strong, nonatomic) UILabel *userNameLabel;
 @property (strong, nonatomic) UILabel *timeLabel;
+//- (CGFloat)cellHeightWithUserName:(NSString *)userName time:(NSString *)time;
 @end

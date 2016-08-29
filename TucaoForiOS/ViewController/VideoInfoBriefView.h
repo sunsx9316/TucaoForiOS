@@ -11,5 +11,6 @@
 
 @interface VideoInfoBriefView : UIView
 @property (copy, nonatomic) void(^touchUserRowCallBack)(NSString *userName, NSString *userId);
+@property (assign, nonatomic) CGFloat topHeight;
 - (instancetype)initWithFrame:(CGRect)frame model:(VideoModel *)model;
 @end

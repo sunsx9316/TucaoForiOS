@@ -13,10 +13,10 @@
 #import "VideoInfoUserTableViewCell.h"
 #import "VideoInfoTextTableViewCell.h"
 
+#import <UITableView+FDTemplateLayoutCell.h>
 
 @interface VideoInfoBriefView()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
-
 @end
 
 @implementation VideoInfoBriefView
@@ -28,12 +28,19 @@
 - (instancetype)initWithFrame:(CGRect)frame model:(VideoModel *)model {
     if (self = [super initWithFrame:frame]) {
         _model = model;
-        [self addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
-        }];        
+        }];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (self.tableView.contentSize.height < _topHeight) {
+        float height = _topHeight - self.tableView.contentSize.height;
+        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, height)];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -69,8 +76,8 @@
     }
     else if (indexPath.row == 4) {
         VideoInfoUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoUserTableViewCell" forIndexPath:indexPath];
-        cell.userNameLabel.text = _model.user;
         cell.timeLabel.text = _model.create;
+        cell.userNameLabel.text = _model.user;
         return cell;
     }
     else if (indexPath.row == 5) {
@@ -88,14 +95,29 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 2 || indexPath.row == 0 || indexPath.row == 4) {
-        return UITableViewAutomaticDimension;
+    if (indexPath.row == 0 || indexPath.row == 2) {
+        return [tableView fd_heightForCellWithIdentifier:@"VideoInfoTextTableViewCell" cacheByIndexPath:indexPath configuration:^(VideoInfoTextTableViewCell *cell) {
+            if (indexPath.row == 0) {
+                cell.titleLabel.font = [UIFont systemFontOfSize:14];
+                cell.titleLabel.text = _model.title;
+            }
+            else if (indexPath.row == 2) {
+                cell.titleLabel.font = [UIFont systemFontOfSize:13];
+                cell.titleLabel.text = _model.desc;
+            }
+        }];
     }
     else if (indexPath.row == 1) {
         return 30;
     }
     else if (indexPath.row == 3) {
         return 80;
+    }
+    else if (indexPath.row == 4) {
+        return [tableView fd_heightForCellWithIdentifier:@"VideoInfoUserTableViewCell" cacheByIndexPath:indexPath configuration:^(VideoInfoUserTableViewCell *cell) {
+            cell.timeLabel.text = _model.create;
+            cell.userNameLabel.text = _model.user;
+        }];
     }
     else if (indexPath.row == 5) {
         return _episodesCellHeight;
@@ -119,15 +141,15 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.estimatedRowHeight = 50;
-        _tableView.tableFooterView = [[UIView alloc] init];
+        [_tableView registerClass:[VideoInfoTextTableViewCell class] forCellReuseIdentifier:@"VideoInfoTextTableViewCell"];
         [_tableView registerClass:[VideoInfoButtonTableViewCell class] forCellReuseIdentifier:@"VideoInfoButtonTableViewCell"];
         [_tableView registerClass:[VideoInfoNumberTableViewCell class] forCellReuseIdentifier:@"VideoInfoNumberTableViewCell"];
         [_tableView registerClass:[VideoInfoEpisodeTableViewCell class] forCellReuseIdentifier:@"VideoInfoEpisodeTableViewCell"];
         [_tableView registerClass:[VideoInfoUserTableViewCell class] forCellReuseIdentifier:@"VideoInfoUserTableViewCell"];
-        [_tableView registerClass:[VideoInfoTextTableViewCell class] forCellReuseIdentifier:@"VideoInfoTextTableViewCell"];
+        
         [self addSubview:_tableView];
     }
     return _tableView;
 }
+
 @end

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface WebViewController : UIViewController<WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate>
+@interface WebViewController : UIViewController<WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) NSURL *URL;
 @end

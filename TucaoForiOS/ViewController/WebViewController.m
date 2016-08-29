@@ -48,7 +48,6 @@
 - (WKWebView *)webView {
 	if(_webView == nil) {
 		_webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-        _webView.scrollView.delegate = self;
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
         [self.view addSubview:_webView];
