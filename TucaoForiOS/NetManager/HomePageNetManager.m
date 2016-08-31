@@ -16,7 +16,7 @@
     NSMutableArray *tempArr = [NSMutableArray array];
     
     [sections enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [tempArr addObject:[NSString stringWithFormat:@"http://www.tucao.tv/api_v2/list.php?tid=%@&page=1&pagesize=21&apikey=%@&date=0", obj, TUCAO_APPKEY]];
+        [tempArr addObject:[NSString stringWithFormat:@"http://www.tucao.tv/api_v2/rank.php?tid=%@&apikey=%@&date=0", obj, TUCAO_APPKEY]];
     }];
     
     [self batchGETDataWithPaths:tempArr progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations, __autoreleasing id *responseObj) {

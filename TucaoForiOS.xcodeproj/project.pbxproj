@@ -46,6 +46,7 @@
 		89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C1451D6DA3130064FA67 /* DanmakuModel.m */; };
 		89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */; };
 		89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */; };
+		89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */; };
 		89EE83D01D6EF5AD006A85AD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83CF1D6EF5AD006A85AD /* WebViewController.m */; };
 		89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */; };
 		89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */; };
@@ -133,6 +134,8 @@
 		89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDataFormatter.m; sourceTree = "<group>"; };
 		89D3C14A1D6DA5140064FA67 /* JHDanmakuEngine+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JHDanmakuEngine+Tools.h"; sourceTree = "<group>"; };
 		89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JHDanmakuEngine+Tools.m"; sourceTree = "<group>"; };
+		89E574C11D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"; path = "TucaoForiOS/Tools/MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"; sourceTree = SOURCE_ROOT; };
+		89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; path = "TucaoForiOS/Tools/MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; sourceTree = SOURCE_ROOT; };
 		89EE83CE1D6EF5AD006A85AD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		89EE83CF1D6EF5AD006A85AD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoWebViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/UserInfoWebViewController.h; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 				89C761071D6C84C200635384 /* NSString+Tools.m */,
 				89D3C1381D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.h */,
 				89D3C1391D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m */,
+				89E574C11D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.h */,
+				89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				89D3C13A1D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m in Sources */,
 				89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */,
 				89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */,
+				89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */,
 				8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */,
 				89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */,
 				89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */,

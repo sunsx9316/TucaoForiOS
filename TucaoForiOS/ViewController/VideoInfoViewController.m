@@ -7,6 +7,7 @@
 //
 
 #import "VideoInfoViewController.h"
+#import "UserInfoWebViewController.h"
 #import "iCarousel.h"
 
 #import <WMPageController/WMMenuView.h>
@@ -17,7 +18,7 @@
 #define HEAD_VIEW_HEGHT 180
 
 @interface VideoInfoViewController ()<iCarouselDelegate, iCarouselDataSource, WMMenuViewDataSource, WMMenuViewDelegate>
-@property (strong, nonatomic) UIImageView *headImgView;
+@property (strong, nonatomic) YYAnimatedImageView *headImgView;
 @property (strong, nonatomic) UIButton *playControlButton;
 @property (strong, nonatomic) WMMenuView *menuView;
 @property (strong, nonatomic) NSArray *contentViewArr;
@@ -127,10 +128,16 @@
 }
 
 #pragma mark - 懒加载
-- (UIImageView *)headImgView {
+- (YYAnimatedImageView *)headImgView {
     if(_headImgView == nil) {
-        _headImgView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _headImgView = [[YYAnimatedImageView alloc] initWithFrame:CGRectZero];
         _headImgView.contentMode = UIViewContentModeScaleAspectFill;
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [_headImgView addSubview:effectView];
+        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
         _headImgView.clipsToBounds = YES;
         _headImgView.userInteractionEnabled = YES;
         [self.view addSubview:_headImgView];
@@ -153,7 +160,7 @@
 - (WMMenuView *)menuView {
 	if(_menuView == nil) {
 		_menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, MENU_HEIGHT)];
-        _menuView.style = WMMenuViewStyleLine;
+        _menuView.style = WMMenuViewStyleDefault;
         _menuView.backgroundColor = BACK_GROUND_COLOR;
         _menuView.delegate = self;
         _menuView.dataSource = self;
@@ -177,6 +184,15 @@
 - (NSArray *)contentViewArr {
 	if(_contentViewArr == nil) {
         VideoInfoBriefView *briefTableView = [[VideoInfoBriefView alloc] initWithFrame:self.view.bounds model:_model];
+        @weakify(self)
+        [briefTableView setTouchUserRowCallBack:^(NSString *userName, NSString *userId) {
+            @strongify(self)
+            if (!self) return;
+            
+            UserInfoWebViewController *vc = [[UserInfoWebViewController alloc] init];
+            vc.userId = userId;
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         briefTableView.topHeight = HEAD_VIEW_HEGHT + MENU_HEIGHT;
         
         VideoInfoReplayWebView *replayWebTableView = [[VideoInfoReplayWebView alloc] initWithFrame:self.view.bounds typeId:_model.typeId videoId:_model.hid];

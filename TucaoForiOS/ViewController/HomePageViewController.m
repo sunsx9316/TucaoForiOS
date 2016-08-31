@@ -51,7 +51,7 @@
     @weakify(self)
     [cell setTouchItemAtIndex:^(VideoModel *model) {
         @strongify(self)
-        if (!self) return;
+        if (!self || !model) return;
         
         VideoInfoViewController *vc = [[VideoInfoViewController alloc] init];
         vc.model = model;

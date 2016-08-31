@@ -13,6 +13,7 @@
 #import "YYWebImage.h"
 #import "YYCategories.h"
 #import "MJRefreshNormalHeader+DefaultRefreshStyle.h"
+#import "MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"
 #import "Masonry.h"
 #import "TucaoErrorModel.h"
 #import "AppConfig.h"
