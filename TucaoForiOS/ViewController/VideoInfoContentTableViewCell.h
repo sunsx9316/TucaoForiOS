@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoCollectionModel.h"
+
 
 @interface VideoInfoContentTableViewCell : UITableViewCell
 @property (strong, nonatomic) VideoModel *model;

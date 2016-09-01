@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoCollectionModel.h"
+
 
 @interface VideoInfoBriefView : UIView
 @property (copy, nonatomic) void(^touchUserRowCallBack)(NSString *userName, NSString *userId);

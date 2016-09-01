@@ -12,11 +12,14 @@
 #ifdef __OBJC__
 #import "YYWebImage.h"
 #import "YYCategories.h"
+#import "Masonry.h"
+#import "AppConfig.h"
 #import "MJRefreshNormalHeader+DefaultRefreshStyle.h"
 #import "MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"
-#import "Masonry.h"
+
+//model
 #import "TucaoErrorModel.h"
-#import "AppConfig.h"
+#import "VideoCollectionModel.h"
 #endif
 
 #endif /* PrefixHeader_pch */

@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "VideoCollectionModel.h"
+
 
 @interface VideoInfoViewController : BaseViewController
 @property (strong, nonatomic) VideoModel *model;

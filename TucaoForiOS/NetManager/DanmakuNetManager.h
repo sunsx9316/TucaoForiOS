@@ -9,5 +9,7 @@
 #import "BaseNetManager.h"
 
 @interface DanmakuNetManager : BaseNetManager
-+ (NSURLSessionDataTask *)danmakuDicWithHid:(NSString *)hid part:(NSString *)part completionHandler:(void(^)(NSDictionary *danmakuDic, TucaoErrorModel *error))complete;
++ (NSURLSessionDataTask *)danmakuDicWithHid:(NSString *)hid
+                                       part:(NSString *)part
+                          completionHandler:(void(^)(NSDictionary *danmakuDic, TucaoErrorModel *error))complete;
 @end

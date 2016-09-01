@@ -8,6 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "VideoInfoViewController.h"
+#import "AnimationViewController.h"
 
 #import "HomePageNetManager.h"
 #import "HomePageSectionTableViewCell.h"
@@ -76,10 +77,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HomePageSectionHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HomePageSectionHeaderFooterView"];
+    __weak typeof(self)weakSelf = self;
     switch (section) {
         case 0:
+        {
             view.titleLabel.text = @"动画";
             view.iconImgView.image = [UIImage imageNamed:@"home_anima"];
+            [view setTouchCallBack:^{
+                AnimationViewController *vc = [[AnimationViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         case 1:
             view.titleLabel.text = @"音乐";

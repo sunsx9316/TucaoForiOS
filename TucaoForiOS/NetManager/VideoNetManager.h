@@ -18,5 +18,7 @@
  *
  *  @return 任务
  */
-+ (NSURLSessionDataTask *)videoPlayURLWithType:(NSString *)type vid:(NSString *)vid completionHandler:(void(^)(NSArray *URLs, TucaoErrorModel *error))complete;
++ (NSURLSessionDataTask *)videoPlayURLWithType:(NSString *)type
+                                           vid:(NSString *)vid
+                             completionHandler:(void(^)(NSArray *URLs, TucaoErrorModel *error))complete;
 @end

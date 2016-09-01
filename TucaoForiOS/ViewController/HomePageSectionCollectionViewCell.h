@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoCollectionModel.h"
+
 
 @interface HomePageSectionCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) VideoModel *model;

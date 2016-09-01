@@ -18,4 +18,10 @@
  *  @return 格式化的时间
  */
 + (NSString *)stringWithCreatTime:(NSString *)time;
+/**
+ *  分区对应的名字
+ *
+ *  @return 分区名
+ */
+- (NSString *)sectionName;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoCollectionModel.h"
+
 
 @interface HomePageSectionTableViewCell : UITableViewCell
 - (CGFloat)cellHeightWithModel:(VideoCollectionModel *)model;

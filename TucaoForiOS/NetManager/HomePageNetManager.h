@@ -7,7 +7,7 @@
 //
 
 #import "BaseNetManager.h"
-#import "VideoCollectionModel.h"
+
 
 @interface HomePageNetManager : BaseNetManager
 + (void)batchGETRankWithSections:(NSArray <NSString *>*)sections

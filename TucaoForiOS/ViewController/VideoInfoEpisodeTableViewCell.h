@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoCollectionModel.h"
+
 
 @interface VideoInfoEpisodeTableViewCell : UITableViewCell
 - (CGFloat)cellHeightWithModels:(NSArray <VideoURLModel *>*)models;

@@ -7,8 +7,10 @@
 //
 
 #import "NSString+Tools.h"
+static NSDictionary *sectionDic = nil;
 
 @implementation NSString (Tools)
+
 + (NSString *)stringWithFormatNum:(NSInteger)num {
     if (num >= 10000) {
         return [NSString stringWithFormat:@"%.1lf万",num * 1.0 / 10000];
@@ -47,4 +49,13 @@
     }
     return timeStr;
 }
+
+- (NSString *)sectionName {
+    if (sectionDic == nil) {
+        sectionDic = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"section_map" ofType:@"plist"]];
+    }
+    
+    return sectionDic[self];
+}
+
 @end

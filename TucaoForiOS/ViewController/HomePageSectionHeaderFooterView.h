@@ -11,4 +11,5 @@
 @interface HomePageSectionHeaderFooterView : UITableViewHeaderFooterView
 @property (strong, nonatomic) UIImageView *iconImgView;
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (copy, nonatomic) void(^touchCallBack)();
 @end

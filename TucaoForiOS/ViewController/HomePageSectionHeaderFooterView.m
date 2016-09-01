@@ -41,6 +41,12 @@
     return self;
 }
 
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchCallBack) {
+        self.touchCallBack();
+    }
+}
+
 #pragma mark - 懒加载
 - (UIImageView *)iconImgView {
     if(_iconImgView == nil) {
