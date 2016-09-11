@@ -9,6 +9,11 @@
 #import "HomePageViewController.h"
 #import "VideoInfoViewController.h"
 #import "AnimationViewController.h"
+#import "MusicViewController.h"
+#import "GameViewController.h"
+#import "ThreeDViewController.h"
+#import "MovieViewController.h"
+#import "BangumiViewController.h"
 
 #import "HomePageNetManager.h"
 #import "HomePageSectionTableViewCell.h"
@@ -90,24 +95,54 @@
         }
             break;
         case 1:
+        {
             view.titleLabel.text = @"音乐";
             view.iconImgView.image = [UIImage imageNamed:@"home_music"];
+            [view setTouchCallBack:^{
+                MusicViewController *vc = [[MusicViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         case 2:
+        {
             view.titleLabel.text = @"游戏";
             view.iconImgView.image = [UIImage imageNamed:@"home_game"];
+            [view setTouchCallBack:^{
+                GameViewController *vc = [[GameViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         case 3:
+        {
             view.titleLabel.text = @"三次元";
             view.iconImgView.image = [UIImage imageNamed:@"home_threeD"];
+            [view setTouchCallBack:^{
+                ThreeDViewController *vc = [[ThreeDViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         case 4:
+        {
             view.titleLabel.text = @"影剧";
             view.iconImgView.image = [UIImage imageNamed:@"home_movie"];
+            [view setTouchCallBack:^{
+                MovieViewController *vc = [[MovieViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         case 5:
+        {
             view.titleLabel.text = @"新番";
             view.iconImgView.image = [UIImage imageNamed:@"home_bangumi"];
+            [view setTouchCallBack:^{
+                BangumiViewController *vc = [[BangumiViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+        }
             break;
         default:
             break;
@@ -143,6 +178,7 @@
 		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = BACK_GROUND_COLOR;
         [_tableView registerClass:[HomePageSectionTableViewCell class] forCellReuseIdentifier:@"HomePageSectionTableViewCell"];
         [_tableView registerClass:[HomePageSectionHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"HomePageSectionHeaderFooterView"];
         @weakify(self)

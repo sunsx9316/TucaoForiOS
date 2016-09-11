@@ -22,7 +22,7 @@
 //项目主色调
 #define MAIN_COLOR RGBCOLOR(51, 151, 252)
 #define MAIN_DARK_COLOR RGBCOLOR(53, 60, 59)
-#define BACK_GROUND_COLOR [UIColor whiteColor]
+#define BACK_GROUND_COLOR RGBCOLOR(244, 244, 244)
 
 //屏幕宽高
 #define WIDTH [UIScreen mainScreen].bounds.size.width

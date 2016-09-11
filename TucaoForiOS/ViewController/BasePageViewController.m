@@ -19,13 +19,15 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.pageAnimatable = YES;
+        self.menuBGColor = MAIN_COLOR;
         self.menuViewStyle = WMMenuViewStyleLine;
-        self.progressColor = MAIN_COLOR;
+        self.progressColor = [UIColor whiteColor];
         self.titleSizeNormal = 15;
         self.titleSizeSelected = 15;
-        self.titleColorNormal = [UIColor lightGrayColor];
-        self.titleColorSelected = MAIN_COLOR;
+        self.titleColorNormal = RGBCOLOR(230, 230, 230);
+        self.titleColorSelected = [UIColor whiteColor];
         self.menuHeight = 50;
+        self.itemMargin = 10;
     }
     return self;
 }

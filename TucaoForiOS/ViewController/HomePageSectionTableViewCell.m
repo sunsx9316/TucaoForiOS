@@ -29,7 +29,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.backgroundColor = BACK_GROUND_COLOR;
+        self.backgroundColor = [UIColor whiteColor];
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
@@ -67,7 +67,7 @@
         _collectionView.scrollEnabled = NO;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = BACK_GROUND_COLOR;
+        _collectionView.backgroundColor = [UIColor whiteColor];
         [_collectionView registerClass:[HomePageSectionCollectionViewCell class] forCellWithReuseIdentifier:@"HomePageSectionCollectionViewCell"];
         [self.contentView addSubview:_collectionView];
 	}

@@ -10,6 +10,7 @@
 #import "SectionTableViewCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "SectionNetManager.h"
+#import "VideoInfoViewController.h"
 
 @interface BaseSectionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
@@ -45,6 +46,10 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    VideoInfoViewController *vc = [[VideoInfoViewController alloc] init];
+    vc.model = self.videos[indexPath.row];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

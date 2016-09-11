@@ -9,6 +9,7 @@
 #import "VideoInfoViewController.h"
 #import "UserInfoWebViewController.h"
 #import "iCarousel.h"
+#import "PlayerView.h"
 
 #import <WMPageController/WMMenuView.h>
 #import "VideoInfoBriefView.h"
@@ -24,10 +25,13 @@
 @property (strong, nonatomic) NSArray *contentViewArr;
 @property (strong, nonatomic) iCarousel *pageView;
 @property (strong, nonatomic) UIView *holdView;
+@property (strong, nonatomic) PlayerView *playerView;
 @end
 
 @implementation VideoInfoViewController
-
+{
+    float a;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     SET_NAVIGATION_BAR_CLEAR
@@ -45,10 +49,11 @@
     
     [self.headImgView yy_setImageWithURL:_model.thumb options:YYWEBIMAGE_DEFAULT_OPTION];
     
-    [self.headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(HEAD_VIEW_HEGHT);
-    }];
+//    [self.headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.mas_equalTo(0);
+//        make.height.mas_equalTo(HEAD_VIEW_HEGHT);
+//    }];
+    self.headImgView.frame = CGRectMake(0, 0, WIDTH, HEAD_VIEW_HEGHT);
     
     [self.playControlButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(HEAD_VIEW_HEGHT - 70);
@@ -57,6 +62,8 @@
     }];
     
     [self.view addSubview:self.holdView];
+    [self.view addSubview:self.playerView];
+   
 }
 
 #pragma mark - WMMenuViewDataSource
@@ -93,6 +100,13 @@
     objc_setAssociatedObject(self.pageView, @"_isAnimate".UTF8String, @(NO), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
+    if (option == iCarouselOptionWrap) {
+        return YES;
+    }
+    return value;
+}
+
 #pragma mark - iCarouselDataSource
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
     return self.contentViewArr.count;
@@ -109,8 +123,54 @@
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)sender {
     sender.selected = !sender.isSelected;
+    if (sender.selected) {
+        self.playerView.hidden = NO;
+        
+//         self.playerView.layer.anchorPoint = CGPointMake(0, 0);
+//        CGAffineTransform transform = CGAffineTransformMakeScale(1, self.view.height / self.playerView.height);
+////        transform = CGAffineTransformRotate(transform, 90 * M_PI / 180);
+////        transform = CGAffineTransformScale(transform, self.view.width / self.playerView.height, self.view.height / self.playerView.width);
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeRight] forKey:@"orientation"];
+        
+        [self.playerView updateConstraintsIfNeeded];
+        
+//        self.playerView.frame = self.view.bounds;
+        [UIView animateWithDuration:1 animations:^{
+//            self.playerView.transform = transform;
+            self.playerView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+            self.playerView.frame = self.view.bounds;
+        }];
+//        self.playerView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+//        self.playerView.frame = self.view.bounds;
+//        [self.playerView setNeedsUpdateConstraints];
+//        [self.playerView updateFocusIfNeeded];
+//        [self.view bringSubviewToFront:self.headImgView];
+//        [self forceOrientation:UIInterfaceOrientationLandscapeLeft];
+    }
+    else {
+        self.playerView.hidden = YES;
+        self.playerView.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1);
+//        self.playerView.frame = self.view.bounds;
+        [self.playerView setNeedsUpdateConstraints];
+        [self.playerView updateFocusIfNeeded];
+//        [self.view sendSubviewToBack:self.headImgView];
+//        [self forceOrientation:UIInterfaceOrientationPortrait];
+    }
 }
 
+- (void)forceOrientation: (UIInterfaceOrientation)orientation {
+    //横屏
+//    if (orientation == UIInterfaceOrientationLandscapeLeft) {
+//        [self.view bringSubviewToFront:self.headImgView];
+//        self.headImgView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+//        self.headImgView.frame = self.view.bounds;
+//    }
+//    else if (){
+//        [self.view sendSubviewToBack:self.headImgView];
+//        self.headImgView.frame = CGRectMake(0, 0, WIDTH, HEAD_VIEW_HEGHT);
+//        self.headImgView.transform = CGAffineTransformMakeRotation(0);
+//    }
+}
 - (void)scrollViewScroll:(NSNotification *)sender {
     float offsetY = [sender.object floatValue];
     
@@ -161,7 +221,7 @@
 	if(_menuView == nil) {
 		_menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, MENU_HEIGHT)];
         _menuView.style = WMMenuViewStyleDefault;
-        _menuView.backgroundColor = BACK_GROUND_COLOR;
+        _menuView.backgroundColor = [UIColor whiteColor];
         _menuView.delegate = self;
         _menuView.dataSource = self;
 	}
@@ -209,6 +269,17 @@
         _holdView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), self.view.width, self.pageView.height + self.menuView.height);
 	}
 	return _holdView;
+}
+
+- (PlayerView *)playerView {
+	if(_playerView == nil) {
+		_playerView = [[PlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT)];
+//        _playerView.layer.anchorPoint = CGPointMake(0.5, 0);
+//        _playerView.frame = CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT);
+        _playerView.hidden = YES;
+        
+	}
+	return _playerView;
 }
 
 @end

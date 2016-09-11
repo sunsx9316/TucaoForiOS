@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
+		8905B69F1D79D5770008D25B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B69E1D79D5770008D25B /* PlayerView.m */; };
+		8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B6A31D79D6210008D25B /* PlayerUIView.m */; };
 		89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */; };
 		89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8B1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m */; };
 		89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */; };
@@ -56,64 +58,67 @@
 		89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */; };
 		89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */; };
 		89F959E51D72EC8E0024D67D /* VideoInfoBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */; };
-		89F959E81D72F0D00024D67D /* VideoInfoContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoNumberTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoNumberTableViewCell.h; sourceTree = "<group>"; };
-		89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoNumberTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoNumberTableViewCell.m; sourceTree = "<group>"; };
-		89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoButtonTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoButtonTableViewCell.h; sourceTree = "<group>"; };
-		89154B8B1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoButtonTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoButtonTableViewCell.m; sourceTree = "<group>"; };
-		89154B8D1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoEpisodeTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoEpisodeTableViewCell.h; sourceTree = "<group>"; };
-		89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoEpisodeTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoEpisodeTableViewCell.m; sourceTree = "<group>"; };
-		89154B901D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoEpisodeCollectionViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoEpisodeCollectionViewCell.h; sourceTree = "<group>"; };
-		89154B911D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoEpisodeCollectionViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoEpisodeCollectionViewCell.m; sourceTree = "<group>"; };
-		89154B931D6EEEBF0039E551 /* VideoInfoUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoInfoUserTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoUserTableViewCell.h; sourceTree = "<group>"; };
-		89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoInfoUserTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/VideoInfoUserTableViewCell.m; sourceTree = "<group>"; };
+		8905B69D1D79D5770008D25B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		8905B69E1D79D5770008D25B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		8905B6A21D79D6210008D25B /* PlayerUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerUIView.h; sourceTree = "<group>"; };
+		8905B6A31D79D6210008D25B /* PlayerUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerUIView.m; sourceTree = "<group>"; };
+		89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoNumberTableViewCell.h; sourceTree = "<group>"; };
+		89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoNumberTableViewCell.m; sourceTree = "<group>"; };
+		89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoButtonTableViewCell.h; sourceTree = "<group>"; };
+		89154B8B1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoButtonTableViewCell.m; sourceTree = "<group>"; };
+		89154B8D1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoEpisodeTableViewCell.h; sourceTree = "<group>"; };
+		89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoEpisodeTableViewCell.m; sourceTree = "<group>"; };
+		89154B901D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoEpisodeCollectionViewCell.h; sourceTree = "<group>"; };
+		89154B911D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoEpisodeCollectionViewCell.m; sourceTree = "<group>"; };
+		89154B931D6EEEBF0039E551 /* VideoInfoUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoUserTableViewCell.h; sourceTree = "<group>"; };
+		89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoUserTableViewCell.m; sourceTree = "<group>"; };
 		8930E98B1D6BFEBF003C1B44 /* TucaoForiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TucaoForiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8930E98F1D6BFEBF003C1B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8930E9911D6BFEBF003C1B44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8930E9921D6BFEBF003C1B44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8930E99F1D6BFEBF003C1B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		8930E9AA1D6C0133003C1B44 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.h; sourceTree = "<group>"; };
-		8930E9AB1D6C0133003C1B44 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MainViewController.m; sourceTree = "<group>"; };
-		8930E9AE1D6C02F4003C1B44 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageViewController.h; sourceTree = "<group>"; };
-		8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageViewController.m; sourceTree = "<group>"; };
-		8930E9B21D6C0318003C1B44 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/AnimationViewController.h; sourceTree = "<group>"; };
-		8930E9B31D6C0318003C1B44 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/AnimationViewController.m; sourceTree = "<group>"; };
-		8930E9B61D6C032D003C1B44 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MusicViewController.h; sourceTree = "<group>"; };
-		8930E9B71D6C032D003C1B44 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MusicViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MusicViewController.m; sourceTree = "<group>"; };
-		8930E9BA1D6C0340003C1B44 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/GameViewController.h; sourceTree = "<group>"; };
-		8930E9BB1D6C0340003C1B44 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/GameViewController.m; sourceTree = "<group>"; };
-		8930E9BE1D6C0372003C1B44 /* ThreeDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeDViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/ThreeDViewController.h; sourceTree = "<group>"; };
-		8930E9BF1D6C0372003C1B44 /* ThreeDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeDViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/ThreeDViewController.m; sourceTree = "<group>"; };
-		8930E9C11D6C0381003C1B44 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MovieViewController.h; sourceTree = "<group>"; };
-		8930E9C21D6C0381003C1B44 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MovieViewController.m; sourceTree = "<group>"; };
-		8930E9C61D6C03A5003C1B44 /* BangumiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BangumiViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BangumiViewController.h; sourceTree = "<group>"; };
-		8930E9C71D6C03A5003C1B44 /* BangumiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BangumiViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BangumiViewController.m; sourceTree = "<group>"; };
-		8930E9CA1D6C060C003C1B44 /* SectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/SectionViewController.h; sourceTree = "<group>"; };
-		8930E9CB1D6C060C003C1B44 /* SectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/SectionViewController.m; sourceTree = "<group>"; };
-		8930E9D01D6C206D003C1B44 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MineViewController.h; sourceTree = "<group>"; };
-		8930E9D11D6C206D003C1B44 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/MineViewController.m; sourceTree = "<group>"; };
-		8930E9D31D6C23E7003C1B44 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppConfig.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Config/AppConfig.h; sourceTree = "<group>"; };
+		8930E9AA1D6C0133003C1B44 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8930E9AB1D6C0133003C1B44 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		8930E9AE1D6C02F4003C1B44 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		8930E9AF1D6C02F4003C1B44 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		8930E9B21D6C0318003C1B44 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		8930E9B31D6C0318003C1B44 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		8930E9B61D6C032D003C1B44 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		8930E9B71D6C032D003C1B44 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
+		8930E9BA1D6C0340003C1B44 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		8930E9BB1D6C0340003C1B44 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		8930E9BE1D6C0372003C1B44 /* ThreeDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeDViewController.h; sourceTree = "<group>"; };
+		8930E9BF1D6C0372003C1B44 /* ThreeDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeDViewController.m; sourceTree = "<group>"; };
+		8930E9C11D6C0381003C1B44 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
+		8930E9C21D6C0381003C1B44 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		8930E9C61D6C03A5003C1B44 /* BangumiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangumiViewController.h; sourceTree = "<group>"; };
+		8930E9C71D6C03A5003C1B44 /* BangumiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangumiViewController.m; sourceTree = "<group>"; };
+		8930E9CA1D6C060C003C1B44 /* SectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
+		8930E9CB1D6C060C003C1B44 /* SectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionViewController.m; sourceTree = "<group>"; };
+		8930E9D01D6C206D003C1B44 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		8930E9D11D6C206D003C1B44 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		8930E9D31D6C23E7003C1B44 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		8930E9D41D6C2434003C1B44 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		8930E9D51D6C2649003C1B44 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BaseViewController.h; sourceTree = "<group>"; };
-		8930E9D61D6C2649003C1B44 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/BaseViewController.m; sourceTree = "<group>"; };
+		8930E9D51D6C2649003C1B44 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		8930E9D61D6C2649003C1B44 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		8930E9D81D6C2E5B003C1B44 /* BaseNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetManager.h; sourceTree = "<group>"; };
 		8930E9D91D6C2E5B003C1B44 /* BaseNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetManager.m; sourceTree = "<group>"; };
 		8930E9DC1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPDataResponseSerializer.h; sourceTree = "<group>"; };
 		8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPDataResponseSerializer.m; sourceTree = "<group>"; };
 		8930E9DF1D6C2EA8003C1B44 /* TucaoErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TucaoErrorModel.h; sourceTree = "<group>"; };
 		8930E9E01D6C2EA8003C1B44 /* TucaoErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TucaoErrorModel.m; sourceTree = "<group>"; };
-		8930E9E21D6C3016003C1B44 /* HomePageNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageNetManager.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/HomePageNetManager.h; sourceTree = "<group>"; };
-		8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageNetManager.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/HomePageNetManager.m; sourceTree = "<group>"; };
-		8930E9E51D6C32A3003C1B44 /* VideoCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoCollectionModel.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/VideoCollectionModel.h; sourceTree = "<group>"; };
-		8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoCollectionModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/VideoCollectionModel.m; sourceTree = "<group>"; };
-		8930E9E81D6C32B1003C1B44 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.h; sourceTree = "<group>"; };
-		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Model/BaseModel.m; sourceTree = "<group>"; };
-		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageSectionTableViewCell.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
-		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageSectionTableViewCell.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
+		8930E9E21D6C3016003C1B44 /* HomePageNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageNetManager.h; sourceTree = "<group>"; };
+		8930E9E31D6C3016003C1B44 /* HomePageNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageNetManager.m; sourceTree = "<group>"; };
+		8930E9E51D6C32A3003C1B44 /* VideoCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCollectionModel.h; sourceTree = "<group>"; };
+		8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCollectionModel.m; sourceTree = "<group>"; };
+		8930E9E81D6C32B1003C1B44 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
+		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
 		893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899D0FC31D7134B50073964D /* VideoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoViewController.h; sourceTree = "<group>"; };
 		899D0FC41D7134B50073964D /* VideoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewController.m; sourceTree = "<group>"; };
@@ -136,12 +141,12 @@
 		89CA5D0E1D788A2A003C56BE /* section_map.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = section_map.plist; path = TucaoForiOS/NetManager/section_map.plist; sourceTree = SOURCE_ROOT; };
 		89D3C1381D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MJRefreshNormalHeader+DefaultRefreshStyle.h"; sourceTree = "<group>"; };
 		89D3C1391D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MJRefreshNormalHeader+DefaultRefreshStyle.m"; sourceTree = "<group>"; };
-		89D3C13B1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageSectionHeaderFooterView.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionHeaderFooterView.h; sourceTree = "<group>"; };
-		89D3C13C1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageSectionHeaderFooterView.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/HomePageSectionHeaderFooterView.m; sourceTree = "<group>"; };
-		89D3C13E1D6D99390064FA67 /* VideoNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoNetManager.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/VideoNetManager.h; sourceTree = "<group>"; };
-		89D3C13F1D6D99390064FA67 /* VideoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoNetManager.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/VideoNetManager.m; sourceTree = "<group>"; };
-		89D3C1411D6DA2E60064FA67 /* DanmakuNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmakuNetManager.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/DanmakuNetManager.h; sourceTree = "<group>"; };
-		89D3C1421D6DA2E60064FA67 /* DanmakuNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmakuNetManager.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/NetManager/DanmakuNetManager.m; sourceTree = "<group>"; };
+		89D3C13B1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderFooterView.h; sourceTree = "<group>"; };
+		89D3C13C1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionHeaderFooterView.m; sourceTree = "<group>"; };
+		89D3C13E1D6D99390064FA67 /* VideoNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoNetManager.h; sourceTree = "<group>"; };
+		89D3C13F1D6D99390064FA67 /* VideoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoNetManager.m; sourceTree = "<group>"; };
+		89D3C1411D6DA2E60064FA67 /* DanmakuNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuNetManager.h; sourceTree = "<group>"; };
+		89D3C1421D6DA2E60064FA67 /* DanmakuNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuNetManager.m; sourceTree = "<group>"; };
 		89D3C1441D6DA3130064FA67 /* DanmakuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuModel.h; sourceTree = "<group>"; };
 		89D3C1451D6DA3130064FA67 /* DanmakuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuModel.m; sourceTree = "<group>"; };
 		89D3C1471D6DA41D0064FA67 /* DanmakuDataFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDataFormatter.h; sourceTree = "<group>"; };
@@ -152,14 +157,12 @@
 		89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; path = "TucaoForiOS/Tools/MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; sourceTree = SOURCE_ROOT; };
 		89EE83CE1D6EF5AD006A85AD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		89EE83CF1D6EF5AD006A85AD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoWebViewController.h; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/UserInfoWebViewController.h; sourceTree = "<group>"; };
-		89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoWebViewController.m; path = ../../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/ViewController/UserInfoWebViewController.m; sourceTree = "<group>"; };
+		89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoWebViewController.h; sourceTree = "<group>"; };
+		89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoWebViewController.m; sourceTree = "<group>"; };
 		89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoReplayWebView.h; sourceTree = "<group>"; };
 		89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoReplayWebView.m; sourceTree = "<group>"; };
 		89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoBriefView.h; sourceTree = "<group>"; };
 		89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoBriefView.m; sourceTree = "<group>"; };
-		89F959E61D72F0D00024D67D /* VideoInfoContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoContentTableViewCell.h; sourceTree = "<group>"; };
-		89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoContentTableViewCell.m; sourceTree = "<group>"; };
 		F77412BFF43BE10877EBD114 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +186,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8905B6A01D79D5E70008D25B /* 视频UI */ = {
+			isa = PBXGroup;
+			children = (
+				8905B69D1D79D5770008D25B /* PlayerView.h */,
+				8905B69E1D79D5770008D25B /* PlayerView.m */,
+				8905B6A21D79D6210008D25B /* PlayerUIView.h */,
+				8905B6A31D79D6210008D25B /* PlayerUIView.m */,
+			);
+			name = "视频UI";
+			sourceTree = "<group>";
+		};
 		89154B7E1D6E80020039E551 /* 视频详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +212,7 @@
 		89154B821D6E85CE0039E551 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8905B6A01D79D5E70008D25B /* 视频UI */,
 				89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */,
 				89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */,
 				89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */,
@@ -210,12 +225,10 @@
 				899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */,
 				89154B931D6EEEBF0039E551 /* VideoInfoUserTableViewCell.h */,
 				89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */,
-				89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */,
-				89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */,
 				89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */,
 				89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */,
-				89F959E61D72F0D00024D67D /* VideoInfoContentTableViewCell.h */,
-				89F959E71D72F0D00024D67D /* VideoInfoContentTableViewCell.m */,
+				89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */,
+				89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -424,8 +437,7 @@
 				89D3C1471D6DA41D0064FA67 /* DanmakuDataFormatter.h */,
 				89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */,
 			);
-			name = Tools;
-			path = ../../../../JimHuang/Github/TucaoForiOS/TucaoForiOS/Tools;
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		8930E9EE1D6C5354003C1B44 /* View */ = {
@@ -633,6 +645,8 @@
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
 				89D3C1431D6DA2E60064FA67 /* DanmakuNetManager.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
+				8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */,
+				8905B69F1D79D5770008D25B /* PlayerView.m in Sources */,
 				8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */,
 				8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */,
 				8930E9C01D6C0372003C1B44 /* ThreeDViewController.m in Sources */,
@@ -657,7 +671,6 @@
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
 				89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
-				89F959E81D72F0D00024D67D /* VideoInfoContentTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

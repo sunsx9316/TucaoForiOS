@@ -6,8 +6,8 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BasePageViewController.h"
 
-@interface ThreeDViewController : UIViewController
+@interface ThreeDViewController : BasePageViewController
 
 @end

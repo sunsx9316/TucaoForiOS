@@ -16,5 +16,6 @@ pod 'JHDanmakuRender'
 pod 'iCarousel'
 pod 'WMPageController'
 pod 'UITableView+FDTemplateLayoutCell'
+pod 'FDFullscreenPopGesture'
 end
 

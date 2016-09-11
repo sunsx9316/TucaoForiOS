@@ -66,7 +66,7 @@
         _collectionView.scrollEnabled = NO;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = BACK_GROUND_COLOR;
+        _collectionView.backgroundColor = [UIColor whiteColor];
         [_collectionView registerClass:[VideoInfoEpisodeCollectionViewCell class] forCellWithReuseIdentifier:@"VideoInfoEpisodeCollectionViewCell"];
         [self.contentView addSubview:_collectionView];
 	}

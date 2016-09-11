@@ -7,11 +7,6 @@
 //
 
 #import "VideoInfoUserTableViewCell.h"
-//@interface VideoInfoUserTableViewCell ()
-//@property (strong, nonatomic) UILabel *userNameLabel;
-//@property (strong, nonatomic) UILabel *timeLabel;
-//@end
-
 @implementation VideoInfoUserTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
