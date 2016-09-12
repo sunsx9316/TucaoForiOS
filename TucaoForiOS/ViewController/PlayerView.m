@@ -55,7 +55,9 @@
 }
 
 - (void)touchFullScreenButton:(UIButton *)button {
-    
+    if (self.touchFullScreenCallBack) {
+        self.touchFullScreenCallBack();
+    }
 }
 
 - (void)touchPlayerProgressSlider:(UISlider *)slider {
