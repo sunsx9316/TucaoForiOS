@@ -29,8 +29,8 @@
 @implementation HomePageViewController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    SET_NAV_BAR_DEFAULT
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor]};
+    SET_NAV_BAR_COLOR(MAIN_COLOR, NO)
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 }
 
 - (void)viewDidLoad {
@@ -152,7 +152,7 @@
 
 #pragma mark - 私有方法
 - (void)configLeftItem {
-    UIImageView *logoImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_logo"]];
+    UIImageView *logoImgView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"home_logo"] imageByTintColor:[UIColor whiteColor]]];
     logoImgView.contentMode = UIViewContentModeScaleAspectFit;
     logoImgView.frame = CGRectMake(0, 0, 80, 40);
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:logoImgView];
@@ -182,12 +182,16 @@
         [_tableView registerClass:[HomePageSectionTableViewCell class] forCellReuseIdentifier:@"HomePageSectionTableViewCell"];
         [_tableView registerClass:[HomePageSectionHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"HomePageSectionHeaderFooterView"];
         @weakify(self)
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithDefaultRefreshingBlock:^{
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithDefaultRefreshingBlock:^{
             @strongify(self)
             if (!self) return;
             
             [self requestRankWithSections];
         }];
+        header.backgroundColor = MAIN_COLOR;
+        header.automaticallyChangeAlpha = NO;
+        header.stateLabel.textColor = [UIColor whiteColor];
+        _tableView.mj_header = header;
         [self.view addSubview:_tableView];
 	}
 	return _tableView;

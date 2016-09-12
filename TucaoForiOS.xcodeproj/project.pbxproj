@@ -37,6 +37,7 @@
 		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
 		899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FC41D7134B50073964D /* VideoInfoViewController.m */; };
 		899D0FEB1D7143AB0073964D /* VideoInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */; };
+		89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C25BFC1D86EAD7008E85F8 /* SectionCollectionViewCell.m */; };
 		89C760FE1D6C804000635384 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FD1D6C804000635384 /* Assets.xcassets */; };
 		89C761011D6C804600635384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C760FF1D6C804600635384 /* LaunchScreen.storyboard */; };
 		89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */; };
@@ -124,6 +125,8 @@
 		899D0FC41D7134B50073964D /* VideoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewController.m; sourceTree = "<group>"; };
 		899D0FE91D7143AB0073964D /* VideoInfoTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoTextTableViewCell.h; sourceTree = "<group>"; };
 		899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoTextTableViewCell.m; sourceTree = "<group>"; };
+		89C25BFB1D86EAD7008E85F8 /* SectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionCollectionViewCell.h; sourceTree = "<group>"; };
+		89C25BFC1D86EAD7008E85F8 /* SectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionCollectionViewCell.m; sourceTree = "<group>"; };
 		89C760FD1D6C804000635384 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TucaoForiOS/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		89C761001D6C804600635384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TucaoForiOS/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		89C761021D6C80F900635384 /* HomePageSectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionCollectionViewCell.h; sourceTree = "<group>"; };
@@ -413,6 +416,7 @@
 		8930E9C91D6C0600003C1B44 /* 分区 */ = {
 			isa = PBXGroup;
 			children = (
+				89C25BFA1D86EAC1008E85F8 /* View */,
 				8930E9CA1D6C060C003C1B44 /* SectionViewController.h */,
 				8930E9CB1D6C060C003C1B44 /* SectionViewController.m */,
 			);
@@ -449,6 +453,15 @@
 				89C761031D6C80F900635384 /* HomePageSectionCollectionViewCell.m */,
 				89D3C13B1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.h */,
 				89D3C13C1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		89C25BFA1D86EAC1008E85F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89C25BFB1D86EAD7008E85F8 /* SectionCollectionViewCell.h */,
+				89C25BFC1D86EAD7008E85F8 /* SectionCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -537,6 +550,7 @@
 				TargetAttributes = {
 					8930E98A1D6BFEBF003C1B44 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Q35T78D2D5;
 					};
 				};
 			};
@@ -658,6 +672,7 @@
 				89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */,
 				89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */,
 				89CA5D091D7865B4003C56BE /* BaseSectionViewController.m in Sources */,
+				89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */,
 				89D3C1401D6D99390064FA67 /* VideoNetManager.m in Sources */,
 				89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */,
 				899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */,
@@ -776,6 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -792,6 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

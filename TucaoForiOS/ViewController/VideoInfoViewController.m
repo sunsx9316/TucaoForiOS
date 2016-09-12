@@ -17,6 +17,7 @@
 
 #define MENU_HEIGHT 50
 #define HEAD_VIEW_HEGHT 180
+#define TRANSFORM_TIME 0.3
 
 @interface VideoInfoViewController ()<iCarouselDelegate, iCarouselDataSource, WMMenuViewDataSource, WMMenuViewDelegate>
 @property (strong, nonatomic) YYAnimatedImageView *headImgView;
@@ -41,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollViewScroll:) name:@"SCROLL_VIEW_DID_SCROLL" object:nil];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     if (_model.hid.length) {
@@ -64,6 +66,7 @@
 - (BOOL)prefersStatusBarHidden {
     return _isFullScreen;
 }
+
 
 #pragma mark - WMMenuViewDataSource
 - (NSInteger)numbersOfTitlesInMenuView:(WMMenuView *)menu {
@@ -126,7 +129,7 @@
     _isFullScreen = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:TRANSFORM_TIME animations:^{
         self.playerView.transform = CGAffineTransformMakeRotation(M_PI / 2);
         self.playerView.frame = self.view.bounds;
         self.playerView.alpha = 1;
@@ -243,7 +246,7 @@
             self->_isFullScreen = NO;
             [self setNeedsStatusBarAppearanceUpdate];
             [self.navigationController setNavigationBarHidden:NO animated:YES];
-            [UIView animateWithDuration:1 animations:^{
+            [UIView animateWithDuration:TRANSFORM_TIME animations:^{
                 self.playerView.transform = CGAffineTransformIdentity;
                 self.playerView.frame = CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT);
                 self.playerView.alpha = 0;

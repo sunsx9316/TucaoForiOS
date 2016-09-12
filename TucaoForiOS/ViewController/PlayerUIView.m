@@ -106,11 +106,10 @@
             make.top.mas_offset(10);
         }];
         
-        [self addSubview:self.playSourseButton];
-        [self.playSourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(bottomView.mas_top).mas_offset(-5);
-            make.right.mas_offset(-10);
-        }];
+//        [self.playSourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(bottomView.mas_top).mas_offset(-5);
+//            make.right.mas_offset(-10);
+//        }];
         
     }
     return self;
@@ -202,6 +201,7 @@
 		_currentTimeLabel = [[UILabel alloc] init];
         _currentTimeLabel.font = [UIFont systemFontOfSize:13];
         _currentTimeLabel.textColor = [UIColor whiteColor];
+        _currentTimeLabel.text = @"00:00";
 	}
 	return _currentTimeLabel;
 }
@@ -211,6 +211,7 @@
 		_videolengthLabel = [[UILabel alloc] init];
         _videolengthLabel.font = [UIFont systemFontOfSize:13];
         _videolengthLabel.textColor = [UIColor whiteColor];
+        _videolengthLabel.text = @"00:00";
 	}
 	return _videolengthLabel;
 }
@@ -220,6 +221,7 @@
 		_playerProgressSlider = [[UISlider alloc] init];
         _playerProgressSlider.continuous = NO;
         _playerProgressSlider.minimumTrackTintColor = MAIN_COLOR;
+        [_playerProgressSlider setThumbImage:[[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(20, 20)] imageByRoundCornerRadius:5] forState:UIControlStateNormal];
 	}
 	return _playerProgressSlider;
 }

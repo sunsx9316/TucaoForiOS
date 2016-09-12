@@ -16,7 +16,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor blackColor];
         [self addSubview:self.playerUIView];
         
         
@@ -31,7 +31,9 @@
 
 #pragma mark - 私有方法
 - (void)touchBackButton:(UIButton *)button {
-    
+    if (self.touchFullScreenCallBack) {
+        self.touchFullScreenCallBack();
+    }
 }
 
 - (void)touchPlayButton:(UIButton *)button {
