@@ -8,17 +8,17 @@
 
 #import "MineViewController.h"
 #import "MineCenterTableViewCell.h"
+#import "SearchHistoryListView.h"
+#import "SearchListViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *sourceArr;
 @property (strong, nonatomic) UIView *searchBar;
+@property (strong, nonatomic) SearchHistoryListView *historyListView;
 @end
 
 @implementation MineViewController
-{
-    CGFloat _cellHeight;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -28,78 +28,91 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.titleView = self.searchBar;
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.sourceArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MineCenterTableViewCell" forIndexPath:indexPath];
-    _cellHeight = [cell cellHeightWithArr:self.sourceArr];
+    NSDictionary *dic = self.sourceArr[indexPath.row];
+    cell.iconImgView.image = [UIImage imageNamed:dic[@"img"]];
+    cell.titleLabel.text = dic[@"title"];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _cellHeight;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    textField.text = nil;
+    CGRect frame = self.historyListView.frame;
+    frame.origin.x = self.view.width;
+    
     UIButton *button = [self.searchBar viewWithTag:101];
     [button mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(0);
+        make.right.mas_offset(10);
     }];
     [self.searchBar setNeedsUpdateConstraints];
     [self.searchBar updateConstraintsIfNeeded];
     [UIView animateWithDuration:0.3 animations:^{
         [self.searchBar layoutIfNeeded];
-    }];
+        self.historyListView.frame = frame;
+    } completion:nil];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self.view addSubview:self.historyListView];
+    
     UIButton *button = [self.searchBar viewWithTag:101];
     [button mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(60);
+        make.right.mas_equalTo(0);
     }];
     [self.searchBar setNeedsUpdateConstraints];
     [self.searchBar updateConstraintsIfNeeded];
     [UIView animateWithDuration:0.3 animations:^{
         [self.searchBar layoutIfNeeded];
+        self.historyListView.frame = self.view.bounds;
     }];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.historyListView addSearchKey:textField.text];
+    NSString *key = textField.text;
+    [self.historyListView removeFromSuperview];
+    if (key.length) {
+        SearchListViewController *vc = [[SearchListViewController alloc] initWithKeyword:key];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    [self touchCancelButton:nil];
+    return YES;
+}
+
 #pragma mark - 私有方法
-- (void)touchCanCelButton:(UIButton *)sender {
+- (void)touchCancelButton:(UIButton *)sender {
     [[self.searchBar viewWithTag:100] resignFirstResponder];
 }
 
 #pragma mark - 懒加载
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.estimatedRowHeight = 80;
+        _tableView.rowHeight = 44;
         _tableView.tableFooterView = [[UIView alloc] init];
-        @weakify(self)
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-            @strongify(self)
-            if (!self) return;
-            
-            [[self.searchBar viewWithTag:100] resignFirstResponder];
-        }];
-        tapGesture.cancelsTouchesInView = NO;
-        [_tableView addGestureRecognizer:tapGesture];
-        
         [_tableView registerClass:[MineCenterTableViewCell class] forCellReuseIdentifier:@"MineCenterTableViewCell"];
-        [self.view addSubview:_tableView];
     }
     return _tableView;
 }
@@ -126,7 +139,7 @@
         [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         cancelButton.tag = 101;
-        [cancelButton addTarget:self action:@selector(touchCanCelButton:) forControlEvents:UIControlEventTouchUpInside];
+        [cancelButton addTarget:self action:@selector(touchCancelButton:) forControlEvents:UIControlEventTouchUpInside];
         
         UITextField *searchTextField = [[UITextField alloc] init];
         searchTextField.tag = 100;
@@ -134,6 +147,7 @@
         searchTextField.font = [UIFont systemFontOfSize:13];
         searchTextField.tintColor = MAIN_COLOR;
         searchTextField.delegate = self;
+        searchTextField.returnKeyType = UIReturnKeySearch;
         
         UIImageView *searchIconImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_prompt_icon"]];
         searchIconImgView.contentMode = UIViewContentModeScaleAspectFit;
@@ -146,7 +160,7 @@
         
         [holdView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.bottom.mas_equalTo(0);
-            make.right.equalTo(cancelButton.mas_left);
+            make.right.equalTo(cancelButton.mas_left).mas_offset(-10);
         }];
         
         [searchIconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -165,10 +179,29 @@
         [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(0);
             make.height.mas_equalTo(30);
-            make.right.centerY.mas_equalTo(0);
+            make.centerY.mas_equalTo(0);
+            make.right.mas_offset(10);
         }];
     }
     return _searchBar;
+}
+
+- (SearchHistoryListView *)historyListView {
+	if(_historyListView == nil) {
+		_historyListView = [[SearchHistoryListView alloc] initWithFrame:CGRectMake(self.view.width, 0, self.view.width, self.view.height)];
+        @weakify(self)
+        [_historyListView setTouchIndexCallBack:^(NSString *keyword) {
+            @strongify(self)
+            if (!self) return;
+            [self touchCancelButton:nil];
+            if (keyword.length) {
+                SearchListViewController *vc = [[SearchListViewController alloc] initWithKeyword:keyword];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }];
+	}
+	return _historyListView;
 }
 
 @end

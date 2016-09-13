@@ -8,10 +8,6 @@
 
 #import "ToolsManager.h"
 
-@interface ToolsManager ()
-//@property (strong, nonatomic) NSMutableArray *historySearchKey;
-@end
-
 @implementation ToolsManager
 {
     NSMutableArray *_historySearchKeys;
@@ -32,11 +28,26 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-#pragma mark - 懒加载
 - (NSArray<NSString *> *)historySearchKeys {
     if (_historySearchKeys == nil) {
         _historySearchKeys = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"history_search_key"]];
     }
     return _historySearchKeys;
 }
+
+- (void)addSearchKey:(NSString *)keyWord {
+    if (keyWord.length == 0) return;
+    //保存了则将它删除
+    if ([_historySearchKeys containsObject:keyWord]) {
+        [_historySearchKeys removeObject:keyWord];
+    }
+    [_historySearchKeys insertObject:keyWord atIndex:0];
+    [self setHistorySearchKeys:_historySearchKeys];
+}
+
+- (void)clearAllSearchKey {
+    [_historySearchKeys removeAllObjects];
+    [self setHistorySearchKeys:_historySearchKeys];
+}
+
 @end

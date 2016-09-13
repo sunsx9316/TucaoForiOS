@@ -6,8 +6,8 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseVideoListViewController.h"
 
-@interface BaseSectionViewController : BaseViewController
+@interface BaseSectionViewController : BaseVideoListViewController
 - (instancetype)initWithSection:(NSString *)section;
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MineCenterTableViewCell : UITableViewCell
-- (CGFloat)cellHeightWithArr:(NSArray <NSDictionary *>*)arr;
+@property (strong, nonatomic) UIImageView *iconImgView;
+@property (strong, nonatomic) UILabel *titleLabel;
 @end

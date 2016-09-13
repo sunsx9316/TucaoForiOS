@@ -10,5 +10,7 @@
 
 @interface ToolsManager : NSObject
 + (instancetype)shareToolsManager;
-@property (strong, nonatomic) NSMutableArray *historySearchKeys;
+- (NSMutableArray *)historySearchKeys;
+- (void)addSearchKey:(NSString *)keyWord;
+- (void)clearAllSearchKey;
 @end

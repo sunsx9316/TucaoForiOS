@@ -86,7 +86,7 @@
         _webView.delegate = self;
         _webView.backgroundColor = BACK_GROUND_COLOR;
         @weakify(self)
-        _webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithDefaultRefreshingBlock:^{
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             @strongify(self)
             if (!self) return;
             if (self->_currentPage >= 2) {
@@ -94,12 +94,16 @@
             }
             [self.webView loadRequest:[self requestWithPage:self->_currentPage]];
         }];
+        [header setTitle:@"加载上一页" forState:MJRefreshStatePulling];
+        _webView.scrollView.mj_header = header;
         
-        _webView.scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithhDefaultRefreshingBlock:^{
+        MJRefreshAutoNormalFooter *foot = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             @strongify(self)
             if (!self) return;
             [self.webView loadRequest:[self requestWithPage:++self->_currentPage]];
         }];
+        [foot setTitle:@"加载下一页" forState:MJRefreshStatePulling];
+        _webView.scrollView.mj_footer = foot;
         
         [self addSubview:_webView];
 	}

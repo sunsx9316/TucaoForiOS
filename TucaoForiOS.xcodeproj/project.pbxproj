@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		818DDE7B1D87F4F700B22A59 /* MineCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
 		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
@@ -38,6 +37,14 @@
 		8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E61D6C32A3003C1B44 /* VideoCollectionModel.m */; };
 		8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E91D6C32B1003C1B44 /* BaseModel.m */; };
 		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
+		893982651D882BD600E88C14 /* SearchHistoryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982641D882BD600E88C14 /* SearchHistoryListView.m */; };
+		893982681D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */; };
+		8939826D1D884C1300E88C14 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939826C1D884C1300E88C14 /* BaseViewModel.m */; };
+		893982701D884C2500E88C14 /* SectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939826F1D884C2500E88C14 /* SectionViewModel.m */; };
+		893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982721D884E8500E88C14 /* BaseVideoListViewController.m */; };
+		893982761D8851F200E88C14 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982751D8851F200E88C14 /* SearchViewModel.m */; };
+		893982791D8852F500E88C14 /* SearchNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982781D8852F500E88C14 /* SearchNetManager.m */; };
+		8939827C1D88552B00E88C14 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939827B1D88552B00E88C14 /* SearchListViewController.m */; };
 		899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FC41D7134B50073964D /* VideoInfoViewController.m */; };
 		899D0FEB1D7143AB0073964D /* VideoInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */; };
 		89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C25BFC1D86EAD7008E85F8 /* SectionCollectionViewCell.m */; };
@@ -66,8 +73,6 @@
 
 /* Begin PBXFileReference section */
 		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		818DDE791D87F4F700B22A59 /* MineCenterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterCollectionViewCell.h; sourceTree = "<group>"; };
-		818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterCollectionViewCell.m; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
 		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
 		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
@@ -129,6 +134,23 @@
 		8930E9E91D6C32B1003C1B44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		8930E9EF1D6C5B63003C1B44 /* HomePageSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionTableViewCell.h; sourceTree = "<group>"; };
 		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
+		893982631D882BD600E88C14 /* SearchHistoryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryListView.h; sourceTree = "<group>"; };
+		893982641D882BD600E88C14 /* SearchHistoryListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryListView.m; sourceTree = "<group>"; };
+		893982661D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryClearAllTableViewCell.h; sourceTree = "<group>"; };
+		893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryClearAllTableViewCell.m; sourceTree = "<group>"; };
+		8939826A1D884AB500E88C14 /* VideoListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListProtocol.h; sourceTree = "<group>"; };
+		8939826B1D884C1300E88C14 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		8939826C1D884C1300E88C14 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		8939826E1D884C2500E88C14 /* SectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionViewModel.h; sourceTree = "<group>"; };
+		8939826F1D884C2500E88C14 /* SectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionViewModel.m; sourceTree = "<group>"; };
+		893982711D884E8500E88C14 /* BaseVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVideoListViewController.h; sourceTree = "<group>"; };
+		893982721D884E8500E88C14 /* BaseVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVideoListViewController.m; sourceTree = "<group>"; };
+		893982741D8851F200E88C14 /* SearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
+		893982751D8851F200E88C14 /* SearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
+		893982771D8852F500E88C14 /* SearchNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNetManager.h; sourceTree = "<group>"; };
+		893982781D8852F500E88C14 /* SearchNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNetManager.m; sourceTree = "<group>"; };
+		8939827A1D88552B00E88C14 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
+		8939827B1D88552B00E88C14 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
 		893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899D0FC31D7134B50073964D /* VideoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoViewController.h; sourceTree = "<group>"; };
 		899D0FC41D7134B50073964D /* VideoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewController.m; sourceTree = "<group>"; };
@@ -201,10 +223,12 @@
 		818DDE781D87F4C200B22A59 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				818DDE791D87F4F700B22A59 /* MineCenterCollectionViewCell.h */,
-				818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */,
 				818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */,
 				818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */,
+				893982631D882BD600E88C14 /* SearchHistoryListView.h */,
+				893982641D882BD600E88C14 /* SearchHistoryListView.m */,
+				893982661D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.h */,
+				893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 				8930E9A51D6BFF27003C1B44 /* Config */,
 				8930E9A61D6BFF27003C1B44 /* Model */,
 				8930E9A71D6BFF27003C1B44 /* NetManager */,
+				893982691D884A7A00E88C14 /* ViewModel */,
 				8930E9A91D6BFF27003C1B44 /* ViewController */,
 				8930E98E1D6BFEBF003C1B44 /* Supporting Files */,
 			);
@@ -334,6 +359,8 @@
 				89CA5D0C1D786746003C56BE /* SectionNetManager.m */,
 				89D3C13E1D6D99390064FA67 /* VideoNetManager.h */,
 				89D3C13F1D6D99390064FA67 /* VideoNetManager.m */,
+				893982771D8852F500E88C14 /* SearchNetManager.h */,
+				893982781D8852F500E88C14 /* SearchNetManager.m */,
 				89D3C1411D6DA2E60064FA67 /* DanmakuNetManager.h */,
 				89D3C1421D6DA2E60064FA67 /* DanmakuNetManager.m */,
 			);
@@ -350,6 +377,8 @@
 				89CA5D051D78642F003C56BE /* BasePageViewController.m */,
 				89CA5D071D7865B4003C56BE /* BaseSectionViewController.h */,
 				89CA5D081D7865B4003C56BE /* BaseSectionViewController.m */,
+				893982711D884E8500E88C14 /* BaseVideoListViewController.h */,
+				893982721D884E8500E88C14 /* BaseVideoListViewController.m */,
 				89EE83CE1D6EF5AD006A85AD /* WebViewController.h */,
 				89EE83CF1D6EF5AD006A85AD /* WebViewController.m */,
 				89154B7E1D6E80020039E551 /* 视频详情 */,
@@ -449,6 +478,8 @@
 				818DDE781D87F4C200B22A59 /* View */,
 				8930E9D01D6C206D003C1B44 /* MineViewController.h */,
 				8930E9D11D6C206D003C1B44 /* MineViewController.m */,
+				8939827A1D88552B00E88C14 /* SearchListViewController.h */,
+				8939827B1D88552B00E88C14 /* SearchListViewController.m */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -478,6 +509,20 @@
 				89D3C13C1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		893982691D884A7A00E88C14 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8939826A1D884AB500E88C14 /* VideoListProtocol.h */,
+				8939826B1D884C1300E88C14 /* BaseViewModel.h */,
+				8939826C1D884C1300E88C14 /* BaseViewModel.m */,
+				8939826E1D884C2500E88C14 /* SectionViewModel.h */,
+				8939826F1D884C2500E88C14 /* SectionViewModel.m */,
+				893982741D8851F200E88C14 /* SearchViewModel.h */,
+				893982751D8851F200E88C14 /* SearchViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		89C25BFA1D86EAC1008E85F8 /* View */ = {
@@ -670,6 +715,8 @@
 				8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */,
 				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */,
+				893982651D882BD600E88C14 /* SearchHistoryListView.m in Sources */,
+				893982681D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m in Sources */,
 				8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */,
 				8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */,
 				89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */,
@@ -693,10 +740,12 @@
 				89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */,
 				89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */,
 				8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */,
+				8939827C1D88552B00E88C14 /* SearchListViewController.m in Sources */,
 				89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */,
 				89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */,
 				89CA5D091D7865B4003C56BE /* BaseSectionViewController.m in Sources */,
 				89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */,
+				893982791D8852F500E88C14 /* SearchNetManager.m in Sources */,
 				89D3C1401D6D99390064FA67 /* VideoNetManager.m in Sources */,
 				89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */,
 				899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */,
@@ -705,12 +754,15 @@
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
 				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
+				893982701D884C2500E88C14 /* SectionViewModel.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,
 				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
+				893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */,
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
+				8939826D1D884C1300E88C14 /* BaseViewModel.m in Sources */,
 				89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */,
-				818DDE7B1D87F4F700B22A59 /* MineCenterCollectionViewCell.m in Sources */,
+				893982761D8851F200E88C14 /* SearchViewModel.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
