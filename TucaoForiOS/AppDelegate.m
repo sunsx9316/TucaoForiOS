@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "VideoInfoViewController.h"
+#import "SectionViewController.h"
 
 @interface AppDelegate ()
 

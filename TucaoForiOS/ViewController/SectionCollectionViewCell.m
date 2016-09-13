@@ -9,16 +9,22 @@
 #import "SectionCollectionViewCell.h"
 
 @interface SectionCollectionViewCell ()
-
+@property (strong, nonatomic) UIImageView *bgImgView;
 @end
 
 @implementation SectionCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self.iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
+        [self.bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(0);
             make.top.mas_offset(10);
+            make.size.mas_equalTo(CGSizeMake(60, 60));
+        }];
+        
+        [self.iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.bgImgView);
+            make.size.mas_equalTo(CGSizeMake(25, 25));
         }];
         
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,11 +49,20 @@
 - (UILabel *)titleLabel {
 	if(_titleLabel == nil) {
 		_titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:15];
-        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:_titleLabel];
 	}
 	return _titleLabel;
+}
+
+- (UIImageView *)bgImgView {
+    if (_bgImgView == nil) {
+        _bgImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_region_border"]];
+        _bgImgView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:_bgImgView];
+    }
+    return _bgImgView;
 }
 
 @end

@@ -11,5 +11,6 @@
  *  播放器view
  */
 @interface PlayerView : UIView
+
 @property (copy, nonatomic) void(^touchFullScreenCallBack)();
 @end

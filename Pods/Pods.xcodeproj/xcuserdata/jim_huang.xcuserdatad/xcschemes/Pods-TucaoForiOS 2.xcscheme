@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "53480ED0BE09FF49E34B1702D485CAAB"
-               BuildableName = "libMasonry.a"
-               BlueprintName = "Masonry"
+               BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+               BuildableName = "libPods-TucaoForiOS.a"
+               BlueprintName = "Pods-TucaoForiOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "53480ED0BE09FF49E34B1702D485CAAB"
-            BuildableName = "libMasonry.a"
-            BlueprintName = "Masonry"
+            BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+            BuildableName = "libPods-TucaoForiOS.a"
+            BlueprintName = "Pods-TucaoForiOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "53480ED0BE09FF49E34B1702D485CAAB"
-            BuildableName = "libMasonry.a"
-            BlueprintName = "Masonry"
+            BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+            BuildableName = "libPods-TucaoForiOS.a"
+            BlueprintName = "Pods-TucaoForiOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

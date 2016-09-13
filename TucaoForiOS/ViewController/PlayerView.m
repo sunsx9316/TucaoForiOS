@@ -25,6 +25,7 @@
 }
 
 - (void)layoutSubviews {
+    
     [super layoutSubviews];
     self.playerUIView.frame = self.bounds;
 }

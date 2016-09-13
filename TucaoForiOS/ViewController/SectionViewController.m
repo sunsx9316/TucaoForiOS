@@ -42,7 +42,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SectionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SectionCollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = self.resourceArr[indexPath.item][@"color"];
+//    cell.backgroundColor = self.resourceArr[indexPath.item][@"color"];
     cell.iconImgView.image = self.resourceArr[indexPath.item][@"icon"];
     cell.titleLabel.text = self.resourceArr[indexPath.item][@"title"];
     return cell;
@@ -98,12 +98,12 @@
 - (NSArray *)resourceArr {
 	if(_resourceArr == nil) {
         _resourceArr = @[
-  @{@"title":@"动画", @"icon": [UIImage imageNamed:@"home_anima"], @"color": RGBCOLOR(212, 131, 247)},
-  @{@"title":@"音乐", @"icon": [UIImage imageNamed:@"home_music"], @"color": RGBCOLOR(231, 207, 11)},
-  @{@"title":@"三次元", @"icon": [UIImage imageNamed:@"home_threeD"], @"color": RGBCOLOR(203, 43, 29)},
-  @{@"title":@"游戏", @"icon": [UIImage imageNamed:@"home_game"], @"color": RGBCOLOR(250, 175, 11)},
-  @{@"title":@"影剧", @"icon": [UIImage imageNamed:@"home_movie"], @"color": RGBCOLOR(130, 211, 101)},
-  @{@"title":@"新番", @"icon": [UIImage imageNamed:@"home_bangumi"], @"color": RGBCOLOR(25, 190, 157)}];
+  @{@"title":@"动画", @"icon": [[UIImage imageNamed:@"home_anima"] imageByTintColor:RGBCOLOR(212, 131, 247)]},
+  @{@"title":@"音乐", @"icon": [[UIImage imageNamed:@"home_music"] imageByTintColor:RGBCOLOR(250, 220, 1)]},
+  @{@"title":@"三次元", @"icon": [[UIImage imageNamed:@"home_threeD"] imageByTintColor:RGBCOLOR(203, 43, 29)]},
+  @{@"title":@"游戏", @"icon": [[UIImage imageNamed:@"home_game"] imageByTintColor:RGBCOLOR(250, 175, 11)]},
+  @{@"title":@"影剧", @"icon": [[UIImage imageNamed:@"home_movie"] imageByTintColor:RGBCOLOR(130, 211, 101)]},
+  @{@"title":@"新番", @"icon": [[UIImage imageNamed:@"home_bangumi"] imageByTintColor:RGBCOLOR(25, 190, 157)]}];
 	}
 	return _resourceArr;
 }

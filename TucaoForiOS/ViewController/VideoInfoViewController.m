@@ -185,8 +185,9 @@
 - (WMMenuView *)menuView {
     if(_menuView == nil) {
         _menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, MENU_HEIGHT)];
-        _menuView.style = WMMenuViewStyleDefault;
+        _menuView.style = WMMenuViewStyleLine;
         _menuView.backgroundColor = [UIColor whiteColor];
+        _menuView.lineColor = MAIN_COLOR;
         _menuView.delegate = self;
         _menuView.dataSource = self;
     }

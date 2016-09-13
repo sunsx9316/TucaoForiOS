@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		818DDE7B1D87F4F700B22A59 /* MineCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */; };
+		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
+		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
 		8905B69F1D79D5770008D25B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B69E1D79D5770008D25B /* PlayerView.m */; };
 		8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B6A31D79D6210008D25B /* PlayerUIView.m */; };
@@ -63,6 +66,12 @@
 
 /* Begin PBXFileReference section */
 		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		818DDE791D87F4F700B22A59 /* MineCenterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterCollectionViewCell.h; sourceTree = "<group>"; };
+		818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterCollectionViewCell.m; sourceTree = "<group>"; };
+		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
+		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
+		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
+		818DDE801D880A7300B22A59 /* ToolsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsManager.m; sourceTree = "<group>"; };
 		8905B69D1D79D5770008D25B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		8905B69E1D79D5770008D25B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		8905B6A21D79D6210008D25B /* PlayerUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerUIView.h; sourceTree = "<group>"; };
@@ -187,6 +196,17 @@
 				893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		818DDE781D87F4C200B22A59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				818DDE791D87F4F700B22A59 /* MineCenterCollectionViewCell.h */,
+				818DDE7A1D87F4F700B22A59 /* MineCenterCollectionViewCell.m */,
+				818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */,
+				818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		8905B6A01D79D5E70008D25B /* 视频UI */ = {
@@ -426,6 +446,7 @@
 		8930E9CF1D6C205D003C1B44 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				818DDE781D87F4C200B22A59 /* View */,
 				8930E9D01D6C206D003C1B44 /* MineViewController.h */,
 				8930E9D11D6C206D003C1B44 /* MineViewController.m */,
 			);
@@ -440,6 +461,8 @@
 				8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */,
 				89D3C1471D6DA41D0064FA67 /* DanmakuDataFormatter.h */,
 				89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */,
+				818DDE7F1D880A7300B22A59 /* ToolsManager.h */,
+				818DDE801D880A7300B22A59 /* ToolsManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -656,6 +679,7 @@
 				89CA5D031D785CF2003C56BE /* SectionTableViewCell.m in Sources */,
 				8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */,
 				89CA5D0D1D786746003C56BE /* SectionNetManager.m in Sources */,
+				818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */,
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
 				89D3C1431D6DA2E60064FA67 /* DanmakuNetManager.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
@@ -679,12 +703,14 @@
 				89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */,
 				8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */,
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
+				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,
 				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
 				89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */,
+				818DDE7B1D87F4F700B22A59 /* MineCenterCollectionViewCell.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

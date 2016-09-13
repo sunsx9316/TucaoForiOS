@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+               BlueprintIdentifier = "0F0DBE0EFEE116C2FFC8EE475FE12987"
                BuildableName = "libPods-TucaoForiOS.a"
                BlueprintName = "Pods-TucaoForiOS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+            BlueprintIdentifier = "0F0DBE0EFEE116C2FFC8EE475FE12987"
             BuildableName = "libPods-TucaoForiOS.a"
             BlueprintName = "Pods-TucaoForiOS"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B75B3F6C066F586C27ABF86680F6870"
+            BlueprintIdentifier = "0F0DBE0EFEE116C2FFC8EE475FE12987"
             BuildableName = "libPods-TucaoForiOS.a"
             BlueprintName = "Pods-TucaoForiOS"
             ReferencedContainer = "container:Pods.xcodeproj">

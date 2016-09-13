@@ -72,7 +72,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: NO];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [webView.scrollView.mj_header endRefreshing];
     [webView.scrollView.mj_footer endRefreshing];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: NO];
