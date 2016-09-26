@@ -4,6 +4,18 @@ platform :ios, '8.0'
 # use_frameworks!
 
 target 'TucaoForiOS' do
-
+pod 'AFNetworking'
+pod 'Masonry'
+pod 'YYModel'
+pod 'MJRefresh'
+pod 'YYWebImage'
+pod 'MBProgressHUD'
+pod 'YYCategories'
+pod 'GDataXML-HTML'
+pod 'JHDanmakuRender'
+pod 'iCarousel'
+pod 'WMPageController'
+pod 'UITableView+FDTemplateLayoutCell'
+pod 'FDFullscreenPopGesture'
 end
 
