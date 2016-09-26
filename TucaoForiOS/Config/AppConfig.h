@@ -34,7 +34,7 @@
 self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];\
 self.navigationController.navigationBar.translucent = isTranslucent;
 //设置成默认样式
-#define SET_NAV_BAR_DEFAULT SET_NAV_BAR_COLOR([UIColor whiteColor], NO)
+#define SET_NAV_BAR_DEFAULT SET_NAV_BAR_COLOR(MAIN_COLOR, NO)
 //透明
 #define SET_NAVIGATION_BAR_CLEAR SET_NAV_BAR_COLOR([UIColor whiteColor], YES)
 

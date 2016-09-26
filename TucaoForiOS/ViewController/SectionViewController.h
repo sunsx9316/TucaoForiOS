@@ -6,8 +6,8 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SectionViewController : UIViewController
+@interface SectionViewController : BaseViewController
 
 @end

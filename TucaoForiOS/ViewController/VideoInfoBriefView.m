@@ -14,6 +14,7 @@
 #import "VideoInfoTextTableViewCell.h"
 
 #import <UITableView+FDTemplateLayoutCell.h>
+#import "MBProgressHUD+Tools.h"
 
 @interface VideoInfoBriefView()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
@@ -72,6 +73,24 @@
     }
     else if (indexPath.row == 3) {
         VideoInfoButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoButtonTableViewCell" forIndexPath:indexPath];
+        @weakify(self)
+        [cell setTouchDownloadButtonCallBack:^{
+            @strongify(self)
+            if (!self) return;
+            
+        }];
+        
+        [cell setTouchFavouriteButtonCallBack:^{
+            @strongify(self)
+            if (!self || !_model) return;
+            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:_model]) {
+                [MBProgressHUD showOnlyText:@"你已经收藏过了!"]; 
+            }
+            else {
+                [[ToolsManager shareToolsManager] addMineCollectionVideo:_model];
+                [MBProgressHUD showOnlyText:@"收藏成功!"];
+            }
+        }];
         return cell;
     }
     else if (indexPath.row == 4) {

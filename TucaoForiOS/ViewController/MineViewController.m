@@ -10,6 +10,7 @@
 #import "MineCenterTableViewCell.h"
 #import "SearchHistoryListView.h"
 #import "SearchListViewController.h"
+#import "MineCollectionViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (strong, nonatomic) UITableView *tableView;
@@ -20,16 +21,10 @@
 
 @implementation MineViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    SET_NAV_BAR_COLOR(MAIN_COLOR, NO)
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.titleView = self.searchBar;
+    self.navigationItem.leftBarButtonItem = nil;
     [self.view addSubview:self.tableView];
 }
 
@@ -49,6 +44,11 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 2) {
+        MineCollectionViewController *vc = [[MineCollectionViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - UITextFieldDelegate
@@ -110,7 +110,7 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.rowHeight = 44;
+        _tableView.rowHeight = 60;
         _tableView.tableFooterView = [[UIView alloc] init];
         [_tableView registerClass:[MineCenterTableViewCell class] forCellReuseIdentifier:@"MineCenterTableViewCell"];
     }

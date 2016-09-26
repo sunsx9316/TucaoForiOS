@@ -39,8 +39,23 @@
     _create = [NSString stringWithCreatTime:creat];
     return YES;
 }
+
+- (BOOL)isEqual:(id)object {
+    return [self yy_modelIsEqual:object];
+}
+
+- (NSUInteger)hash {
+    return self.yy_modelHash;
+}
+
 @end
 
 @implementation VideoURLModel
+- (BOOL)isEqual:(id)object {
+    return [self yy_modelIsEqual:object];
+}
 
+- (NSUInteger)hash {
+    return self.yy_modelHash;
+}
 @end

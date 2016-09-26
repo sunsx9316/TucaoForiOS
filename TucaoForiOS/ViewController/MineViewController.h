@@ -6,10 +6,10 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 /*
  * 我的控制器
  */
-@interface MineViewController : UIViewController
+@interface MineViewController : BaseViewController
 
 @end

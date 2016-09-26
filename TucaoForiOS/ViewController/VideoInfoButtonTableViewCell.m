@@ -60,10 +60,23 @@
     return button;
 }
 
+- (void)touchDownloadButton:(UIButton *)aButton {
+    if (self.touchDownloadButtonCallBack) {
+        self.touchDownloadButtonCallBack();
+    }
+}
+
+- (void)touchFavouriteButton:(UIButton *)aButton {
+    if (self.touchFavouriteButtonCallBack) {
+        self.touchFavouriteButtonCallBack();
+    }
+}
+
 #pragma mark - 懒加载
 - (UIButton *)favouriteButton {
 	if(_favouriteButton == nil) {
         _favouriteButton = [self buttonWithName:@"收藏" image:[UIImage imageNamed:@"mine_favourite"]];
+        [_favouriteButton addTarget:self action:@selector(touchFavouriteButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_favouriteButton];
 	}
 	return _favouriteButton;
@@ -72,6 +85,7 @@
 - (UIButton *)downloadButton {
 	if(_downloadButton == nil) {
 		_downloadButton = [self buttonWithName:@"缓存" image:[UIImage imageNamed:@"mine_download"]];
+        [_downloadButton addTarget:self action:@selector(touchDownloadButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_downloadButton];
 	}
 	return _downloadButton;

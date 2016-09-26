@@ -22,14 +22,9 @@
 
 @implementation SectionViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    SET_NAV_BAR_COLOR(MAIN_COLOR, NO)
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];

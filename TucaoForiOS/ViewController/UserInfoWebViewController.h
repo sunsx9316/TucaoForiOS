@@ -10,4 +10,5 @@
 
 @interface UserInfoWebViewController : WebViewController
 @property (strong, nonatomic) NSString *userId;
+@property (copy, nonatomic) NSString *user;
 @end

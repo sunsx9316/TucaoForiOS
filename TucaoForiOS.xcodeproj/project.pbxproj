@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */; };
+		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
 		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
@@ -73,6 +75,10 @@
 
 /* Begin PBXFileReference section */
 		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8103AB051D99175400E75AC9 /* MBProgressHUD+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Tools.h"; sourceTree = "<group>"; };
+		8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Tools.m"; sourceTree = "<group>"; };
+		8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionViewController.h; sourceTree = "<group>"; };
+		8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionViewController.m; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
 		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
 		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
@@ -480,6 +486,8 @@
 				8930E9D11D6C206D003C1B44 /* MineViewController.m */,
 				8939827A1D88552B00E88C14 /* SearchListViewController.h */,
 				8939827B1D88552B00E88C14 /* SearchListViewController.m */,
+				8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */,
+				8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -547,6 +555,8 @@
 		89C761051D6C838500635384 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8103AB051D99175400E75AC9 /* MBProgressHUD+Tools.h */,
+				8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */,
 				89D3C14A1D6DA5140064FA67 /* JHDanmakuEngine+Tools.h */,
 				89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */,
 				89C761061D6C84C200635384 /* NSString+Tools.h */,
@@ -742,6 +752,7 @@
 				8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */,
 				8939827C1D88552B00E88C14 /* SearchListViewController.m in Sources */,
 				89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */,
+				8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */,
 				89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */,
 				89CA5D091D7865B4003C56BE /* BaseSectionViewController.m in Sources */,
 				89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */,
@@ -754,6 +765,7 @@
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
 				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
+				8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */,
 				893982701D884C2500E88C14 /* SectionViewModel.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,

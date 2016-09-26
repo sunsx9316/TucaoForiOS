@@ -27,12 +27,6 @@
 @end
 
 @implementation HomePageViewController
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    SET_NAV_BAR_COLOR(MAIN_COLOR, NO)
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configLeftItem];

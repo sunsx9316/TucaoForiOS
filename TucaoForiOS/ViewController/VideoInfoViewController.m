@@ -33,6 +33,7 @@
 {
     BOOL _isFullScreen;
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     SET_NAVIGATION_BAR_CLEAR
@@ -125,7 +126,6 @@
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)sender {
     sender.selected = !sender.isSelected;
-//    self.playerView.hidden = NO;
     _isFullScreen = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -217,6 +217,7 @@
             
             UserInfoWebViewController *vc = [[UserInfoWebViewController alloc] init];
             vc.userId = userId;
+            vc.user = userName;
             [self.navigationController pushViewController:vc animated:YES];
         }];
         briefTableView.topHeight = HEAD_VIEW_HEGHT + MENU_HEIGHT;

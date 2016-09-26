@@ -11,5 +11,6 @@
  *  缓存和收藏按钮
  */
 @interface VideoInfoButtonTableViewCell : UITableViewCell
-
+@property (copy, nonatomic) void(^touchFavouriteButtonCallBack)();
+@property (copy, nonatomic) void(^touchDownloadButtonCallBack)();
 @end

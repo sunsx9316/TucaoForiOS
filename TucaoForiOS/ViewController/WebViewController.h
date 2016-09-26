@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JimHuang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface WebViewController : UIViewController<WKNavigationDelegate, WKUIDelegate>
+@interface WebViewController : BaseViewController<WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) NSURL *URL;
 @end
