@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */; };
 		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
+		811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */; };
+		811C707F1D9A0EEB00610BFA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
 		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
@@ -69,7 +71,6 @@
 		89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */; };
 		89EE83D01D6EF5AD006A85AD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83CF1D6EF5AD006A85AD /* WebViewController.m */; };
 		89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */; };
-		89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */; };
 		89F959E51D72EC8E0024D67D /* VideoInfoBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,10 @@
 		8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Tools.m"; sourceTree = "<group>"; };
 		8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionViewController.h; sourceTree = "<group>"; };
 		8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionViewController.m; sourceTree = "<group>"; };
+		811C707A1D9A075500610BFA /* HeadHitDisableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadHitDisableTableView.h; sourceTree = "<group>"; };
+		811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadHitDisableTableView.m; sourceTree = "<group>"; };
+		811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
 		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
 		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
@@ -199,8 +204,6 @@
 		89EE83CF1D6EF5AD006A85AD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		89EE83D11D6EF816006A85AD /* UserInfoWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoWebViewController.h; sourceTree = "<group>"; };
 		89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoWebViewController.m; sourceTree = "<group>"; };
-		89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoReplayWebView.h; sourceTree = "<group>"; };
-		89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoReplayWebView.m; sourceTree = "<group>"; };
 		89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoBriefView.h; sourceTree = "<group>"; };
 		89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoBriefView.m; sourceTree = "<group>"; };
 		F77412BFF43BE10877EBD114 /* Pods-TucaoForiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,8 +283,8 @@
 				89154B941D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m */,
 				89F959E31D72EC8E0024D67D /* VideoInfoBriefView.h */,
 				89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */,
-				89F959E01D72EB850024D67D /* VideoInfoReplayWebView.h */,
-				89F959E11D72EB850024D67D /* VideoInfoReplayWebView.m */,
+				811C707A1D9A075500610BFA /* HeadHitDisableTableView.h */,
+				811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -565,6 +568,8 @@
 				89D3C1391D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m */,
 				89E574C11D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.h */,
 				89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */,
+				811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */,
+				811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 				8930E9891D6BFEBF003C1B44 /* Resources */,
 				9182AB4894F196700561A444 /* [CP] Embed Pods Frameworks */,
 				B1A3FE579C18D7DB793B7BF6 /* [CP] Copy Pods Resources */,
+				5973612A9298606DEF262A14 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -664,6 +670,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5973612A9298606DEF262A14 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9182AB4894F196700561A444 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -758,9 +779,11 @@
 				89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */,
 				893982791D8852F500E88C14 /* SearchNetManager.m in Sources */,
 				89D3C1401D6D99390064FA67 /* VideoNetManager.m in Sources */,
+				811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */,
 				89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */,
 				899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */,
 				89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */,
+				811C707F1D9A0EEB00610BFA /* UIImage+ImageEffects.m in Sources */,
 				8930E9B41D6C0318003C1B44 /* AnimationViewController.m in Sources */,
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
 				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
@@ -773,7 +796,6 @@
 				893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */,
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
 				8939826D1D884C1300E88C14 /* BaseViewModel.m in Sources */,
-				89F959E21D72EB850024D67D /* VideoInfoReplayWebView.m in Sources */,
 				893982761D8851F200E88C14 /* SearchViewModel.m in Sources */,
 				8930E9901D6BFEBF003C1B44 /* main.m in Sources */,
 			);

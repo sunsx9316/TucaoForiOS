@@ -21,7 +21,7 @@
         for (GDataXMLElement *urlNode in [durlNode elementsForName:@"url"]) {
             NSString *url = urlNode.stringValue;
             if (url.length) {
-                [urls addObject:urlNode.stringValue];
+                [urls addObject:[NSURL URLWithString:urlNode.stringValue]];
             }
         }
         complete(urls, error);

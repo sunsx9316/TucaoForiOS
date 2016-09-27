@@ -42,4 +42,19 @@
  *  进度
  */
 @property (strong, nonatomic) UISlider *playerProgressSlider;
+/**
+ *  视频标题
+ */
+@property (strong, nonatomic) UILabel *titleLabel;
+/**
+ *  当前时间
+ */
+@property (strong, nonatomic) UILabel *currentTimeLabel;
+/**
+ *  视频长度
+ */
+@property (strong, nonatomic) UILabel *videolengthLabel;
+
+- (void)show;
+- (void)dismiss;
 @end

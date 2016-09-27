@@ -8,30 +8,35 @@
 
 #import "VideoInfoViewController.h"
 #import "UserInfoWebViewController.h"
-#import "iCarousel.h"
 #import "PlayerView.h"
-
-#import <WMPageController/WMMenuView.h>
 #import "VideoInfoBriefView.h"
-#import "VideoInfoReplayWebView.h"
+#import "VideoInfoTextTableViewCell.h"
+#import "VideoInfoNumberTableViewCell.h"
+#import "VideoInfoButtonTableViewCell.h"
+#import "VideoInfoUserTableViewCell.h"
+#import "VideoInfoEpisodeTableViewCell.h"
+#import "HeadHitDisableTableView.h"
 
-#define MENU_HEIGHT 50
+#import "MBProgressHUD+Tools.h"
+#import <UITableView+FDTemplateLayoutCell.h>
+#import "UIImage+ImageEffects.h"
+
 #define HEAD_VIEW_HEGHT 180
 #define TRANSFORM_TIME 0.3
+#define HEAD_IMG_VIEW_MIN_ALPHA 0.6
 
-@interface VideoInfoViewController ()<iCarouselDelegate, iCarouselDataSource, WMMenuViewDataSource, WMMenuViewDelegate>
+@interface VideoInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) HeadHitDisableTableView *tableView;
 @property (strong, nonatomic) YYAnimatedImageView *headImgView;
 @property (strong, nonatomic) UIButton *playControlButton;
-@property (strong, nonatomic) WMMenuView *menuView;
-@property (strong, nonatomic) NSArray *contentViewArr;
-@property (strong, nonatomic) iCarousel *pageView;
-@property (strong, nonatomic) UIView *holdView;
 @property (strong, nonatomic) PlayerView *playerView;
+@property (strong, nonatomic) UIView *headBGView;
 @end
 
 @implementation VideoInfoViewController
 {
     BOOL _isFullScreen;
+    CGFloat _episodesCellHeight;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,16 +47,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollViewScroll:) name:@"SCROLL_VIEW_DID_SCROLL" object:nil];
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     if (_model.hid.length) {
         self.title = [@"h" stringByAppendingString:_model.hid];
     }
     
-    [self.headImgView yy_setImageWithURL:_model.thumb options:YYWEBIMAGE_DEFAULT_OPTION];
-    self.headImgView.frame = CGRectMake(0, 0, WIDTH, HEAD_VIEW_HEGHT);
+    [self.headImgView yy_setImageWithURL:_model.thumb placeholder:nil options:YYWEBIMAGE_DEFAULT_OPTION completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        
+        YYAnimatedImageView *view = (YYAnimatedImageView *)[self.headImgView viewWithTag:100];
+        view.image = [[image yy_imageByResizeToSize:self.headImgView.size contentMode:UIViewContentModeScaleAspectFill] applyBlurWithRadius:5 tintColor:RGBACOLOR(0, 0, 0, 0.6) saturationDeltaFactor:1.0 maskImage:nil];
+    }];
+    
+    
+    [self.view addSubview:self.headImgView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    
+    [self.view addSubview:self.playerView];
     
     [self.playControlButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(HEAD_VIEW_HEGHT - 70);
@@ -59,68 +74,127 @@
         make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
     
-    [self.view addSubview:self.holdView];
-    [self.view addSubview:self.playerView];
-    
+    [self.view addSubview:self.headBGView];
 }
 
 - (BOOL)prefersStatusBarHidden {
     return _isFullScreen;
 }
 
-
-#pragma mark - WMMenuViewDataSource
-- (NSInteger)numbersOfTitlesInMenuView:(WMMenuView *)menu {
-    return self.contentViewArr.count;
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
 }
 
-- (NSString *)menuView:(WMMenuView *)menu titleAtIndex:(NSInteger)index {
-    return index == 0 ? @"简介" : @"评论";
-}
-
-#pragma mark - WMMenuViewDelegate
-- (void)menuView:(WMMenuView *)menu didSelesctedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
-    objc_setAssociatedObject(self.pageView, @"_isAnimate".UTF8String, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self.pageView scrollToItemAtIndex:index animated:YES];
-}
-
-- (CGFloat)menuView:(WMMenuView *)menu titleSizeForState:(WMMenuItemState)state {
-    return 15;
-}
-
-- (UIColor *)menuView:(WMMenuView *)menu titleColorForState:(WMMenuItemState)state {
-    return state == WMMenuItemStateSelected ? MAIN_COLOR : [UIColor lightGrayColor];
-}
-
-#pragma mark - iCarouselDelegate
-
-- (void)carouselDidScroll:(iCarousel *)carousel {
-    if ([objc_getAssociatedObject(self.pageView, @"_isAnimate".UTF8String) boolValue] == YES) return;
-    [self.menuView slideMenuAtProgress:carousel.scrollOffset];
-}
-
-- (void)carouselWillBeginDragging:(iCarousel *)carousel {
-    objc_setAssociatedObject(self.pageView, @"_isAnimate".UTF8String, @(NO), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
-    if (option == iCarouselOptionWrap) {
-        return YES;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 || indexPath.row == 2) {
+        VideoInfoTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoTextTableViewCell" forIndexPath:indexPath];
+        
+        if (indexPath.row == 0) {
+            cell.titleLabel.textColor = [UIColor blackColor];
+            cell.titleLabel.font = [UIFont systemFontOfSize:14];
+            cell.titleLabel.text = _model.title;
+        }
+        else if (indexPath.row == 2) {
+            cell.titleLabel.textColor = [UIColor lightGrayColor];
+            cell.titleLabel.font = [UIFont systemFontOfSize:13];
+            cell.titleLabel.text = _model.desc;
+        }
+        return cell;
     }
-    return value;
-}
-
-#pragma mark - iCarouselDataSource
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
-    return self.contentViewArr.count;
-}
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view {
-    if (view == nil) {
-        view = self.contentViewArr[index];
+    else if (indexPath.row == 1) {
+        VideoInfoNumberTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoNumberTableViewCell" forIndexPath:indexPath];
+        cell.playCountLabel.text = _model.play;
+        cell.danmakuCountLabel.text = _model.mukio;
+        return cell;
     }
-    view.frame = carousel.bounds;
-    return view;
+    else if (indexPath.row == 3) {
+        VideoInfoButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoButtonTableViewCell" forIndexPath:indexPath];
+        @weakify(self)
+        [cell setTouchDownloadButtonCallBack:^{
+            @strongify(self)
+            if (!self) return;
+            
+        }];
+        
+        [cell setTouchFavouriteButtonCallBack:^{
+            @strongify(self)
+            if (!self || !_model) return;
+            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:_model]) {
+                [MBProgressHUD showOnlyText:@"你已经收藏过了!"];
+            }
+            else {
+                [[ToolsManager shareToolsManager] addMineCollectionVideo:_model];
+                [MBProgressHUD showOnlyText:@"收藏成功!"];
+            }
+        }];
+        return cell;
+    }
+    else if (indexPath.row == 4) {
+        VideoInfoUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoUserTableViewCell" forIndexPath:indexPath];
+        cell.timeLabel.text = _model.create;
+        cell.userNameLabel.text = _model.user;
+        return cell;
+    }
+    else if (indexPath.row == 5) {
+        VideoInfoEpisodeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoEpisodeTableViewCell" forIndexPath:indexPath];
+        _episodesCellHeight = [cell cellHeightWithModels:_model.URLs];
+        return cell;
+    }
+    return nil;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float percent = scrollView.contentOffset.y / HEAD_VIEW_HEGHT;
+    if (percent < 0) percent = 0;
+    if (percent > 1) percent = 1;
+    
+    self.headBGView.alpha = percent;
+    [self.headImgView viewWithTag:100].alpha = percent + HEAD_IMG_VIEW_MIN_ALPHA;
+    self.headImgView.top = -percent * 50;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 || indexPath.row == 2) {
+        return [tableView fd_heightForCellWithIdentifier:@"VideoInfoTextTableViewCell" cacheByIndexPath:indexPath configuration:^(VideoInfoTextTableViewCell *cell) {
+            if (indexPath.row == 0) {
+                cell.titleLabel.font = [UIFont systemFontOfSize:14];
+                cell.titleLabel.text = _model.title;
+            }
+            else if (indexPath.row == 2) {
+                cell.titleLabel.font = [UIFont systemFontOfSize:13];
+                cell.titleLabel.text = _model.desc;
+            }
+        }];
+    }
+    else if (indexPath.row == 1) {
+        return 30;
+    }
+    else if (indexPath.row == 3) {
+        return 80;
+    }
+    else if (indexPath.row == 4) {
+        return [tableView fd_heightForCellWithIdentifier:@"VideoInfoUserTableViewCell" cacheByIndexPath:indexPath configuration:^(VideoInfoUserTableViewCell *cell) {
+            cell.timeLabel.text = _model.create;
+            cell.userNameLabel.text = _model.user;
+        }];
+    }
+    else if (indexPath.row == 5) {
+        return _episodesCellHeight;
+    }
+    return 0.1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 4) {
+        UserInfoWebViewController *vc = [[UserInfoWebViewController alloc] init];
+        vc.userId = _model.userId;
+        vc.user = _model.user;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - 私有方法
@@ -129,43 +203,48 @@
     _isFullScreen = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.view bringSubviewToFront:self.playerView];
     [UIView animateWithDuration:TRANSFORM_TIME animations:^{
         self.playerView.transform = CGAffineTransformMakeRotation(M_PI / 2);
         self.playerView.frame = self.view.bounds;
-        self.playerView.alpha = 1;
+//        self.playerView.alpha = 1;
     }];
 }
 
-- (void)scrollViewScroll:(NSNotification *)sender {
-    float offsetY = [sender.object floatValue];
-    
-    if (offsetY > HEAD_VIEW_HEGHT - CGRectGetMaxY(self.navigationController.navigationBar.frame)) {
-        offsetY = HEAD_VIEW_HEGHT - CGRectGetMaxY(self.navigationController.navigationBar.frame);
+#pragma mark - 懒加载
+
+- (HeadHitDisableTableView *)tableView {
+    if(_tableView == nil) {
+        _tableView = [[HeadHitDisableTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_tableView registerClass:[VideoInfoTextTableViewCell class] forCellReuseIdentifier:@"VideoInfoTextTableViewCell"];
+        [_tableView registerClass:[VideoInfoButtonTableViewCell class] forCellReuseIdentifier:@"VideoInfoButtonTableViewCell"];
+        [_tableView registerClass:[VideoInfoNumberTableViewCell class] forCellReuseIdentifier:@"VideoInfoNumberTableViewCell"];
+        [_tableView registerClass:[VideoInfoEpisodeTableViewCell class] forCellReuseIdentifier:@"VideoInfoEpisodeTableViewCell"];
+        [_tableView registerClass:[VideoInfoUserTableViewCell class] forCellReuseIdentifier:@"VideoInfoUserTableViewCell"];
+        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEAD_VIEW_HEGHT)];
+        [self.view addSubview:_tableView];
     }
-    
-    if (offsetY < 0) {
-        offsetY = 0;
-    }
-    
-    CGRect frame = self.holdView.frame;
-    frame.origin.y = HEAD_VIEW_HEGHT - offsetY;
-    self.holdView.frame = frame;
+    return _tableView;
 }
 
-#pragma mark - 懒加载
 - (YYAnimatedImageView *)headImgView {
     if(_headImgView == nil) {
-        _headImgView = [[YYAnimatedImageView alloc] initWithFrame:CGRectZero];
+        _headImgView = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEAD_VIEW_HEGHT)];
         _headImgView.contentMode = UIViewContentModeScaleAspectFill;
-        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        [_headImgView addSubview:effectView];
-        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        YYAnimatedImageView *blurImageView = [[YYAnimatedImageView alloc] initWithFrame:CGRectZero];
+        blurImageView.tag = 100;
+        blurImageView.alpha = HEAD_IMG_VIEW_MIN_ALPHA;
+        [_headImgView addSubview:blurImageView];
+        [blurImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
         _headImgView.clipsToBounds = YES;
         _headImgView.userInteractionEnabled = YES;
-        [self.view addSubview:_headImgView];
+        
     }
     return _headImgView;
 }
@@ -182,83 +261,41 @@
     return _playControlButton;
 }
 
-- (WMMenuView *)menuView {
-    if(_menuView == nil) {
-        _menuView = [[WMMenuView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, MENU_HEIGHT)];
-        _menuView.style = WMMenuViewStyleLine;
-        _menuView.backgroundColor = [UIColor whiteColor];
-        _menuView.lineColor = MAIN_COLOR;
-        _menuView.delegate = self;
-        _menuView.dataSource = self;
-    }
-    return _menuView;
-}
-
-- (iCarousel *)pageView {
-    if(_pageView == nil) {
-        _pageView = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.menuView.height, self.view.width, self.view.height - self.menuView.height - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
-        _pageView.type = iCarouselTypeLinear;
-        _pageView.delegate = self;
-        _pageView.dataSource = self;
-        _pageView.pagingEnabled = YES;
-        _pageView.decelerationRate = 0;
-        _pageView.clipsToBounds = YES;
-    }
-    return _pageView;
-}
-
-- (NSArray *)contentViewArr {
-    if(_contentViewArr == nil) {
-        VideoInfoBriefView *briefTableView = [[VideoInfoBriefView alloc] initWithFrame:self.view.bounds model:_model];
-        @weakify(self)
-        [briefTableView setTouchUserRowCallBack:^(NSString *userName, NSString *userId) {
-            @strongify(self)
-            if (!self) return;
-            
-            UserInfoWebViewController *vc = [[UserInfoWebViewController alloc] init];
-            vc.userId = userId;
-            vc.user = userName;
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        briefTableView.topHeight = HEAD_VIEW_HEGHT + MENU_HEIGHT;
-        
-        VideoInfoReplayWebView *replayWebTableView = [[VideoInfoReplayWebView alloc] initWithFrame:self.view.bounds typeId:_model.typeId videoId:_model.hid];
-        _contentViewArr = @[briefTableView, replayWebTableView];
-    }
-    return _contentViewArr;
-}
-
-- (UIView *)holdView {
-    if(_holdView == nil) {
-        _holdView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_holdView addSubview:self.menuView];
-        [_holdView addSubview:self.pageView];
-        _holdView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), self.view.width, self.pageView.height + self.menuView.height);
-    }
-    return _holdView;
-}
-
 - (PlayerView *)playerView {
     if(_playerView == nil) {
         _playerView = [[PlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT)];
+        _playerView.videoModel = _model;
         @weakify(self)
         [_playerView setTouchFullScreenCallBack:^{
             @strongify(self)
             if (!self) return;
+            
+            [self.playerView.player pause];
             self->_isFullScreen = NO;
             [self setNeedsStatusBarAppearanceUpdate];
             [self.navigationController setNavigationBarHidden:NO animated:YES];
             [UIView animateWithDuration:TRANSFORM_TIME animations:^{
                 self.playerView.transform = CGAffineTransformIdentity;
                 self.playerView.frame = CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT);
-                self.playerView.alpha = 0;
+//                self.playerView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [self.view sendSubviewToBack:self.playerView];
             }];
             
         }];
-        _playerView.alpha = 0;
+//        _playerView.alpha = 0;
         
     }
     return _playerView;
+}
+
+- (UIView *)headBGView {
+	if(_headBGView == nil) {
+		_headBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, CGRectGetMaxY(self.navigationController.navigationBar.frame))];
+        _headBGView.backgroundColor = MAIN_COLOR;
+        _headBGView.alpha = 0;
+	}
+	return _headBGView;
 }
 
 @end

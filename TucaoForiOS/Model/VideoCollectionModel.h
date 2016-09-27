@@ -85,4 +85,8 @@
  *  视频 id
  */
 @property (copy, nonatomic) NSString *vid;
+/**
+ *  播放地址
+ */
+@property (strong, nonatomic) NSArray <NSURL *>*playURLs;
 @end

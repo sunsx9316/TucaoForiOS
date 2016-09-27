@@ -13,9 +13,11 @@ pod 'MBProgressHUD'
 pod 'YYCategories'
 pod 'GDataXML-HTML'
 pod 'JHDanmakuRender'
-pod 'iCarousel'
+#pod 'iCarousel'
 pod 'WMPageController'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'FDFullscreenPopGesture'
+pod 'MobileVLCKit-unstable', '~> 3.0.0a23'
+pod 'RegExCategories'
 end
 

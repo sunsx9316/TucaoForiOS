@@ -38,10 +38,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.tableView.contentSize.height < _topHeight) {
-        float height = _topHeight - self.tableView.contentSize.height;
-        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, height)];
-    }
+    self.tableView.frame = self.superview.bounds;
+//    if (self.tableView.contentSize.height < _topHeight) {
+//        float height = _topHeight - self.tableView.contentSize.height;
+//        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, height)];
+//    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -122,7 +123,8 @@
             }
             else if (indexPath.row == 2) {
                 cell.titleLabel.font = [UIFont systemFontOfSize:13];
-                cell.titleLabel.text = _model.desc;
+//                cell.titleLabel.text = @"a";
+                cell.titleLabel.text = @"dijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbds";
             }
         }];
     }

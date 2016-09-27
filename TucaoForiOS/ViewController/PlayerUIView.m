@@ -7,23 +7,11 @@
 //
 
 #import "PlayerUIView.h"
-@interface PlayerUIView ()
-/**
- *  视频标题
- */
-@property (strong, nonatomic) UILabel *titleLabel;
-/**
- *  当前时间
- */
-@property (strong, nonatomic) UILabel *currentTimeLabel;
-/**
- *  视频长度
- */
-@property (strong, nonatomic) UILabel *videolengthLabel;
-
-@end
-
 @implementation PlayerUIView
+{
+    NSTimer *_timer;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
@@ -44,7 +32,6 @@
             make.left.mas_offset(10);
         }];
         
-        self.titleLabel.text = @"aaaa";
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_offset(0);
             make.left.equalTo(self.backButton.mas_right).mas_offset(10);
@@ -115,6 +102,33 @@
     return self;
 }
 
+- (void)show {
+    [_timer invalidate];
+    self.layer.timeOffset = 0;
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    animation.duration = 1;
+    animation.fromValue = @(0);
+    animation.toValue = @(1);
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.beginTime = CACurrentMediaTime();
+    [self.layer addAnimation:animation forKey:@"opacity_animation"];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:3 block:^(NSTimer * _Nonnull timer) {
+        [self dismiss];
+    } repeats:NO];
+}
+
+- (void)dismiss {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    animation.duration = 1;
+    animation.fromValue = @(self.layer.opacity);
+    animation.toValue = @(0);
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.beginTime = CACurrentMediaTime();
+    [self.layer addAnimation:animation forKey:@"opacity_animation"];
+}
 
 #pragma mark - 私有方法
 - (void)touchDanmaluHideButton:(UIButton *)button {
@@ -221,6 +235,8 @@
 		_playerProgressSlider = [[UISlider alloc] init];
         _playerProgressSlider.continuous = NO;
         _playerProgressSlider.minimumTrackTintColor = MAIN_COLOR;
+        _playerProgressSlider.minimumValue = 0;
+        _playerProgressSlider.maximumValue = 1;
         [_playerProgressSlider setThumbImage:[[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(20, 20)] imageByRoundCornerRadius:5] forState:UIControlStateNormal];
 	}
 	return _playerProgressSlider;
