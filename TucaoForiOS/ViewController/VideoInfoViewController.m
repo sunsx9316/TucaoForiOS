@@ -59,19 +59,18 @@
         view.image = [[image yy_imageByResizeToSize:self.headImgView.size contentMode:UIViewContentModeScaleAspectFill] applyBlurWithRadius:5 tintColor:RGBACOLOR(0, 0, 0, 0.6) saturationDeltaFactor:1.0 maskImage:nil];
     }];
     
-    
     [self.view addSubview:self.headImgView];
-    
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    
-    [self.view addSubview:self.playerView];
     
     [self.playControlButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(HEAD_VIEW_HEGHT - 70);
         make.right.mas_offset(-20);
         make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
+    
+    [self.view addSubview:self.playerView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
     }];
     
     [self.view addSubview:self.headBGView];
@@ -119,12 +118,13 @@
         
         [cell setTouchFavouriteButtonCallBack:^{
             @strongify(self)
-            if (!self || !_model) return;
-            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:_model]) {
+            if (!self) return;
+            
+            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:self->_model]) {
                 [MBProgressHUD showOnlyText:@"你已经收藏过了!"];
             }
             else {
-                [[ToolsManager shareToolsManager] addMineCollectionVideo:_model];
+                [[ToolsManager shareToolsManager] addMineCollectionVideo:self->_model];
                 [MBProgressHUD showOnlyText:@"收藏成功!"];
             }
         }];
@@ -199,15 +199,9 @@
 
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
-    _isFullScreen = YES;
-    [self setNeedsStatusBarAppearanceUpdate];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self.view bringSubviewToFront:self.playerView];
+    [self.playerView.player play];
     [UIView animateWithDuration:TRANSFORM_TIME animations:^{
-        self.playerView.transform = CGAffineTransformMakeRotation(M_PI / 2);
-        self.playerView.frame = self.view.bounds;
-//        self.playerView.alpha = 1;
+        self.playerView.alpha = 1;
     }];
 }
 
@@ -266,25 +260,30 @@
         _playerView = [[PlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT)];
         _playerView.videoModel = _model;
         @weakify(self)
-        [_playerView setTouchFullScreenCallBack:^{
+        [_playerView setTouchFullScreenCallBack:^(BOOL isFullScreen){
             @strongify(self)
             if (!self) return;
             
-            [self.playerView.player pause];
-            self->_isFullScreen = NO;
+            self->_isFullScreen = isFullScreen;
             [self setNeedsStatusBarAppearanceUpdate];
-            [self.navigationController setNavigationBarHidden:NO animated:YES];
-            [UIView animateWithDuration:TRANSFORM_TIME animations:^{
-                self.playerView.transform = CGAffineTransformIdentity;
-                self.playerView.frame = CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT);
-//                self.playerView.alpha = 0;
-            } completion:^(BOOL finished) {
-                [self.view sendSubviewToBack:self.playerView];
-            }];
-            
+            [self.navigationController setNavigationBarHidden:isFullScreen animated:YES];
+            if (isFullScreen) {
+                [self.view bringSubviewToFront:self.playerView];
+                [UIView animateWithDuration:TRANSFORM_TIME animations:^{
+                    self.playerView.transform = CGAffineTransformMakeRotation(M_PI / 2);
+                    self.playerView.frame = self.view.bounds;
+                }];
+            }
+            else {
+                [UIView animateWithDuration:TRANSFORM_TIME animations:^{
+                    self.playerView.transform = CGAffineTransformIdentity;
+                    self.playerView.frame = CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT);
+                } completion:^(BOOL finished) {
+                    [self.view insertSubview:self.playerView belowSubview:self.tableView];
+                }];
+            }
         }];
-//        _playerView.alpha = 0;
-        
+        _playerView.alpha = 0;
     }
     return _playerView;
 }

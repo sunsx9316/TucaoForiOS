@@ -7,6 +7,8 @@
 //
 
 #import "PlayerUIView.h"
+#define ANIMATE_TIME 0.4
+
 @implementation PlayerUIView
 {
     NSTimer *_timer;
@@ -15,89 +17,19 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
-        UIView *topHoldView = [[UIView alloc] init];
-        topHoldView.backgroundColor = RGBACOLOR(0, 0, 0, 0.7);
-        [self addSubview:topHoldView];
-        [topHoldView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.mas_equalTo(0);
             make.height.mas_equalTo(40);
         }];
         
-        [topHoldView addSubview:self.backButton];
-        [topHoldView addSubview:self.titleLabel];
-        [topHoldView addSubview:self.danmakuConfigButton];
-        
-        [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(0);
-            make.left.mas_offset(10);
-        }];
-        
-        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_offset(0);
-            make.left.equalTo(self.backButton.mas_right).mas_offset(10);
-            make.width.equalTo(self.mas_width).multipliedBy(0.5);
-        }];
-        
-        [self.danmakuConfigButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_offset(-10);
-            make.centerY.mas_equalTo(0);
-        }];
-
-        UIView *bottomView = [[UIView alloc] init];
-        [bottomView addSubview:self.danmakuHideButton];
-        [bottomView addSubview:self.playSourseButton];
-        [bottomView addSubview:self.episodeButton];
-        [bottomView addSubview:self.fullScreenButton];
-        [bottomView addSubview:self.currentTimeLabel];
-        [bottomView addSubview:self.playerProgressSlider];
-        [bottomView addSubview:self.videolengthLabel];
-        bottomView.backgroundColor = RGBACOLOR(0, 0, 0, 0.7);
-        [self addSubview:bottomView];
-        [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
         }];
-
-        [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_offset(-10);
-            make.left.mas_offset(10);
+        
+        [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_offset(-20);
+            make.bottom.equalTo(_bottomView.mas_top).mas_offset(-10);
         }];
-        
-        [self.playerProgressSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.currentTimeLabel);
-            make.left.equalTo(self.currentTimeLabel.mas_right).mas_offset(10);
-        }];
-        
-        [self.videolengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.playerProgressSlider.mas_right).mas_offset(10);
-            make.right.mas_offset(-10);
-            make.centerY.equalTo(self.currentTimeLabel);
-        }];
-        
-        [self.danmakuHideButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.mas_offset(10);
-            make.bottom.equalTo(self.currentTimeLabel.mas_top).mas_offset(-10);
-        }];
-        
-        [self.playSourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.danmakuHideButton);
-        }];
-        
-        [self.episodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.playSourseButton.mas_right).mas_offset(10);
-            make.centerY.equalTo(self.fullScreenButton);
-        }];
-        
-        [self.fullScreenButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.episodeButton.mas_right).mas_offset(10);
-            make.right.mas_offset(-10);
-            make.top.mas_offset(10);
-        }];
-        
-//        [self.playSourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(bottomView.mas_top).mas_offset(-5);
-//            make.right.mas_offset(-10);
-//        }];
-        
     }
     return self;
 }
@@ -107,12 +39,13 @@
     self.layer.timeOffset = 0;
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    animation.duration = 1;
-    animation.fromValue = @(0);
+    animation.duration = ANIMATE_TIME;
+    animation.fromValue = @(self.layer.opacity);
     animation.toValue = @(1);
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.beginTime = CACurrentMediaTime();
+    animation.delegate = self;
     [self.layer addAnimation:animation forKey:@"opacity_animation"];
     _timer = [NSTimer scheduledTimerWithTimeInterval:3 block:^(NSTimer * _Nonnull timer) {
         [self dismiss];
@@ -121,13 +54,18 @@
 
 - (void)dismiss {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    animation.duration = 1;
+    animation.duration = ANIMATE_TIME;
     animation.fromValue = @(self.layer.opacity);
     animation.toValue = @(0);
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.beginTime = CACurrentMediaTime();
+    animation.delegate = self;
     [self.layer addAnimation:animation forKey:@"opacity_animation"];
+}
+
+- (void)animationDidStop:(CABasicAnimation *)anim finished:(BOOL)flag {
+    self.layer.opacity = [anim.toValue floatValue];
 }
 
 #pragma mark - 私有方法
@@ -149,6 +87,8 @@
 		_playButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
         [_playButton setImage:[UIImage imageNamed:@"player_play"] forState:UIControlStateSelected];
         [_playButton setImage:[UIImage imageNamed:@"player_pause"] forState:UIControlStateNormal];
+        _playButton.hidden = YES;
+        [self addSubview:_playButton];
 	}
 	return _playButton;
 }
@@ -240,6 +180,88 @@
         [_playerProgressSlider setThumbImage:[[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(20, 20)] imageByRoundCornerRadius:5] forState:UIControlStateNormal];
 	}
 	return _playerProgressSlider;
+}
+
+- (UIView *)topView {
+    if (_topView == nil) {
+        _topView = [[UIView alloc] init];
+        _topView.backgroundColor = RGBACOLOR(0, 0, 0, 0.7);
+        _topView.hidden = YES;
+        [self addSubview:_topView];
+        
+        [_topView addSubview:self.backButton];
+        [_topView addSubview:self.titleLabel];
+        [_topView addSubview:self.danmakuConfigButton];
+        
+        [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(0);
+            make.left.mas_offset(10);
+        }];
+        
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_offset(0);
+            make.left.equalTo(self.backButton.mas_right).mas_offset(10);
+            make.width.equalTo(self.mas_width).multipliedBy(0.5);
+        }];
+        
+        [self.danmakuConfigButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_offset(-10);
+            make.centerY.mas_equalTo(0);
+        }];
+    }
+    return _topView;
+}
+
+- (UIView *)bottomView {
+    if (_bottomView == nil) {
+        _bottomView = [[UIView alloc] init];
+        [_bottomView addSubview:self.danmakuHideButton];
+        [_bottomView addSubview:self.playSourseButton];
+        [_bottomView addSubview:self.episodeButton];
+        [_bottomView addSubview:self.fullScreenButton];
+        [_bottomView addSubview:self.currentTimeLabel];
+        [_bottomView addSubview:self.playerProgressSlider];
+        [_bottomView addSubview:self.videolengthLabel];
+        _bottomView.backgroundColor = RGBACOLOR(0, 0, 0, 0.7);
+        [self addSubview:_bottomView];
+        
+        [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_offset(-10);
+            make.left.mas_offset(10);
+        }];
+        
+        [self.playerProgressSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.currentTimeLabel);
+            make.left.equalTo(self.currentTimeLabel.mas_right).mas_offset(10);
+        }];
+        
+        [self.videolengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.playerProgressSlider.mas_right).mas_offset(10);
+            make.right.mas_offset(-10);
+            make.centerY.equalTo(self.currentTimeLabel);
+        }];
+        
+        [self.danmakuHideButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.mas_offset(10);
+            make.bottom.equalTo(self.currentTimeLabel.mas_top).mas_offset(-10);
+        }];
+        
+        [self.playSourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.danmakuHideButton);
+        }];
+        
+        [self.episodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.playSourseButton.mas_right).mas_offset(10);
+            make.centerY.equalTo(self.fullScreenButton);
+        }];
+        
+        [self.fullScreenButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.episodeButton.mas_right).mas_offset(10);
+            make.right.mas_offset(-10);
+            make.top.mas_offset(10);
+        }];
+    }
+    return _bottomView;
 }
 
 @end

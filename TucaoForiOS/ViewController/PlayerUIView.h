@@ -55,6 +55,11 @@
  */
 @property (strong, nonatomic) UILabel *videolengthLabel;
 
+@property (strong, nonatomic) UIView *bottomView;
+
+@property (strong, nonatomic) UIView *topView;
+
 - (void)show;
 - (void)dismiss;
+
 @end

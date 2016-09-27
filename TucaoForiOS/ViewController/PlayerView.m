@@ -7,12 +7,11 @@
 //
 
 #import "PlayerView.h"
-#import "PlayerUIView.h"
 #import "VideoNetManager.h"
 #import "DanmakuNetManager.h"
+#import "MBProgressHUD+Tools.h"
 
 @interface PlayerView ()<VLCMediaPlayerDelegate>
-@property (strong, nonatomic) PlayerUIView *playerUIView;
 @property (strong, nonatomic) UIView *holdView;
 @property (strong, nonatomic) JHDanmakuEngine *danmakuEngine;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -27,8 +26,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor blackColor];
-//        self.danmakuEngine.canvas.frame = self.bounds;
         self.holdView.frame = self.bounds;
+        self.danmakuEngine.canvas.frame = self.bounds;
         self.playerUIView.frame = self.bounds;
     }
     return self;
@@ -36,6 +35,7 @@
 
 - (void)setVideoModel:(VideoModel *)videoModel {
     _videoModel = videoModel;
+    self.playerUIView.titleLabel.text = _videoModel.title;
     [self URLWithCurrentIndexCompletion:^(VideoURLModel *model, NSURL *url) {
         if (!model) return;
         
@@ -49,7 +49,12 @@
                     if (_currentSource < URLs.count) {
                         VLCMedia *media = [[VLCMedia alloc] initWithURL:URLs[_currentSource]];
                         self.player.media = media;
-                        [self.player play];
+                        if (self.playerUIView.playButton.isSelected) {
+                            [self.player play];
+                        }
+                    }
+                    else {
+                        [MBProgressHUD showOnlyText:@"视频不存在"];
                     }
                     
                     [self.danmakuEngine sendAllDanmakusDic:danmakuDic];
@@ -59,7 +64,9 @@
         else {
             VLCMedia *media = [[VLCMedia alloc] initWithURL:url];
             self.player.media = media;
-            [self.player play];
+            if (self.playerUIView.playButton.isSelected) {
+                [self.player play];
+            }
         }
     }];
 }
@@ -67,11 +74,18 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.holdView.frame = self.bounds;
+    self.danmakuEngine.canvas.frame = self.bounds;
     self.playerUIView.frame = self.bounds;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.playerUIView show];
+}
+
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.player stop];
 }
 
 #pragma mark - VLCMediaPlayerDelegate
@@ -80,7 +94,7 @@
     if (state == VLCMediaPlayerStatePaused) {
         [self.danmakuEngine pause];
     }
-    else if (state == VLCMediaPlayerStatePlaying) {
+    else if (state == VLCMediaPlayerStatePlaying || state == VLCMediaPlayerStateBuffering) {
         [self.danmakuEngine start];
     }
 }
@@ -97,13 +111,6 @@
 }
 
 #pragma mark - 私有方法
-- (void)touchBackButton:(UIButton *)button {
-    if (self.touchFullScreenCallBack) {
-        self.touchFullScreenCallBack();
-    }
-    [self.playerUIView dismiss];
-}
-
 - (void)touchPlayButton:(UIButton *)button {
     button.selected = !button.isSelected;
     button.isSelected ? [self.player play] : [self.player pause];
@@ -137,8 +144,14 @@
 }
 
 - (void)touchFullScreenButton:(UIButton *)button {
+    BOOL isSelected = !button.isSelected;
+    self.playerUIView.backButton.selected = isSelected;
+    self.playerUIView.fullScreenButton.selected = isSelected;
+    self.playerUIView.playButton.hidden = !isSelected;
+    self.playerUIView.topView.hidden = !isSelected;
+    [self.playerUIView show];
     if (self.touchFullScreenCallBack) {
-        self.touchFullScreenCallBack();
+        self.touchFullScreenCallBack(isSelected);
     }
 }
 
@@ -164,7 +177,7 @@
 - (PlayerUIView *)playerUIView {
 	if(_playerUIView == nil) {
 		_playerUIView = [[PlayerUIView alloc] initWithFrame:self.bounds];
-        [_playerUIView.backButton addTarget:self action:@selector(touchBackButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_playerUIView.backButton addTarget:self action:@selector(touchFullScreenButton:) forControlEvents:UIControlEventTouchUpInside];
         [_playerUIView.playButton addTarget:self action:@selector(touchPlayButton:) forControlEvents:UIControlEventTouchUpInside];
         [_playerUIView.danmakuHideButton addTarget:self action:@selector(touchDanmakuHideButton:) forControlEvents:UIControlEventTouchUpInside];
         [_playerUIView.danmakuConfigButton addTarget:self action:@selector(touchDanmakuConfigButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -181,7 +194,7 @@
     if(_player == nil) {
         _player = [[VLCMediaPlayer alloc] init];
         _player.delegate = self;
-        _player.drawable = self.holdView;
+        _player.drawable = self.holdView.layer;
     }
     return _player;
 }
@@ -189,6 +202,7 @@
 - (JHDanmakuEngine *)danmakuEngine {
 	if(_danmakuEngine == nil) {
 		_danmakuEngine = [[JHDanmakuEngine alloc] init];
+        _danmakuEngine.turnonBackFunction = YES;
         [self addSubview:_danmakuEngine.canvas];
 	}
 	return _danmakuEngine;
