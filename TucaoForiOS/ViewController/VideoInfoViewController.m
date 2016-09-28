@@ -199,7 +199,7 @@
 
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)sender {
-    [self.playerView.player play];
+    self.playerView.videoModel = _model;
     [UIView animateWithDuration:TRANSFORM_TIME animations:^{
         self.playerView.alpha = 1;
     }];
@@ -258,7 +258,6 @@
 - (PlayerView *)playerView {
     if(_playerView == nil) {
         _playerView = [[PlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, HEAD_VIEW_HEGHT)];
-        _playerView.videoModel = _model;
         @weakify(self)
         [_playerView setTouchFullScreenCallBack:^(BOOL isFullScreen){
             @strongify(self)

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MobileVLCKit/MobileVLCKit.h>
+#import <IJKMediaFramework/IJKMediaFramework.h>
 #import "JHDanmakuEngine+Tools.h"
 #import "VideoCollectionModel.h"
 #import "PlayerUIView.h"
@@ -17,6 +17,6 @@
 @interface PlayerView : UIView
 @property (copy, nonatomic) void(^touchFullScreenCallBack)(BOOL isFullScreen);
 @property (strong, nonatomic) VideoModel *videoModel;
-@property (strong, nonatomic) VLCMediaPlayer *player;
+@property (strong, nonatomic) IJKFFMoviePlayerController *player;
 @property (strong, nonatomic) PlayerUIView *playerUIView;
 @end

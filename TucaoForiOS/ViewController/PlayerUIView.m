@@ -12,6 +12,7 @@
 @implementation PlayerUIView
 {
     NSTimer *_timer;
+    BOOL _isShow;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -37,6 +38,7 @@
 - (void)show {
     [_timer invalidate];
     self.layer.timeOffset = 0;
+    _isShow = YES;
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     animation.duration = ANIMATE_TIME;
@@ -65,7 +67,15 @@
 }
 
 - (void)animationDidStop:(CABasicAnimation *)anim finished:(BOOL)flag {
-    self.layer.opacity = [anim.toValue floatValue];
+    float value = [anim.toValue floatValue];
+    if (value == 0) {
+        _isShow = NO;
+    }
+    self.layer.opacity = _isShow;
+}
+
+- (BOOL)isShowing {
+    return _isShow;
 }
 
 #pragma mark - 私有方法
@@ -85,8 +95,8 @@
 - (UIButton *)playButton {
 	if(_playButton == nil) {
 		_playButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        [_playButton setImage:[UIImage imageNamed:@"player_play"] forState:UIControlStateSelected];
-        [_playButton setImage:[UIImage imageNamed:@"player_pause"] forState:UIControlStateNormal];
+        [_playButton setImage:[UIImage imageNamed:@"player_play"] forState:UIControlStateNormal];
+        [_playButton setImage:[UIImage imageNamed:@"player_pause"] forState:UIControlStateSelected];
         _playButton.hidden = YES;
         [self addSubview:_playButton];
 	}

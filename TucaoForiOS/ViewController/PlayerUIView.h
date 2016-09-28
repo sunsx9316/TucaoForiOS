@@ -61,5 +61,5 @@
 
 - (void)show;
 - (void)dismiss;
-
+@property (assign, nonatomic, readonly) BOOL isShowing;
 @end

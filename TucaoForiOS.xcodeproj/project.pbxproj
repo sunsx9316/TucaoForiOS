@@ -11,6 +11,7 @@
 		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
 		811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */; };
 		811C707F1D9A0EEB00610BFA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */; };
+		817477381D9BBB8A0085FA40 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817477371D9BBB8A0085FA40 /* IJKMediaFramework.framework */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
 		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
@@ -84,6 +85,7 @@
 		811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadHitDisableTableView.m; sourceTree = "<group>"; };
 		811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		817477371D9BBB8A0085FA40 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
 		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
 		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */,
+				817477381D9BBB8A0085FA40 /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +230,14 @@
 				893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		817477361D9BBB7F0085FA40 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				817477371D9BBB8A0085FA40 /* IJKMediaFramework.framework */,
+			);
+			path = Vender;
 			sourceTree = "<group>";
 		};
 		818DDE781D87F4C200B22A59 /* View */ = {
@@ -313,6 +324,7 @@
 				8930E9911D6BFEBF003C1B44 /* AppDelegate.h */,
 				8930E9921D6BFEBF003C1B44 /* AppDelegate.m */,
 				89C760FC1D6C803600635384 /* Resource */,
+				817477361D9BBB7F0085FA40 /* Vender */,
 				8930E9DB1D6C2E83003C1B44 /* Tools */,
 				8930E9A51D6BFF27003C1B44 /* Config */,
 				8930E9A61D6BFF27003C1B44 /* Model */,
@@ -904,6 +916,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TucaoForiOS/Vender",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -921,6 +937,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TucaoForiOS/Vender",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TucaoForiOS/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TucaoForiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

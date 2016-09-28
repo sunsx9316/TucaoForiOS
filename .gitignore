@@ -61,7 +61,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-VLCKit.framework
+IJKMediaFramework.framework
 .DS_Store
 .DS_Store?
 Podfile.lock
