@@ -11,10 +11,12 @@
 #import "DanmakuNetManager.h"
 #import "MBProgressHUD+Tools.h"
 
-@interface PlayerView ()
+
+@interface PlayerView ()<PlayerSlideViewDelegate>
 //@property (strong, nonatomic) UIView *holdView;
 @property (strong, nonatomic) JHDanmakuEngine *danmakuEngine;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSTimer *timer;
 @end
 
 @implementation PlayerView
@@ -32,6 +34,7 @@
         self.playerUIView.frame = self.bounds;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerStatusChange:) name:IJKMPMoviePlayerPlaybackStateDidChangeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerLoadStateChangeaNotification:) name:IJKMPMoviePlayerLoadStateDidChangeNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerProgressChange:) name:IJKMPMoviePlayerPlaybackBufferDidChangeNotification object:nil];
     }
     return self;
 }
@@ -86,10 +89,21 @@
     }
 }
 
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.player shutdown];
+    [self.timer invalidate];
+}
+
+#pragma mark - PlayerSlideViewDelegate
+- (void)playerSliderTouchBeginWithPlayerSliderView:(PlayerSlideView *)playerSliderView {
+    _isDragProgress = YES;
+}
+
+- (void)playerSliderTouchEnd:(CGFloat)endValue playerSliderView:(PlayerSlideView*)playerSliderView {
+    _isDragProgress = NO;
+    self.player.currentPlaybackTime = endValue * self.player.duration;
+    [MBProgressHUD showIndeterminateHUDWithView:self.player.view text:nil];
 }
 
 #pragma mark - IJKPlayer
@@ -105,42 +119,15 @@
 }
 
 - (void)playerLoadStateChangeaNotification:(NSNotification *)aNotification {
-    if (self.player.loadState == IJKMPMovieLoadStateStalled) {
-        
+    if (self.player.loadState == IJKMPMovieLoadStateStalled || self.player.loadState == IJKMPMovieLoadStatePlaythroughOK) {
+        //隐藏菊花
+        [MBProgressHUD hideIndeterminateHUD];
     }
-    NSLog(@"\n======== %ld =========\n", self.player.loadState);
 }
 
-//#pragma mark - VLCMediaPlayerDelegate
-//- (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
-//    VLCMediaPlayerState state = self.player.state;
-//    NSLog(@"播放器状态: %@", VLCMediaPlayerStateToString(state));
-//    if (state == VLCMediaPlayerStatePaused) {
-//        [self.danmakuEngine pause];
-//    }
-//    else if (state == VLCMediaPlayerStatePlaying || state == VLCMediaPlayerStateBuffering) {
-//        [self.danmakuEngine start];
-//        [self.danmakuEngine setCurrentTime:self.player.currentTime];
-//        [MBProgressHUD hideIndeterminateHUD];
-//    }
-//}
-//
-//- (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
-//    if (!_isDragProgress) {
-//        float nowTime = _player.currentTime;
-//        float videoTime = _player.totalTime;
-//        NSString *nowDateTime = [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:nowTime]];
-//        NSString *videoDateTime = [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:videoTime]];
-//        if (!(videoDateTime && nowDateTime)) return;
-//        self.playerUIView.currentTimeLabel.text = nowDateTime;
-//        self.playerUIView.videolengthLabel.text = videoDateTime;
-//        self.playerUIView.playerProgressSlider.value = nowTime / videoTime;
-//    }
-//}
 
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)button {
-//    button.selected = !button.isSelected;
     self.player.isPlaying ? [self.player pause] : [self.player play];
 }
 
@@ -194,9 +181,13 @@
 }
 
 - (IJKFFMoviePlayerController *)configFFMoviePlayerWithUrl:(NSURL *)url {
+    [IJKFFMoviePlayerController setLogReport:NO];
+    [IJKFFMoviePlayerController setLogLevel:k_IJK_LOG_INFO];
     IJKFFMoviePlayerController *player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:[IJKFFOptions optionsByDefault]];
     player.scalingMode = IJKMPMovieScalingModeAspectFit;
     player.shouldAutoplay = YES;
+    [MBProgressHUD showIndeterminateHUDWithView:player.view text:nil];
+    [self.timer fire];
     return player;
 }
 
@@ -225,8 +216,7 @@
         [_playerUIView.playSourseButton addTarget:self action:@selector(touchPlaySourseButton:) forControlEvents:UIControlEventTouchUpInside];
         [_playerUIView.episodeButton addTarget:self action:@selector(touchEpisodeButton:) forControlEvents:UIControlEventTouchUpInside];
         [_playerUIView.fullScreenButton addTarget:self action:@selector(touchFullScreenButton:) forControlEvents:UIControlEventTouchUpInside];
-        [_playerUIView.playerProgressSlider addTarget:self action:@selector(touchPlayerProgressSliderIn:) forControlEvents:UIControlEventTouchDown];
-        [_playerUIView.playerProgressSlider addTarget:self action:@selector(touchPlayerProgressSliderOut:) forControlEvents:UIControlEventTouchUpInside];
+        _playerUIView.playerProgressSlider.delegate = self;
         [self insertSubview:_playerUIView atIndex:2];
 	}
 	return _playerUIView;
@@ -241,20 +231,28 @@
 	return _danmakuEngine;
 }
 
-//- (UIView *)holdView {
-//	if(_holdView == nil) {
-//		_holdView = [[UIView alloc] init];
-//        [self addSubview:_holdView];
-//	}
-//	return _holdView;
-//}
-
 - (NSDateFormatter *)dateFormatter {
     if(_dateFormatter == nil) {
         _dateFormatter = [[NSDateFormatter alloc] init];
         _dateFormatter.dateFormat = @"mm:ss";
     }
     return _dateFormatter;
+}
+
+- (NSTimer *)timer {
+	if(_timer == nil) {
+        @weakify(self)
+		_timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^(NSTimer * _Nonnull timer) {
+            @strongify(self)
+            if (!self) return;
+            
+            if (!self->_isDragProgress) {
+                self.playerUIView.playerProgressSlider.currentProgress = self.player.currentPlaybackTime / self.player.duration;
+            }
+            self.playerUIView.playerProgressSlider.bufferProgress = self.player.bufferingProgress / 10000.0;
+        } repeats:YES];
+	}
+	return _timer;
 }
 
 @end

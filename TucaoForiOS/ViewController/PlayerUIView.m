@@ -35,6 +35,15 @@
     return self;
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *aView = [super hitTest:point withEvent:event];
+    NSLog(@"%@", aView);
+    if (aView != self) {
+        _timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
+    }
+    return aView;
+}
+
 - (void)show {
     [_timer invalidate];
     self.layer.timeOffset = 0;
@@ -180,14 +189,18 @@
 	return _videolengthLabel;
 }
 
-- (UISlider *)playerProgressSlider {
+- (PlayerSlideView *)playerProgressSlider {
 	if(_playerProgressSlider == nil) {
-		_playerProgressSlider = [[UISlider alloc] init];
-        _playerProgressSlider.continuous = NO;
-        _playerProgressSlider.minimumTrackTintColor = MAIN_COLOR;
-        _playerProgressSlider.minimumValue = 0;
-        _playerProgressSlider.maximumValue = 1;
-        [_playerProgressSlider setThumbImage:[[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(20, 20)] imageByRoundCornerRadius:5] forState:UIControlStateNormal];
+		_playerProgressSlider = [[PlayerSlideView alloc] initWithFrame:CGRectZero];
+        _playerProgressSlider.progressSliderColor = MAIN_COLOR;
+        _playerProgressSlider.backGroundColor = RGBACOLOR(0, 0, 0, 0.6);
+        //拖动进度条 不隐藏视图
+        @weakify(self)
+        [_playerProgressSlider setPlayerSliderDraggedEndCallBackBlock:^(CGFloat value) {
+            @strongify(self)
+            if (!self) return;
+            self->_timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
+        }];
 	}
 	return _playerProgressSlider;
 }
@@ -232,17 +245,18 @@
         [_bottomView addSubview:self.currentTimeLabel];
         [_bottomView addSubview:self.playerProgressSlider];
         [_bottomView addSubview:self.videolengthLabel];
-        _bottomView.backgroundColor = RGBACOLOR(0, 0, 0, 0.7);
+        _bottomView.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
         [self addSubview:_bottomView];
         
         [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_offset(-10);
+            make.bottom.mas_offset(-15);
             make.left.mas_offset(10);
         }];
         
         [self.playerProgressSlider mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.currentTimeLabel);
             make.left.equalTo(self.currentTimeLabel.mas_right).mas_offset(10);
+            make.height.mas_equalTo(8);
         }];
         
         [self.videolengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -18,8 +18,9 @@
 #import "HeadHitDisableTableView.h"
 
 #import "MBProgressHUD+Tools.h"
-#import <UITableView+FDTemplateLayoutCell.h>
 #import "UIImage+ImageEffects.h"
+#import <UITableView+FDTemplateLayoutCell.h>
+#import <UINavigationController+FDFullscreenPopGesture.h>
 
 #define HEAD_VIEW_HEGHT 180
 #define TRANSFORM_TIME 0.3
@@ -266,6 +267,7 @@
             self->_isFullScreen = isFullScreen;
             [self setNeedsStatusBarAppearanceUpdate];
             [self.navigationController setNavigationBarHidden:isFullScreen animated:YES];
+            self.fd_interactivePopDisabled = isFullScreen;
             if (isFullScreen) {
                 [self.view bringSubviewToFront:self.playerView];
                 [UIView animateWithDuration:TRANSFORM_TIME animations:^{

@@ -6,6 +6,8 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "PlayerSlideView.h"
+
 /**
  *  播放器的UI界面
  */
@@ -41,7 +43,7 @@
 /**
  *  进度
  */
-@property (strong, nonatomic) UISlider *playerProgressSlider;
+@property (strong, nonatomic) PlayerSlideView *playerProgressSlider;
 /**
  *  视频标题
  */
