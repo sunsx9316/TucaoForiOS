@@ -12,6 +12,11 @@
 @property (strong, nonatomic) NSArray <VideoModel *>*videos;
 @end
 
+typedef NS_ENUM(NSUInteger, VideoURLModelStatus) {
+    VideoURLModelStatusNone,
+    VideoURLModelStatusDownloding,
+    VideoURLModelStatusDownloded,
+};
 
 @interface VideoModel : BaseModel
 /**
@@ -89,4 +94,12 @@
  *  播放地址
  */
 @property (strong, nonatomic) NSArray <NSURL *>*playURLs;
+/**
+ *  视频状态
+ */
+@property (assign, nonatomic) VideoURLModelStatus status;
+/**
+ *  下载进度
+ */
+@property (assign, nonatomic) float progress;
 @end

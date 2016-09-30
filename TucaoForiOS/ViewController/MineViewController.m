@@ -11,6 +11,7 @@
 #import "SearchHistoryListView.h"
 #import "SearchListViewController.h"
 #import "MineCollectionViewController.h"
+#import "DownloadViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (strong, nonatomic) UITableView *tableView;
@@ -44,7 +45,12 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
+        DownloadViewController *vc = [[DownloadViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 2) {
         MineCollectionViewController *vc = [[MineCollectionViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

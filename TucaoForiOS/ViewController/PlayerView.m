@@ -66,9 +66,12 @@
             }];
         }
         else {
-            _player = [self configFFMoviePlayerWithUrl:url];
-            [self insertSubview:_player.view atIndex:0];
-            [self.player prepareToPlay];
+            [DanmakuNetManager danmakuDicWithHid:videoModel.hid part:[NSString stringWithFormat:@"%ld", _currentEpisode] completionHandler:^(NSDictionary *danmakuDic, TucaoErrorModel *error) {
+                _player = [self configFFMoviePlayerWithUrl:url];
+                [self insertSubview:_player.view atIndex:0];
+                [self.player prepareToPlay];
+                [self.danmakuEngine sendAllDanmakusDic:danmakuDic];
+            }];
         }
     }];
 }
@@ -92,7 +95,7 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.player shutdown];
-    [self.timer invalidate];
+    [_timer invalidate];
 }
 
 #pragma mark - PlayerSlideViewDelegate
@@ -119,10 +122,7 @@
 }
 
 - (void)playerLoadStateChangeaNotification:(NSNotification *)aNotification {
-    if (self.player.loadState == IJKMPMovieLoadStateStalled || self.player.loadState == IJKMPMovieLoadStatePlaythroughOK) {
-        //隐藏菊花
-        [MBProgressHUD hideIndeterminateHUD];
-    }
+    [MBProgressHUD hideIndeterminateHUD];
 }
 
 

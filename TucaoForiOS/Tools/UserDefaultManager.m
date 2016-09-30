@@ -6,20 +6,23 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import "ToolsManager.h"
+#import "UserDefaultManager.h"
 
-@implementation ToolsManager
+@implementation UserDefaultManager
 {
     NSMutableArray *_historySearchKeys;
     //收藏数组
     NSMutableOrderedSet <VideoModel *>*_mineCollectionVideos;
+    NSMutableOrderedSet <VideoURLModel *>*_downloadVieos;
+    NSString *_downloadPath;
+    NSString *_downloadResumeDataPath;
 }
 
-+ (instancetype)shareToolsManager {
++ (instancetype)shareUserDefaultManager {
     static dispatch_once_t onceToken;
-    static ToolsManager *manager = nil;
+    static UserDefaultManager *manager = nil;
     dispatch_once(&onceToken, ^{
-        manager = [[ToolsManager alloc] init];
+        manager = [[UserDefaultManager alloc] init];
     });
     return manager;
 }
@@ -74,6 +77,42 @@
 - (void)clearAllSearchKey {
     [_historySearchKeys removeAllObjects];
     [self setHistorySearchKeys:_historySearchKeys];
+}
+
+- (NSArray *)downloadVieos {
+    if(_downloadVieos == nil) {
+        _downloadVieos = [NSMutableOrderedSet orderedSetWithOrderedSet:[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"downloadVieos"]]];
+    }
+    return _downloadVieos.array;
+}
+
+- (void)addDownloadVieos:(VideoURLModel *)model {
+    if (!model) return;
+    [_downloadVieos addObject:model];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadVieos] forKey:@"downloadVieos"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)removeDownloadVieos:(VideoURLModel *)model {
+    if (!model) return;
+    [_downloadVieos removeObject:model];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadVieos] forKey:@"downloadVieos"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)downloadPath {
+    if (_downloadPath == nil) {
+        _downloadPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"video"];
+    }
+    return _downloadPath;
+}
+
+- (NSString *)downloadResumeDataPath {
+    if (_downloadResumeDataPath == nil) {
+        _downloadResumeDataPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"videoResumeData"];
+    }
+    return _downloadResumeDataPath;
 }
 
 @end

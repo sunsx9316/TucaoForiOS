@@ -11,6 +11,10 @@
 		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
 		811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */; };
 		811C707F1D9A0EEB00610BFA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */; };
+		81396A321D9DF34900221615 /* VideoInfoDownloadSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */; };
+		81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */; };
+		81396A401D9E3C1500221615 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A3F1D9E3C1500221615 /* DownloadViewController.m */; };
+		81396A431D9E4DB800221615 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A421D9E4DB800221615 /* BaseTableView.m */; };
 		81636C651D9CCB790076523E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C641D9CCB790076523E /* AudioToolbox.framework */; };
 		81636C671D9CCB7D0076523E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C661D9CCB7D0076523E /* AVFoundation.framework */; };
 		81636C691D9CCB850076523E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C681D9CCB850076523E /* CoreGraphics.framework */; };
@@ -27,7 +31,7 @@
 		817572301D9CCE0A00A5EC67 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175722D1D9CCE0100A5EC67 /* IJKMediaFramework.framework */; };
 		817572631D9D00A200A5EC67 /* PlayerSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817572621D9D00A200A5EC67 /* PlayerSlideView.m */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
-		818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* ToolsManager.m */; };
+		818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* UserDefaultManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
 		8905B69F1D79D5770008D25B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B69E1D79D5770008D25B /* PlayerView.m */; };
 		8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B6A31D79D6210008D25B /* PlayerUIView.m */; };
@@ -123,6 +127,14 @@
 		811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadHitDisableTableView.m; sourceTree = "<group>"; };
 		811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		81396A301D9DF34900221615 /* VideoInfoDownloadSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoDownloadSheetView.h; sourceTree = "<group>"; };
+		81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoDownloadSheetView.m; sourceTree = "<group>"; };
+		81396A351D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoDownloadSheetTableViewCell.h; sourceTree = "<group>"; };
+		81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoDownloadSheetTableViewCell.m; sourceTree = "<group>"; };
+		81396A3E1D9E3C1500221615 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		81396A3F1D9E3C1500221615 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		81396A411D9E4DB800221615 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		81396A421D9E4DB800221615 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		81636C641D9CCB790076523E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81636C661D9CCB7D0076523E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		81636C681D9CCB850076523E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,8 +153,8 @@
 		817572621D9D00A200A5EC67 /* PlayerSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSlideView.m; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
 		818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCenterTableViewCell.m; sourceTree = "<group>"; };
-		818DDE7F1D880A7300B22A59 /* ToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
-		818DDE801D880A7300B22A59 /* ToolsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsManager.m; sourceTree = "<group>"; };
+		818DDE7F1D880A7300B22A59 /* UserDefaultManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultManager.h; sourceTree = "<group>"; };
+		818DDE801D880A7300B22A59 /* UserDefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultManager.m; sourceTree = "<group>"; };
 		8905B69D1D79D5770008D25B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		8905B69E1D79D5770008D25B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		8905B6A21D79D6210008D25B /* PlayerUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerUIView.h; sourceTree = "<group>"; };
@@ -386,6 +398,10 @@
 				89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */,
 				811C707A1D9A075500610BFA /* HeadHitDisableTableView.h */,
 				811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */,
+				81396A301D9DF34900221615 /* VideoInfoDownloadSheetView.h */,
+				81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */,
+				81396A351D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.h */,
+				81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -593,6 +609,8 @@
 				8939827B1D88552B00E88C14 /* SearchListViewController.m */,
 				8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */,
 				8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */,
+				81396A3E1D9E3C1500221615 /* DownloadViewController.h */,
+				81396A3F1D9E3C1500221615 /* DownloadViewController.m */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -605,8 +623,8 @@
 				8930E9DD1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m */,
 				89D3C1471D6DA41D0064FA67 /* DanmakuDataFormatter.h */,
 				89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */,
-				818DDE7F1D880A7300B22A59 /* ToolsManager.h */,
-				818DDE801D880A7300B22A59 /* ToolsManager.m */,
+				818DDE7F1D880A7300B22A59 /* UserDefaultManager.h */,
+				818DDE801D880A7300B22A59 /* UserDefaultManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -688,6 +706,8 @@
 			children = (
 				89CA5D011D785CF2003C56BE /* SectionTableViewCell.h */,
 				89CA5D021D785CF2003C56BE /* SectionTableViewCell.m */,
+				81396A411D9E4DB800221615 /* BaseTableView.h */,
+				81396A421D9E4DB800221615 /* BaseTableView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -869,6 +889,7 @@
 				8930E9C31D6C0381003C1B44 /* MovieViewController.m in Sources */,
 				8930E9C81D6C03A5003C1B44 /* BangumiViewController.m in Sources */,
 				89F959E51D72EC8E0024D67D /* VideoInfoBriefView.m in Sources */,
+				81396A431D9E4DB800221615 /* BaseTableView.m in Sources */,
 				8930E9D21D6C206D003C1B44 /* MineViewController.m in Sources */,
 				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */,
@@ -883,14 +904,16 @@
 				89CA5D031D785CF2003C56BE /* SectionTableViewCell.m in Sources */,
 				8930E9931D6BFEBF003C1B44 /* AppDelegate.m in Sources */,
 				89CA5D0D1D786746003C56BE /* SectionNetManager.m in Sources */,
-				818DDE811D880A7300B22A59 /* ToolsManager.m in Sources */,
+				818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */,
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
 				89D3C1431D6DA2E60064FA67 /* DanmakuNetManager.m in Sources */,
+				81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
 				8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */,
 				8905B69F1D79D5770008D25B /* PlayerView.m in Sources */,
 				8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */,
 				8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */,
+				81396A321D9DF34900221615 /* VideoInfoDownloadSheetView.m in Sources */,
 				8930E9C01D6C0372003C1B44 /* ThreeDViewController.m in Sources */,
 				89D3C13A1D6D3A640064FA67 /* MJRefreshNormalHeader+DefaultRefreshStyle.m in Sources */,
 				89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */,
@@ -915,6 +938,7 @@
 				8930E9AC1D6C0133003C1B44 /* MainViewController.m in Sources */,
 				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
+				81396A401D9E3C1500221615 /* DownloadViewController.m in Sources */,
 				8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */,
 				893982701D884C2500E88C14 /* SectionViewModel.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,

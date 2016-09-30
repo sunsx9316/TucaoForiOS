@@ -8,6 +8,8 @@
 
 #import "VideoInfoViewController.h"
 #import "UserInfoWebViewController.h"
+#import "DownloadViewController.h"
+
 #import "PlayerView.h"
 #import "VideoInfoBriefView.h"
 #import "VideoInfoTextTableViewCell.h"
@@ -16,11 +18,15 @@
 #import "VideoInfoUserTableViewCell.h"
 #import "VideoInfoEpisodeTableViewCell.h"
 #import "HeadHitDisableTableView.h"
+#import "VideoInfoDownloadSheetView.h"
 
 #import "MBProgressHUD+Tools.h"
 #import "UIImage+ImageEffects.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 #import <UINavigationController+FDFullscreenPopGesture.h>
+
+#import "VideoNetManager.h"
+#import "DanmakuNetManager.h"
 
 #define HEAD_VIEW_HEGHT 180
 #define TRANSFORM_TIME 0.3
@@ -32,6 +38,7 @@
 @property (strong, nonatomic) UIButton *playControlButton;
 @property (strong, nonatomic) PlayerView *playerView;
 @property (strong, nonatomic) UIView *headBGView;
+@property (strong, nonatomic) VideoInfoDownloadSheetView *videosView;
 @end
 
 @implementation VideoInfoViewController
@@ -46,9 +53,25 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.videosView dismiss];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    NSMutableArray *URLs = [NSMutableArray arrayWithArray:self.model.URLs];
+    NSArray *downloadURLs = [UserDefaultManager shareUserDefaultManager].downloadVieos;
+    for (NSInteger i = 0; i < URLs.count; ++i) {
+        VideoURLModel *model = URLs[i];
+        if ([downloadURLs containsObject:model]) {
+            NSInteger index = [downloadURLs indexOfObject:model];
+            URLs[i] = downloadURLs[index];
+        }
+    }
+    
+    self.model.URLs = URLs;
     
     if (_model.hid.length) {
         self.title = [@"h" stringByAppendingString:_model.hid];
@@ -114,18 +137,18 @@
         [cell setTouchDownloadButtonCallBack:^{
             @strongify(self)
             if (!self) return;
-            
+            [self.videosView show];
         }];
         
         [cell setTouchFavouriteButtonCallBack:^{
             @strongify(self)
             if (!self) return;
             
-            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:self->_model]) {
+            if ([[UserDefaultManager shareUserDefaultManager].mineCollectionVideos containsObject:self->_model]) {
                 [MBProgressHUD showOnlyText:@"你已经收藏过了!"];
             }
             else {
-                [[ToolsManager shareToolsManager] addMineCollectionVideo:self->_model];
+                [[UserDefaultManager shareUserDefaultManager] addMineCollectionVideo:self->_model];
                 [MBProgressHUD showOnlyText:@"收藏成功!"];
             }
         }];
@@ -296,6 +319,34 @@
         _headBGView.alpha = 0;
 	}
 	return _headBGView;
+}
+
+- (VideoInfoDownloadSheetView *)videosView {
+	if(_videosView == nil) {
+		_videosView = [[VideoInfoDownloadSheetView alloc] init];
+        _videosView.model = _model;
+        @weakify(self)
+        [_videosView setTouchJumpToDownloadViewControllerButtonCallBack:^{
+            @strongify(self)
+            if (!self) return;
+            DownloadViewController *vc = [[DownloadViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        
+        [_videosView setTouchTableViewWithModel:^(VideoURLModel *model) {
+            @strongify(self)
+            if (!self) return;
+            
+            if (model.status == VideoURLModelStatusDownloded) {
+                NSURL *url = self.model.URLs.firstObject.playURLs.firstObject;
+                url = [NSURL fileURLWithPath:[[UserDefaultManager shareUserDefaultManager].downloadPath stringByAppendingPathComponent:url.path]];
+                self.model.URLs.firstObject.playURLs = @[url];
+                [self touchPlayButton:nil];
+                [self.videosView dismiss];
+            }
+        }];
+	}
+	return _videosView;
 }
 
 @end

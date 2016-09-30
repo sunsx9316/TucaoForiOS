@@ -16,7 +16,7 @@
 #import "AppConfig.h"
 #import "MJRefreshNormalHeader+DefaultRefreshStyle.h"
 #import "MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"
-#import "ToolsManager.h"
+#import "UserDefaultManager.h"
 
 //model
 #import "TucaoErrorModel.h"

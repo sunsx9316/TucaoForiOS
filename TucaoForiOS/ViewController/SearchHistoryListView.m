@@ -25,17 +25,17 @@
 }
 
 - (void)addSearchKey:(NSString *)keyWord {
-    [[ToolsManager shareToolsManager] addSearchKey:keyWord];
+    [[UserDefaultManager shareUserDefaultManager] addSearchKey:keyWord];
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ToolsManager shareToolsManager].historySearchKeys.count + ([ToolsManager shareToolsManager].historySearchKeys.count != 0);
+    return [UserDefaultManager shareUserDefaultManager].historySearchKeys.count + ([UserDefaultManager shareUserDefaultManager].historySearchKeys.count != 0);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == [ToolsManager shareToolsManager].historySearchKeys.count) {
+    if (indexPath.row == [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
         SearchHistoryClearAllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHistoryClearAllTableViewCell" forIndexPath:indexPath];
         return cell;
     }
@@ -46,19 +46,19 @@
         cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
     
-    cell.textLabel.text = [ToolsManager shareToolsManager].historySearchKeys[indexPath.row];
+    cell.textLabel.text = [UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == [ToolsManager shareToolsManager].historySearchKeys.count) {
-        [[ToolsManager shareToolsManager] clearAllSearchKey];
+    if (indexPath.row == [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
+        [[UserDefaultManager shareUserDefaultManager] clearAllSearchKey];
         [self.tableView reloadData];
     }
-    else if (self.touchIndexCallBack && indexPath.row < [ToolsManager shareToolsManager].historySearchKeys.count) {
-        self.touchIndexCallBack([ToolsManager shareToolsManager].historySearchKeys[indexPath.row]);
+    else if (self.touchIndexCallBack && indexPath.row < [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
+        self.touchIndexCallBack([UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row]);
     }
 }
 

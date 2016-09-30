@@ -11,9 +11,10 @@
 #import "SectionTableViewCell.h"
 
 #import <UITableView+FDTemplateLayoutCell.h>
+#import "BaseTableView.h"
 
 @interface MineCollectionViewController ()<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) BaseTableView *tableView;
 
 @end
 
@@ -30,19 +31,19 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ToolsManager shareToolsManager].mineCollectionVideos.count;
+    return [UserDefaultManager shareUserDefaultManager].mineCollectionVideos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SectionTableViewCell" forIndexPath:indexPath];
-    VideoModel *model = [ToolsManager shareToolsManager].mineCollectionVideos[indexPath.row];
+    VideoModel *model = [UserDefaultManager shareUserDefaultManager].mineCollectionVideos[indexPath.row];
     [cell setWithModel:model];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView fd_heightForCellWithIdentifier:@"SectionTableViewCell" cacheByIndexPath:indexPath configuration:^(SectionTableViewCell *cell) {
-        [cell setWithModel:[ToolsManager shareToolsManager].mineCollectionVideos[indexPath.row]];
+        [cell setWithModel:[UserDefaultManager shareUserDefaultManager].mineCollectionVideos[indexPath.row]];
     }];
 }
 
@@ -50,15 +51,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     VideoInfoViewController *vc = [[VideoInfoViewController alloc] init];
-    vc.model = [ToolsManager shareToolsManager].mineCollectionVideos[indexPath.row];
+    vc.model = [UserDefaultManager shareUserDefaultManager].mineCollectionVideos[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        VideoModel *model = [ToolsManager shareToolsManager].mineCollectionVideos[indexPath.row];
-        [[ToolsManager shareToolsManager] removeMineCollectionVideo:model];
+        VideoModel *model = [UserDefaultManager shareUserDefaultManager].mineCollectionVideos[indexPath.row];
+        [[UserDefaultManager shareUserDefaultManager] removeMineCollectionVideo:model];
         [tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
@@ -68,9 +69,9 @@
 }
 
 #pragma mark - 懒加载
-- (UITableView *)tableView {
+- (BaseTableView *)tableView {
     if(_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[BaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = BACK_GROUND_COLOR;

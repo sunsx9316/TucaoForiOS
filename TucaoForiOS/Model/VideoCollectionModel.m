@@ -51,11 +51,13 @@
 @end
 
 @implementation VideoURLModel
-- (BOOL)isEqual:(id)object {
-    return [self yy_modelIsEqual:object];
+- (BOOL)isEqual:(VideoURLModel *)object {
+    if (![self isKindOfClass:object.class]) return NO;
+    if (self == object) return YES;
+    return [self.title isEqualToString:object.title] && [self.type isEqualToString:object.type] && [self.vid isEqualToString:object.vid];
 }
 
 - (NSUInteger)hash {
-    return self.yy_modelHash;
+    return self.title.hash | self.type.hash | self.vid.hash;
 }
 @end

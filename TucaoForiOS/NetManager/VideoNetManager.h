@@ -21,4 +21,14 @@
 + (NSURLSessionDataTask *)videoPlayURLWithType:(NSString *)type
                                            vid:(NSString *)vid
                              completionHandler:(void(^)(NSArray *URLs, TucaoErrorModel *error))complete;
+/**
+ *  批量获取视频地址 完成之后会自动给模型的下载状态和地址赋值
+ *
+ *  @param model           视频模型
+ *  @param progressBlock   进度回调
+ *  @param completionBlock 完成回调
+ */
++ (void)batchGETVideoPlayURLWithModels:(NSArray <VideoURLModel *>*)models
+                   progressBlock:(void(^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations))progressBlock
+                 completionBlock:(void(^)())completionBlock;
 @end

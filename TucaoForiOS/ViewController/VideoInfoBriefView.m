@@ -84,11 +84,11 @@
         [cell setTouchFavouriteButtonCallBack:^{
             @strongify(self)
             if (!self || !_model) return;
-            if ([[ToolsManager shareToolsManager].mineCollectionVideos containsObject:_model]) {
+            if ([[UserDefaultManager shareUserDefaultManager].mineCollectionVideos containsObject:_model]) {
                 [MBProgressHUD showOnlyText:@"你已经收藏过了!"]; 
             }
             else {
-                [[ToolsManager shareToolsManager] addMineCollectionVideo:_model];
+                [[UserDefaultManager shareUserDefaultManager] addMineCollectionVideo:_model];
                 [MBProgressHUD showOnlyText:@"收藏成功!"];
             }
         }];
