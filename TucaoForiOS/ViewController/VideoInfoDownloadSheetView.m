@@ -117,36 +117,21 @@
 }
 
 - (void)downloadVideo:(VideoURLModel *)model {
-    model.status = VideoURLModelStatusDownloding;
-    [[UserDefaultManager shareUserDefaultManager] addDownloadVieos:model];
-    
-    NSURL *url = model.playURLs.firstObject;
-    if (![url isKindOfClass:[NSURL class]]) {
-        [MBProgressHUD showOnlyText:@"视频不存在!"];
-        return;
-    }
-    
-    NSURLSessionDownloadTask *task = [VideoNetManager downloadTaskWithPath:url.absoluteString progress:^(NSProgress *downloadProgress) {
+    NSURLSessionDownloadTask *task = [VideoNetManager downloadVideoWithModel:model progress:^(NSProgress *downloadProgress) {
         model.progress = downloadProgress.fractionCompleted;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:model];
-    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *downloadPath = [UserDefaultManager shareUserDefaultManager].downloadPath;
-        //自动下载路径不存在 则创建
-        if (![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:nil]) {
-            [[NSFileManager defaultManager] createDirectoryAtPath:downloadPath withIntermediateDirectories:YES attributes:nil error:nil];
-        }
-        
-        return [NSURL fileURLWithPath: [downloadPath stringByAppendingPathComponent:[response suggestedFilename]]];
-        
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error) {
         if (filePath) {
             model.playURLs = @[[NSURL URLWithString:filePath.lastPathComponent]];
         }
         model.status = VideoURLModelStatusDownloded;
-        [[UserDefaultManager shareUserDefaultManager] addDownloadVieos:model];
+        [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:model];
     }];
-    objc_setAssociatedObject(model, "task", task, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    if (task) {
+        objc_setAssociatedObject(model, "task", task, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 }
 
 #pragma mark - 懒加载

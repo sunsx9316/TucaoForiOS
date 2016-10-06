@@ -18,5 +18,6 @@ pod 'WMPageController'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'FDFullscreenPopGesture'
 pod 'RegExCategories'
+pod 'YYKeyboardManager'
 end
 

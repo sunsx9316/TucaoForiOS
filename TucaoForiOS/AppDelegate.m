@@ -16,8 +16,6 @@
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     MainViewController *vc = [[MainViewController alloc] init];
@@ -45,7 +43,22 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    dispatch_group_t group = dispatch_group_create();
+    
+    NSArray *arr = [UserDefaultManager shareUserDefaultManager].downloadVideos;
+    for (NSInteger i = arr.count - 1; i >= 0; --i) {
+        VideoURLModel *model = arr[i];
+        NSURLSessionDownloadTask *task = objc_getAssociatedObject(model, "task");
+        dispatch_group_enter(group);
+        dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+            [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+                model.resumeData = resumeData;
+                [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
+                dispatch_group_leave(group);
+            }];
+        });
+    }
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
 @end

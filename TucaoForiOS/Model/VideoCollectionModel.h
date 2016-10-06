@@ -102,4 +102,8 @@ typedef NS_ENUM(NSUInteger, VideoURLModelStatus) {
  *  下载进度
  */
 @property (assign, nonatomic) float progress;
+/**
+ *  断点下载数据
+ */
+@property (strong, nonatomic) NSData *resumeData;
 @end

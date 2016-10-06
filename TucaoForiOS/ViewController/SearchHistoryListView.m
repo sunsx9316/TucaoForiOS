@@ -62,12 +62,26 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString *key = [UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row];
+        [[UserDefaultManager shareUserDefaultManager] removeSearchKey:key];
+        [tableView reloadData];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+
 #pragma mark - 懒加载
 - (UITableView *)tableView {
     if(_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.rowHeight = 50;
         _tableView.tableFooterView = [[UIView alloc] init];
         [_tableView registerClass:[SearchHistoryClearAllTableViewCell class] forCellReuseIdentifier:@"SearchHistoryClearAllTableViewCell"];
         [self addSubview:_tableView];

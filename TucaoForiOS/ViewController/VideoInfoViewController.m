@@ -62,7 +62,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     NSMutableArray *URLs = [NSMutableArray arrayWithArray:self.model.URLs];
-    NSArray *downloadURLs = [UserDefaultManager shareUserDefaultManager].downloadVieos;
+    NSArray *downloadURLs = [UserDefaultManager shareUserDefaultManager].downloadVideos;
     for (NSInteger i = 0; i < URLs.count; ++i) {
         VideoURLModel *model = URLs[i];
         if ([downloadURLs containsObject:model]) {

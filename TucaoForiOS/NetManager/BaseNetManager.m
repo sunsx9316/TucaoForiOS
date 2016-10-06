@@ -61,6 +61,19 @@
     return task;
 }
 
++ (NSURLSessionDownloadTask *)downloadTaskWithResumeData:(NSData *)resumeData
+                                                progress:(void (^)(NSProgress *downloadProgress))downloadProgressBlock
+                                             destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+                                       completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error))completionHandler {
+    NSURLSessionDownloadTask *task = [[self sharedHTTPSessionManager] downloadTaskWithResumeData:resumeData progress:downloadProgressBlock destination:destination completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        NSLog(@"下载%@：%@", error ? @"失败" : @"成功", response.URL);
+        completionHandler(response, filePath, [TucaoErrorModel ErrorWithError:error]);
+    }];
+    [task resume];
+    
+    return task;
+}
+
 + (void)batchGETWithPaths:(NSArray <NSString *>*)paths
             progressBlock:(void(^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations, id *responseObj))progressBlock
           completionBlock:(void(^)(NSArray *responseObjects, NSArray <NSURLSessionTask *>*tasks))completionBlock {

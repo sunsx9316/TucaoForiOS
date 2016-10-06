@@ -62,4 +62,49 @@
         }
     }];
 }
+
++ (NSURLSessionDownloadTask *)downloadVideoWithModel:(VideoURLModel *)model
+                      progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
+             completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error))completionHandler {
+    model.status = VideoURLModelStatusDownloding;
+    [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
+    
+    NSURL *url = model.playURLs.firstObject;
+    if (![url isKindOfClass:[NSURL class]]) {
+        completionHandler(nil, nil, [TucaoErrorModel ErrorWithCode:TucaoErrorTypeVideoNoExist]);
+        return nil;
+    }
+    
+    if (model.resumeData) {
+        return [VideoNetManager downloadTaskWithResumeData:model.resumeData progress:downloadProgressBlock destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+            NSString *downloadPath = [UserDefaultManager shareUserDefaultManager].downloadPath;
+            //自动下载路径不存在 则创建
+            if (![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:nil]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:downloadPath withIntermediateDirectories:YES attributes:nil error:nil];
+            }
+            
+            return [NSURL fileURLWithPath: [downloadPath stringByAppendingPathComponent:[response suggestedFilename]]];
+        } completionHandler:^(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error) {
+            model.resumeData = nil;
+            [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
+            completionHandler(response, filePath, error);
+        }];
+    }
+    
+    return [VideoNetManager downloadTaskWithPath:url.absoluteString progress:downloadProgressBlock destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSString *downloadPath = [UserDefaultManager shareUserDefaultManager].downloadPath;
+        //自动下载路径不存在 则创建
+        if (![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:nil]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:downloadPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+        
+        return [NSURL fileURLWithPath: [downloadPath stringByAppendingPathComponent:[response suggestedFilename]]];
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error) {
+        model.resumeData = nil;
+        [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
+        completionHandler(response, filePath, error);
+    }];
+}
+
 @end

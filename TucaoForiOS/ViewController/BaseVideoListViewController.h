@@ -8,7 +8,9 @@
 
 #import "BaseViewController.h"
 #import "VideoListProtocol.h"
+#import "BaseTableView.h"
 
 @interface BaseVideoListViewController : BaseViewController
 @property (strong, nonatomic) id<VideoListProtocol>viewModel;
+@property (strong, nonatomic) BaseTableView *tableView;
 @end

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "962087744723B9AAD53D28335F8CCAEDD8CCF85D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "962087744723B9AAD53D28335F8CCAEDD8CCF85D" : 0,
+    "E1679FC111225C1A98EA0394D0D0D5A7DEF963BC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ADB23C07-863F-4196-8C41-686F05C50914",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "962087744723B9AAD53D28335F8CCAEDD8CCF85D" : "TucaoForiOS\/",
+    "E1679FC111225C1A98EA0394D0D0D5A7DEF963BC" : "TucaoForiOS\/TucaoForiOS\/Vender\/ijkplayer-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TucaoForiOS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TucaoForiOS.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sunsx9316\/TucaoForiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "962087744723B9AAD53D28335F8CCAEDD8CCF85D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Bilibili\/ijkplayer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E1679FC111225C1A98EA0394D0D0D5A7DEF963BC"
+    }
+  ]
+}

@@ -31,4 +31,16 @@
 + (void)batchGETVideoPlayURLWithModels:(NSArray <VideoURLModel *>*)models
                    progressBlock:(void(^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations))progressBlock
                  completionBlock:(void(^)())completionBlock;
+/**
+ *  下载视频
+ *
+ *  @param model                 视频模型
+ *  @param downloadProgressBlock 下载进度回调
+ *  @param completionHandler     完成回调
+ *
+ *  @return 任务
+ */
++ (NSURLSessionDownloadTask *)downloadVideoWithModel:(VideoURLModel *)model
+                      progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
+             completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error))completionHandler;
 @end

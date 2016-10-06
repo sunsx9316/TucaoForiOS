@@ -15,14 +15,14 @@
 - (void)addMineCollectionVideo:(VideoModel *)model;
 - (void)removeMineCollectionVideo:(VideoModel *)model;
 
-@property (strong, nonatomic, readonly) NSArray <VideoURLModel *>*downloadVieos;
-- (void)addDownloadVieos:(VideoURLModel *)model;
-- (void)removeDownloadVieos:(VideoURLModel *)model;
+@property (strong, nonatomic, readonly) NSArray <VideoURLModel *>*downloadVideos;
+- (void)addDownloadVideo:(VideoURLModel *)model;
+- (void)removeDownloadVideo:(VideoURLModel *)model;
 
 @property (strong, nonatomic, readonly) NSString *downloadPath;
-@property (strong, nonatomic, readonly) NSString *downloadResumeDataPath;
 
 - (NSMutableArray *)historySearchKeys;
 - (void)addSearchKey:(NSString *)keyWord;
+- (void)removeSearchKey:(NSString *)keyWord;
 - (void)clearAllSearchKey;
 @end

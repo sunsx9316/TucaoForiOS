@@ -28,7 +28,6 @@
 		81636C791D9CCBB50076523E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C781D9CCBB50076523E /* QuartzCore.framework */; };
 		81636C7B1D9CCBBA0076523E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C7A1D9CCBBA0076523E /* UIKit.framework */; };
 		81636C7D1D9CCBBE0076523E /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C7C1D9CCBBE0076523E /* VideoToolbox.framework */; };
-		817572301D9CCE0A00A5EC67 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175722D1D9CCE0100A5EC67 /* IJKMediaFramework.framework */; };
 		817572631D9D00A200A5EC67 /* PlayerSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817572621D9D00A200A5EC67 /* PlayerSlideView.m */; };
 		818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */; };
 		818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* UserDefaultManager.m */; };
@@ -68,6 +67,8 @@
 		893982761D8851F200E88C14 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982751D8851F200E88C14 /* SearchViewModel.m */; };
 		893982791D8852F500E88C14 /* SearchNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982781D8852F500E88C14 /* SearchNetManager.m */; };
 		8939827C1D88552B00E88C14 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939827B1D88552B00E88C14 /* SearchListViewController.m */; };
+		893C3A2C1DA5403F0097500E /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893C3A291DA540390097500E /* IJKMediaFramework.framework */; };
+		893C3A311DA541D80097500E /* JHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C3A301DA541D80097500E /* JHSearchBar.m */; };
 		899D0FC51D7134B50073964D /* VideoInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FC41D7134B50073964D /* VideoInfoViewController.m */; };
 		899D0FEB1D7143AB0073964D /* VideoInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 899D0FEA1D7143AB0073964D /* VideoInfoTextTableViewCell.m */; };
 		89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C25BFC1D86EAD7008E85F8 /* SectionCollectionViewCell.m */; };
@@ -94,23 +95,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8175722C1D9CCE0100A5EC67 /* PBXContainerItemProxy */ = {
+		893C3A281DA540390097500E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
 		};
-		8175722E1D9CCE0100A5EC67 /* PBXContainerItemProxy */ = {
+		893C3A2A1DA540390097500E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFrameworkTests;
 		};
-		817572311D9CCE0E00A5EC67 /* PBXContainerItemProxy */ = {
+		893C3A2D1DA540430097500E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E654EA891B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
@@ -148,7 +149,6 @@
 		81636C781D9CCBB50076523E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		81636C7A1D9CCBBA0076523E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		81636C7C1D9CCBBE0076523E /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj; sourceTree = "<group>"; };
 		817572611D9D00A200A5EC67 /* PlayerSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSlideView.h; sourceTree = "<group>"; };
 		817572621D9D00A200A5EC67 /* PlayerSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSlideView.m; sourceTree = "<group>"; };
 		818DDE7C1D87F7AD00B22A59 /* MineCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCenterTableViewCell.h; sourceTree = "<group>"; };
@@ -229,6 +229,9 @@
 		893982781D8852F500E88C14 /* SearchNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNetManager.m; sourceTree = "<group>"; };
 		8939827A1D88552B00E88C14 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
 		8939827B1D88552B00E88C14 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
+		893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
+		893C3A2F1DA541D80097500E /* JHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSearchBar.h; sourceTree = "<group>"; };
+		893C3A301DA541D80097500E /* JHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSearchBar.m; sourceTree = "<group>"; };
 		893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TucaoForiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		899D0FC31D7134B50073964D /* VideoInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoViewController.h; sourceTree = "<group>"; };
 		899D0FC41D7134B50073964D /* VideoInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewController.m; sourceTree = "<group>"; };
@@ -281,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				817572301D9CCE0A00A5EC67 /* IJKMediaFramework.framework in Frameworks */,
+				893C3A2C1DA5403F0097500E /* IJKMediaFramework.framework in Frameworks */,
 				81636C7D1D9CCBBE0076523E /* VideoToolbox.framework in Frameworks */,
 				81636C7B1D9CCBBA0076523E /* UIKit.framework in Frameworks */,
 				81636C791D9CCBB50076523E /* QuartzCore.framework in Frameworks */,
@@ -326,18 +329,9 @@
 		81636C561D9CCB1D0076523E /* Vender */ = {
 			isa = PBXGroup;
 			children = (
-				817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */,
+				893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */,
 			);
 			path = Vender;
-			sourceTree = "<group>";
-		};
-		817572281D9CCE0100A5EC67 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8175722D1D9CCE0100A5EC67 /* IJKMediaFramework.framework */,
-				8175722F1D9CCE0100A5EC67 /* IJKMediaFrameworkTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		818DDE781D87F4C200B22A59 /* View */ = {
@@ -349,6 +343,8 @@
 				893982641D882BD600E88C14 /* SearchHistoryListView.m */,
 				893982661D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.h */,
 				893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */,
+				893C3A2F1DA541D80097500E /* JHSearchBar.h */,
+				893C3A301DA541D80097500E /* JHSearchBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -381,6 +377,7 @@
 		89154B821D6E85CE0039E551 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89E0BBA71DA68645003A15C8 /* 分集下载 */,
 				8905B6A01D79D5E70008D25B /* 视频UI */,
 				89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */,
 				89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */,
@@ -398,10 +395,6 @@
 				89F959E41D72EC8E0024D67D /* VideoInfoBriefView.m */,
 				811C707A1D9A075500610BFA /* HeadHitDisableTableView.h */,
 				811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */,
-				81396A301D9DF34900221615 /* VideoInfoDownloadSheetView.h */,
-				81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */,
-				81396A351D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.h */,
-				81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -656,6 +649,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		893C3A241DA540390097500E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				893C3A291DA540390097500E /* IJKMediaFramework.framework */,
+				893C3A2B1DA540390097500E /* IJKMediaFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		89C25BFA1D86EAC1008E85F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +714,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		89E0BBA71DA68645003A15C8 /* 分集下载 */ = {
+			isa = PBXGroup;
+			children = (
+				81396A301D9DF34900221615 /* VideoInfoDownloadSheetView.h */,
+				81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */,
+				81396A351D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.h */,
+				81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */,
+			);
+			name = "分集下载";
+			sourceTree = "<group>";
+		};
 		C6E73EAB12B5F5BE69E32E52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,7 +752,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				817572321D9CCE0E00A5EC67 /* PBXTargetDependency */,
+				893C3A2E1DA540430097500E /* PBXTargetDependency */,
 			);
 			name = TucaoForiOS;
 			productName = TucaoForiOS;
@@ -774,8 +787,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 817572281D9CCE0100A5EC67 /* Products */;
-					ProjectRef = 817572271D9CCE0100A5EC67 /* IJKMediaPlayer.xcodeproj */;
+					ProductGroup = 893C3A241DA540390097500E /* Products */;
+					ProjectRef = 893C3A231DA540390097500E /* IJKMediaPlayer.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -786,18 +799,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8175722D1D9CCE0100A5EC67 /* IJKMediaFramework.framework */ = {
+		893C3A291DA540390097500E /* IJKMediaFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IJKMediaFramework.framework;
-			remoteRef = 8175722C1D9CCE0100A5EC67 /* PBXContainerItemProxy */;
+			remoteRef = 893C3A281DA540390097500E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8175722F1D9CCE0100A5EC67 /* IJKMediaFrameworkTests.xctest */ = {
+		893C3A2B1DA540390097500E /* IJKMediaFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = IJKMediaFrameworkTests.xctest;
-			remoteRef = 8175722E1D9CCE0100A5EC67 /* PBXContainerItemProxy */;
+			remoteRef = 893C3A2A1DA540390097500E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -907,6 +920,7 @@
 				818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */,
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
 				89D3C1431D6DA2E60064FA67 /* DanmakuNetManager.m in Sources */,
+				893C3A311DA541D80097500E /* JHSearchBar.m in Sources */,
 				81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
 				8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */,
@@ -955,10 +969,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		817572321D9CCE0E00A5EC67 /* PBXTargetDependency */ = {
+		893C3A2E1DA540430097500E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IJKMediaFramework;
-			targetProxy = 817572311D9CCE0E00A5EC67 /* PBXContainerItemProxy */;
+			targetProxy = 893C3A2D1DA540430097500E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

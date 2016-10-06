@@ -28,12 +28,12 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [UserDefaultManager shareUserDefaultManager].downloadVieos.count;
+    return [UserDefaultManager shareUserDefaultManager].downloadVideos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoInfoDownloadSheetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoInfoDownloadSheetTableViewCell" forIndexPath:indexPath];
-    VideoURLModel *model = [UserDefaultManager shareUserDefaultManager].downloadVieos[indexPath.row];
+    VideoURLModel *model = [UserDefaultManager shareUserDefaultManager].downloadVideos[indexPath.row];
     [cell setWithModel:model];
     return cell;
 }
@@ -47,7 +47,7 @@
 - (void)updateProgress:(NSNotification *)aNotification {
     dispatch_async(dispatch_get_main_queue(), ^{
         VideoURLModel *model = aNotification.object;
-        NSArray *arr = [UserDefaultManager shareUserDefaultManager].downloadVieos;
+        NSArray *arr = [UserDefaultManager shareUserDefaultManager].downloadVideos;
         if ([arr containsObject:model]) {
             NSInteger index = [arr indexOfObject:model];
             VideoInfoDownloadSheetTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];

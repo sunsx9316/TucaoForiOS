@@ -8,12 +8,14 @@
 
 #import "UserDefaultManager.h"
 
+@interface UserDefaultManager ()
+@property (strong, nonatomic) NSMutableOrderedSet <VideoURLModel *>*downloadOrderedSet;
+@property (strong, nonatomic) NSMutableOrderedSet <VideoModel *>*mineCollectionOrderedSet;
+@end
+
 @implementation UserDefaultManager
 {
     NSMutableArray *_historySearchKeys;
-    //收藏数组
-    NSMutableOrderedSet <VideoModel *>*_mineCollectionVideos;
-    NSMutableOrderedSet <VideoURLModel *>*_downloadVieos;
     NSString *_downloadPath;
     NSString *_downloadResumeDataPath;
 }
@@ -30,25 +32,21 @@
 - (void)addMineCollectionVideo:(VideoModel *)model {
     if (!model) return;
     
-    [_mineCollectionVideos addObject:model];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_mineCollectionVideos] forKey:@"mine_collection_video"];
+    [self.mineCollectionOrderedSet addObject:model];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_mineCollectionOrderedSet] forKey:@"mine_collection_video"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)removeMineCollectionVideo:(VideoModel *)model {
     if (!model) return;
     
-    [_mineCollectionVideos removeObject:model];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_mineCollectionVideos] forKey:@"mine_collection_video"];
+    [self.mineCollectionOrderedSet removeObject:model];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_mineCollectionOrderedSet] forKey:@"mine_collection_video"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSArray *)mineCollectionVideos {
-    if (_mineCollectionVideos == nil) {
-        NSOrderedSet *set = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"mine_collection_video"]];
-        _mineCollectionVideos = [NSMutableOrderedSet orderedSetWithOrderedSet:set];
-    }
-    return _mineCollectionVideos.array;
+    return self.mineCollectionOrderedSet.array;
 }
 
 - (void)setHistorySearchKeys:(NSMutableArray *)historySearchKeys {
@@ -74,30 +72,34 @@
     [self setHistorySearchKeys:_historySearchKeys];
 }
 
+- (void)removeSearchKey:(NSString *)keyWord {
+    if (keyWord.length == 0) return;
+    
+    [_historySearchKeys removeObject:keyWord];
+    [self setHistorySearchKeys:_historySearchKeys];
+}
+
 - (void)clearAllSearchKey {
     [_historySearchKeys removeAllObjects];
     [self setHistorySearchKeys:_historySearchKeys];
 }
 
-- (NSArray *)downloadVieos {
-    if(_downloadVieos == nil) {
-        _downloadVieos = [NSMutableOrderedSet orderedSetWithOrderedSet:[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"downloadVieos"]]];
-    }
-    return _downloadVieos.array;
+- (NSArray<VideoURLModel *> *)downloadVideos {
+    return self.downloadOrderedSet.array;
 }
 
-- (void)addDownloadVieos:(VideoURLModel *)model {
+- (void)addDownloadVideo:(VideoURLModel *)model {
     if (!model) return;
-    [_downloadVieos addObject:model];
+    [self.downloadOrderedSet addObject:model];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadVieos] forKey:@"downloadVieos"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadOrderedSet] forKey:@"downloadVideos"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)removeDownloadVieos:(VideoURLModel *)model {
+- (void)removeDownloadVideo:(VideoURLModel *)model {
     if (!model) return;
-    [_downloadVieos removeObject:model];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadVieos] forKey:@"downloadVieos"];
+    [self.downloadOrderedSet removeObject:model];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadOrderedSet] forKey:@"downloadVideos"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -108,11 +110,19 @@
     return _downloadPath;
 }
 
-- (NSString *)downloadResumeDataPath {
-    if (_downloadResumeDataPath == nil) {
-        _downloadResumeDataPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"videoResumeData"];
-    }
-    return _downloadResumeDataPath;
+- (NSMutableOrderedSet <VideoURLModel *> *)downloadOrderedSet {
+	if(_downloadOrderedSet == nil) {
+		_downloadOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"downloadVideos"]]];
+	}
+	return _downloadOrderedSet;
+}
+
+- (NSMutableOrderedSet <VideoModel *> *)mineCollectionOrderedSet {
+	if(_mineCollectionOrderedSet == nil) {
+        NSOrderedSet *set = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"mine_collection_video"]];
+        _mineCollectionOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:set];
+	}
+	return _mineCollectionOrderedSet;
 }
 
 @end

@@ -85,7 +85,8 @@
             @strongify(self)
             if (!self || !_model) return;
             if ([[UserDefaultManager shareUserDefaultManager].mineCollectionVideos containsObject:_model]) {
-                [MBProgressHUD showOnlyText:@"你已经收藏过了!"]; 
+                [[UserDefaultManager shareUserDefaultManager] removeMineCollectionVideo:_model];
+                [MBProgressHUD showOnlyText:@"取消收藏成功!"];
             }
             else {
                 [[UserDefaultManager shareUserDefaultManager] addMineCollectionVideo:_model];
@@ -123,8 +124,7 @@
             }
             else if (indexPath.row == 2) {
                 cell.titleLabel.font = [UIFont systemFontOfSize:13];
-//                cell.titleLabel.text = @"a";
-                cell.titleLabel.text = @"dijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbdsdijsuwddisjidjsdksjdklsdjskdjsdjsbdjnsbdjsbds";
+                cell.titleLabel.text = _model.desc;
             }
         }];
     }

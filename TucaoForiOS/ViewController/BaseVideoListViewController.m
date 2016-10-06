@@ -12,7 +12,6 @@
 #import <UITableView+FDTemplateLayoutCell.h>
 
 @interface BaseVideoListViewController ()<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation BaseVideoListViewController
@@ -52,9 +51,9 @@
 }
 
 #pragma mark - 懒加载
-- (UITableView *)tableView {
+- (BaseTableView *)tableView {
     if(_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[BaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = BACK_GROUND_COLOR;

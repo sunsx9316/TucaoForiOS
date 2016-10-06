@@ -44,6 +44,20 @@
                                           destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                                     completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error))completionHandler;
 /**
+ *  断点续传封装
+ *
+ *  @param resumeData            恢复数据
+ *  @param downloadProgressBlock 下载回调
+ *  @param destination           下载路径
+ *  @param completionHandler     完成回调
+ *
+ *  @return 任务
+ */
++ (NSURLSessionDownloadTask *)downloadTaskWithResumeData:(NSData *)resumeData
+                                                progress:(void (^)(NSProgress *downloadProgress))downloadProgressBlock
+                                             destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+                                       completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error))completionHandler;
+/**
  *  批量GET任务
  *
  *  @param paths           路径字典
