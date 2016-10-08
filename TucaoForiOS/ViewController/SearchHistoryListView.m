@@ -7,7 +7,7 @@
 //
 
 #import "SearchHistoryListView.h"
-#import "SearchHistoryClearAllTableViewCell.h"
+#import "SearchHistoryFooterView.h"
 
 @interface SearchHistoryListView ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
@@ -31,15 +31,10 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [UserDefaultManager shareUserDefaultManager].historySearchKeys.count + ([UserDefaultManager shareUserDefaultManager].historySearchKeys.count != 0);
+    return [UserDefaultManager shareUserDefaultManager].historySearchKeys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
-        SearchHistoryClearAllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHistoryClearAllTableViewCell" forIndexPath:indexPath];
-        return cell;
-    }
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
@@ -53,25 +48,34 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
-        [[UserDefaultManager shareUserDefaultManager] clearAllSearchKey];
-        [self.tableView reloadData];
-    }
-    else if (self.touchIndexCallBack && indexPath.row < [UserDefaultManager shareUserDefaultManager].historySearchKeys.count) {
-        self.touchIndexCallBack([UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row]);
-    }
+    self.touchIndexCallBack([UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row]);
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSString *key = [UserDefaultManager shareUserDefaultManager].historySearchKeys[indexPath.row];
         [[UserDefaultManager shareUserDefaultManager] removeSearchKey:key];
         [tableView reloadData];
-    }
+    }];
+    return @[action];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"删除";
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([UserDefaultManager shareUserDefaultManager].historySearchKeys.count == 0) return nil;
+    
+    SearchHistoryFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"SearchHistoryFooterView"];
+    @weakify(self)
+    [view setTouchCallBack:^{
+        @strongify(self)
+        if (!self) return;
+        [[UserDefaultManager shareUserDefaultManager] clearAllSearchKey];
+        [self.tableView reloadData];
+    }];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return [UserDefaultManager shareUserDefaultManager].historySearchKeys.count ? 50 : 0.1;
 }
 
 
@@ -83,7 +87,7 @@
         _tableView.dataSource = self;
         _tableView.rowHeight = 50;
         _tableView.tableFooterView = [[UIView alloc] init];
-        [_tableView registerClass:[SearchHistoryClearAllTableViewCell class] forCellReuseIdentifier:@"SearchHistoryClearAllTableViewCell"];
+        [_tableView registerClass:[SearchHistoryFooterView class] forHeaderFooterViewReuseIdentifier:@"SearchHistoryFooterView"];
         [self addSubview:_tableView];
     }
     return _tableView;

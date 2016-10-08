@@ -52,8 +52,9 @@
 
 @implementation VideoURLModel
 - (BOOL)isEqual:(VideoURLModel *)object {
-    if (![self isKindOfClass:object.class]) return NO;
     if (self == object) return YES;
+    if (![object isMemberOfClass:self.class]) return NO;
+    if ([self hash] != [object hash]) return NO;
     return [self.title isEqualToString:object.title] && [self.type isEqualToString:object.type] && [self.vid isEqualToString:object.vid];
 }
 

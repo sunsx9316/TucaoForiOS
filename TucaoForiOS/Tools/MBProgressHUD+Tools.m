@@ -29,13 +29,11 @@ __weak static UIView *_superView = nil;
 
 + (void)showIndeterminateHUDWithView:(UIView *)view text:(NSString *)text{
     if (!text.length) text = @"加载中...";
-    
     _superView = view ? view : [UIApplication sharedApplication].windows.firstObject;
     
     MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:_superView animated:YES];
     progress.mode = MBProgressHUDModeIndeterminate;
     progress.label.text = text;
-    
 }
 
 + (void)hideIndeterminateHUD {

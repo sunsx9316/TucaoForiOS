@@ -43,6 +43,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        VideoURLModel *model = [UserDefaultManager shareUserDefaultManager].downloadVideos[indexPath.row];
+        [[UserDefaultManager shareUserDefaultManager] removeDownloadVideo:model];
+        [tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    return @[action];
+}
+
 #pragma mark - 私有方法
 - (void)updateProgress:(NSNotification *)aNotification {
     dispatch_async(dispatch_get_main_queue(), ^{

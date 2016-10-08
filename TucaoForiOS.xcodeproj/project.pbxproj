@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8102A0081DA9014C00CAC725 /* SearchHistoryFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */; };
 		8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */; };
 		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
 		811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */; };
@@ -60,7 +61,6 @@
 		8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9E91D6C32B1003C1B44 /* BaseModel.m */; };
 		8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */; };
 		893982651D882BD600E88C14 /* SearchHistoryListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982641D882BD600E88C14 /* SearchHistoryListView.m */; };
-		893982681D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */; };
 		8939826D1D884C1300E88C14 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939826C1D884C1300E88C14 /* BaseViewModel.m */; };
 		893982701D884C2500E88C14 /* SectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8939826F1D884C2500E88C14 /* SectionViewModel.m */; };
 		893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893982721D884E8500E88C14 /* BaseVideoListViewController.m */; };
@@ -120,6 +120,8 @@
 
 /* Begin PBXFileReference section */
 		62A7950F6049C9F4CA84344C /* Pods-TucaoForiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TucaoForiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TucaoForiOS/Pods-TucaoForiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8102A0061DA9014C00CAC725 /* SearchHistoryFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryFooterView.h; sourceTree = "<group>"; };
+		8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryFooterView.m; sourceTree = "<group>"; };
 		8103AB051D99175400E75AC9 /* MBProgressHUD+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Tools.h"; sourceTree = "<group>"; };
 		8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Tools.m"; sourceTree = "<group>"; };
 		8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionViewController.h; sourceTree = "<group>"; };
@@ -214,8 +216,6 @@
 		8930E9F01D6C5B63003C1B44 /* HomePageSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionTableViewCell.m; sourceTree = "<group>"; };
 		893982631D882BD600E88C14 /* SearchHistoryListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryListView.h; sourceTree = "<group>"; };
 		893982641D882BD600E88C14 /* SearchHistoryListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryListView.m; sourceTree = "<group>"; };
-		893982661D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryClearAllTableViewCell.h; sourceTree = "<group>"; };
-		893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryClearAllTableViewCell.m; sourceTree = "<group>"; };
 		8939826A1D884AB500E88C14 /* VideoListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListProtocol.h; sourceTree = "<group>"; };
 		8939826B1D884C1300E88C14 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		8939826C1D884C1300E88C14 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
@@ -341,8 +341,8 @@
 				818DDE7D1D87F7AD00B22A59 /* MineCenterTableViewCell.m */,
 				893982631D882BD600E88C14 /* SearchHistoryListView.h */,
 				893982641D882BD600E88C14 /* SearchHistoryListView.m */,
-				893982661D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.h */,
-				893982671D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m */,
+				8102A0061DA9014C00CAC725 /* SearchHistoryFooterView.h */,
+				8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */,
 				893C3A2F1DA541D80097500E /* JHSearchBar.h */,
 				893C3A301DA541D80097500E /* JHSearchBar.m */,
 			);
@@ -907,7 +907,6 @@
 				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */,
 				893982651D882BD600E88C14 /* SearchHistoryListView.m in Sources */,
-				893982681D88338B00E88C14 /* SearchHistoryClearAllTableViewCell.m in Sources */,
 				8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */,
 				8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */,
 				89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */,
@@ -958,6 +957,7 @@
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,
 				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
+				8102A0081DA9014C00CAC725 /* SearchHistoryFooterView.m in Sources */,
 				893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */,
 				89D3C13D1D6D876B0064FA67 /* HomePageSectionHeaderFooterView.m in Sources */,
 				8939826D1D884C1300E88C14 /* BaseViewModel.m in Sources */,
