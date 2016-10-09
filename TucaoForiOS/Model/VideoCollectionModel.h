@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, VideoURLModelStatus) {
 /**
  *  路径集合
  */
-@property (strong, nonatomic) NSArray <VideoURLModel *>*URLs;
+@property (strong, nonatomic) NSMutableArray <VideoURLModel *>*URLs;
 @end
 
 @interface VideoURLModel : BaseModel

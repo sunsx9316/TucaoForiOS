@@ -13,6 +13,7 @@
 #import "DanmakuNetManager.h"
 
 #import "MBProgressHUD+Tools.h"
+#import "NSObject+Tools.h"
 
 @interface VideoInfoDownloadSheetView ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UIView *holdView;
@@ -47,14 +48,14 @@
         [[UIApplication sharedApplication].windows.firstObject addSubview:self];
     }
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:15 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.bgView.alpha = 1;
         self.holdView.bottom = self.height - 10;
-    }];
+    } completion:nil];
 }
 
 - (void)dismiss {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.bgView.alpha = 0;
         self.holdView.top = self.height + 10;
     } completion:^(BOOL finished) {
@@ -86,7 +87,7 @@
     if (model.status == VideoURLModelStatusDownloded) return;
     [VideoNetManager videoPlayURLWithType:model.type vid:model.vid completionHandler:^(NSArray *URLs, TucaoErrorModel *error) {
         model.playURLs = URLs;
-        [self downloadVideo:model];
+        [self downloadVideo:self.model URLModel:model];
     }];
 }
 
@@ -100,7 +101,7 @@
 - (void)touchDownloadAllVideoButton:(UIButton *)button {
     [VideoNetManager batchGETVideoPlayURLWithModels:self.model.URLs progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
         if (numberOfFinishedOperations < self.model.URLs.count) {
-            [self downloadVideo:self.model.URLs[numberOfFinishedOperations]];
+            [self downloadVideo:self.model URLModel:self.model.URLs[numberOfFinishedOperations]];
         }
     } completionBlock:nil];
 }
@@ -116,17 +117,18 @@
     });
 }
 
-- (void)downloadVideo:(VideoURLModel *)model {
-    NSURLSessionDownloadTask *task = [VideoNetManager downloadVideoWithModel:model progress:^(NSProgress *downloadProgress) {
-        model.progress = downloadProgress.fractionCompleted;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:model];
+- (void)downloadVideo:(VideoModel *)model URLModel:(VideoURLModel *)URLModel {
+    [URLModel addWeakAssociation:model key:@"videoModel"];
+    NSURLSessionDownloadTask *task = [VideoNetManager downloadVideoWithModel:URLModel progress:^(NSProgress *downloadProgress) {
+        URLModel.progress = downloadProgress.fractionCompleted;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:URLModel];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, TucaoErrorModel *error) {
         if (filePath) {
-            model.playURLs = @[[NSURL URLWithString:filePath.lastPathComponent]];
+            URLModel.playURLs = @[[NSURL URLWithString:filePath.lastPathComponent]];
         }
-        model.status = VideoURLModelStatusDownloded;
-        [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:model];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:model];
+        URLModel.status = VideoURLModelStatusDownloded;
+        [[UserDefaultManager shareUserDefaultManager] addDownloadVideo:URLModel];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_PROGRESS" object:URLModel];
     }];
     
     if (task) {

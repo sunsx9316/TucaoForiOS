@@ -16,6 +16,8 @@
 		81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A361D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m */; };
 		81396A401D9E3C1500221615 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A3F1D9E3C1500221615 /* DownloadViewController.m */; };
 		81396A431D9E4DB800221615 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A421D9E4DB800221615 /* BaseTableView.m */; };
+		814909DA1DA9DE6E00FF7093 /* DownloadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814909D91DA9DE6E00FF7093 /* DownloadHeaderView.m */; };
+		814909E01DA9EB8500FF7093 /* NSObject+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 814909DF1DA9EB8500FF7093 /* NSObject+Tools.m */; };
 		81636C651D9CCB790076523E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C641D9CCB790076523E /* AudioToolbox.framework */; };
 		81636C671D9CCB7D0076523E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C661D9CCB7D0076523E /* AVFoundation.framework */; };
 		81636C691D9CCB850076523E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81636C681D9CCB850076523E /* CoreGraphics.framework */; };
@@ -138,6 +140,10 @@
 		81396A3F1D9E3C1500221615 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		81396A411D9E4DB800221615 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		81396A421D9E4DB800221615 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		814909D81DA9DE6E00FF7093 /* DownloadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadHeaderView.h; sourceTree = "<group>"; };
+		814909D91DA9DE6E00FF7093 /* DownloadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadHeaderView.m; sourceTree = "<group>"; };
+		814909DE1DA9EB8500FF7093 /* NSObject+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Tools.h"; sourceTree = "<group>"; };
+		814909DF1DA9EB8500FF7093 /* NSObject+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Tools.m"; sourceTree = "<group>"; };
 		81636C641D9CCB790076523E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81636C661D9CCB7D0076523E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		81636C681D9CCB850076523E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -345,6 +351,8 @@
 				8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */,
 				893C3A2F1DA541D80097500E /* JHSearchBar.h */,
 				893C3A301DA541D80097500E /* JHSearchBar.m */,
+				814909D81DA9DE6E00FF7093 /* DownloadHeaderView.h */,
+				814909D91DA9DE6E00FF7093 /* DownloadHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -692,6 +700,8 @@
 				89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */,
 				811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */,
 				811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */,
+				814909DE1DA9EB8500FF7093 /* NSObject+Tools.h */,
+				814909DF1DA9EB8500FF7093 /* NSObject+Tools.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -907,6 +917,7 @@
 				89C761041D6C80F900635384 /* HomePageSectionCollectionViewCell.m in Sources */,
 				89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */,
 				893982651D882BD600E88C14 /* SearchHistoryListView.m in Sources */,
+				814909DA1DA9DE6E00FF7093 /* DownloadHeaderView.m in Sources */,
 				8930E9E41D6C3016003C1B44 /* HomePageNetManager.m in Sources */,
 				8930E9B01D6C02F4003C1B44 /* HomePageViewController.m in Sources */,
 				89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */,
@@ -919,6 +930,7 @@
 				818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */,
 				8930E9CC1D6C060C003C1B44 /* SectionViewController.m in Sources */,
 				89D3C1431D6DA2E60064FA67 /* DanmakuNetManager.m in Sources */,
+				814909E01DA9EB8500FF7093 /* NSObject+Tools.m in Sources */,
 				893C3A311DA541D80097500E /* JHSearchBar.m in Sources */,
 				81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,

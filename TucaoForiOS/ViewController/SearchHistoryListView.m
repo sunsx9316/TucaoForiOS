@@ -68,7 +68,7 @@
     [view setTouchCallBack:^{
         @strongify(self)
         if (!self) return;
-        [[UserDefaultManager shareUserDefaultManager] clearAllSearchKey];
+        [UserDefaultManager shareUserDefaultManager].historySearchKeys = nil;
         [self.tableView reloadData];
     }];
     return view;

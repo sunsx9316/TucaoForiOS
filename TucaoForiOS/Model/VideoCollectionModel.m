@@ -8,6 +8,7 @@
 
 #import "VideoCollectionModel.h"
 #import "NSString+Tools.h"
+#import "NSObject+Tools.h"
 
 @implementation VideoCollectionModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
@@ -41,24 +42,21 @@
 }
 
 - (BOOL)isEqual:(id)object {
-    return [self yy_modelIsEqual:object];
+    return [self jh_isEqual:object blacklist:@[@"URLs"]];
 }
 
 - (NSUInteger)hash {
-    return self.yy_modelHash;
+    return [self jh_hashWithBlacklist:@[@"URLs"]];
 }
 
 @end
 
 @implementation VideoURLModel
-- (BOOL)isEqual:(VideoURLModel *)object {
-    if (self == object) return YES;
-    if (![object isMemberOfClass:self.class]) return NO;
-    if ([self hash] != [object hash]) return NO;
-    return [self.title isEqualToString:object.title] && [self.type isEqualToString:object.type] && [self.vid isEqualToString:object.vid];
+- (BOOL)isEqual:(id)object {
+    return [self jh_isEqual:object whitelist:@[@"title", @"type", @"vid"]];
 }
 
 - (NSUInteger)hash {
-    return self.title.hash | self.type.hash | self.vid.hash;
+    return [self jh_hashWithWhitelist:@[@"title", @"type", @"vid"]];
 }
 @end

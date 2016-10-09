@@ -7,9 +7,10 @@
 //
 
 #import "UserDefaultManager.h"
+#import "NSObject+Tools.h"
 
 @interface UserDefaultManager ()
-@property (strong, nonatomic) NSMutableOrderedSet <VideoURLModel *>*downloadOrderedSet;
+@property (strong, nonatomic) NSMutableOrderedSet <VideoModel *>*downloadOrderedSet;
 @property (strong, nonatomic) NSMutableOrderedSet <VideoModel *>*mineCollectionOrderedSet;
 @end
 
@@ -29,6 +30,7 @@
     return manager;
 }
 
+#pragma mark - 收藏记录
 - (void)addMineCollectionVideo:(VideoModel *)model {
     if (!model) return;
     
@@ -49,6 +51,8 @@
     return self.mineCollectionOrderedSet.array;
 }
 
+
+#pragma mark - 搜索纪录
 - (void)setHistorySearchKeys:(NSMutableArray *)historySearchKeys {
     _historySearchKeys = historySearchKeys;
     [[NSUserDefaults standardUserDefaults] setObject:historySearchKeys forKey:@"history_search_key"];
@@ -79,30 +83,56 @@
     [self setHistorySearchKeys:_historySearchKeys];
 }
 
-- (void)clearAllSearchKey {
-    [_historySearchKeys removeAllObjects];
-    [self setHistorySearchKeys:_historySearchKeys];
-}
-
-- (NSArray<VideoURLModel *> *)downloadVideos {
+#pragma mark - 下载记录
+- (NSArray<VideoModel *> *)downloadVideos {
     return self.downloadOrderedSet.array;
 }
 
 - (void)addDownloadVideo:(VideoURLModel *)model {
-    if (!model) return;
-    [self.downloadOrderedSet addObject:model];
+    VideoModel *videoModel = [model weakAssociationWithKey:@"videoModel"];
     
+    if (!model || !videoModel) return;
+    //存在则添加地址部分
+    if ([self.downloadOrderedSet containsObject:videoModel]) {
+        NSInteger index = [self.downloadOrderedSet indexOfObject:videoModel];
+        VideoModel *aModel = [self.downloadOrderedSet objectAtIndex:index];
+        if ([aModel.URLs containsObject:model]) {
+            index = [aModel.URLs indexOfObject:model];
+            aModel.URLs[index] = model;
+        }
+        else {
+            [aModel.URLs addObject:model];
+        }
+    }
+    else {
+        [self.downloadOrderedSet addObject:videoModel];
+    }
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadOrderedSet] forKey:@"downloadVideos"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)removeDownloadVideo:(VideoURLModel *)model {
-    if (!model) return;
-    [self.downloadOrderedSet removeObject:model];
+    VideoModel *videoModel = [model weakAssociationWithKey:@"videoModel"];
+    
+    if (!model || !videoModel) return;
+    
+    if ([self.downloadOrderedSet containsObject:videoModel]) {
+        //只剩一个直接移除
+        if (self.downloadOrderedSet.count == 1) {
+            [self.downloadOrderedSet removeObject:videoModel];
+        }
+        else {
+            NSInteger index = [self.downloadOrderedSet indexOfObject:videoModel];
+            VideoModel *aModel = [self.downloadOrderedSet objectAtIndex:index];
+            [aModel.URLs removeObject:model];
+        }
+    }
+    
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_downloadOrderedSet] forKey:@"downloadVideos"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark - 下载路径
 - (NSString *)downloadPath {
     if (_downloadPath == nil) {
         _downloadPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"video"];
@@ -110,7 +140,8 @@
     return _downloadPath;
 }
 
-- (NSMutableOrderedSet <VideoURLModel *> *)downloadOrderedSet {
+#pragma mark - 懒加载
+- (NSMutableOrderedSet <VideoModel *> *)downloadOrderedSet {
 	if(_downloadOrderedSet == nil) {
 		_downloadOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"downloadVideos"]]];
 	}
