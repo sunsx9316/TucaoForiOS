@@ -6,10 +6,10 @@
 //  Copyright © 2016年 jimHuang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseVideoListViewController.h"
 /**
  *  我的收藏
  */
-@interface MineCollectionViewController : BaseViewController
+@interface FavouriteCollectionViewController : BaseVideoListViewController
 
 @end

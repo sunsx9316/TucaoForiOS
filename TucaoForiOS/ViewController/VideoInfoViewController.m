@@ -144,11 +144,12 @@
             @strongify(self)
             if (!self) return;
             
-            if ([[UserDefaultManager shareUserDefaultManager].mineCollectionVideos containsObject:self->_model]) {
-                [MBProgressHUD showOnlyText:@"你已经收藏过了!"];
+            if ([[UserDefaultManager shareUserDefaultManager].favouriteCollectionVideos containsObject:self->_model]) {
+                [[UserDefaultManager shareUserDefaultManager] removeFavouriteCollectionVideo:self->_model];
+                [MBProgressHUD showOnlyText:@"取消收藏!"];
             }
             else {
-                [[UserDefaultManager shareUserDefaultManager] addMineCollectionVideo:self->_model];
+                [[UserDefaultManager shareUserDefaultManager] addFavouriteCollectionVideo:self->_model];
                 [MBProgressHUD showOnlyText:@"收藏成功!"];
             }
         }];
@@ -224,6 +225,7 @@
 #pragma mark - 私有方法
 - (void)touchPlayButton:(UIButton *)sender {
     self.playerView.videoModel = _model;
+    [[UserDefaultManager shareUserDefaultManager] addViewedHistory:_model];
     [UIView animateWithDuration:TRANSFORM_TIME animations:^{
         self.playerView.alpha = 1;
     }];

@@ -10,6 +10,6 @@
 #import "VideoCollectionModel.h"
 
 @protocol VideoListProtocol <NSObject>
-@property (strong, nonatomic) NSMutableArray <VideoModel *>*videos;
+@property (strong, nonatomic) NSArray <VideoModel *>*videos;
 - (void)refresh:(BOOL)isFirstPage completion:(void(^)(TucaoErrorModel *error))completionHandler;
 @end

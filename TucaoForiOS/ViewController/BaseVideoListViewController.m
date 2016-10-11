@@ -11,7 +11,7 @@
 #import "SectionTableViewCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 
-@interface BaseVideoListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface BaseVideoListViewController ()
 @end
 
 @implementation BaseVideoListViewController

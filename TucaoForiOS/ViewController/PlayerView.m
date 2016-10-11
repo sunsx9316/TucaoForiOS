@@ -84,12 +84,12 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (self.playerUIView.isShowing) {
-        [self.playerUIView dismiss];
-    }
-    else {
+//    if (self.playerUIView.isShowing) {
+//        [self.playerUIView dismiss];
+//    }
+//    else {
         [self.playerUIView show];
-    }
+//    }
 }
 
 - (void)dealloc {

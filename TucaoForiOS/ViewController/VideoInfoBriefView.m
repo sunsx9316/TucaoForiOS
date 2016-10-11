@@ -84,12 +84,12 @@
         [cell setTouchFavouriteButtonCallBack:^{
             @strongify(self)
             if (!self || !_model) return;
-            if ([[UserDefaultManager shareUserDefaultManager].mineCollectionVideos containsObject:_model]) {
-                [[UserDefaultManager shareUserDefaultManager] removeMineCollectionVideo:_model];
+            if ([[UserDefaultManager shareUserDefaultManager].favouriteCollectionVideos containsObject:_model]) {
+                [[UserDefaultManager shareUserDefaultManager] removeFavouriteCollectionVideo:_model];
                 [MBProgressHUD showOnlyText:@"取消收藏成功!"];
             }
             else {
-                [[UserDefaultManager shareUserDefaultManager] addMineCollectionVideo:_model];
+                [[UserDefaultManager shareUserDefaultManager] addFavouriteCollectionVideo:_model];
                 [MBProgressHUD showOnlyText:@"收藏成功!"];
             }
         }];

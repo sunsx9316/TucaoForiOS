@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8102A0081DA9014C00CAC725 /* SearchHistoryFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */; };
 		8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */; };
-		8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */; };
+		8103AB0A1D991E6300E75AC9 /* FavouriteCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8103AB091D991E6300E75AC9 /* FavouriteCollectionViewController.m */; };
 		811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */; };
 		811C707F1D9A0EEB00610BFA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C707E1D9A0EEB00610BFA /* UIImage+ImageEffects.m */; };
 		81396A321D9DF34900221615 /* VideoInfoDownloadSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81396A311D9DF34900221615 /* VideoInfoDownloadSheetView.m */; };
@@ -90,6 +90,9 @@
 		89D3C1461D6DA3130064FA67 /* DanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C1451D6DA3130064FA67 /* DanmakuModel.m */; };
 		89D3C1491D6DA41D0064FA67 /* DanmakuDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */; };
 		89D3C14C1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */; };
+		89D7016E1DAD1E2400D5A216 /* ViewedHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D7016D1DAD1E2400D5A216 /* ViewedHistoryViewController.m */; };
+		89D701721DAD288700D5A216 /* ViewedHistoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D701711DAD288700D5A216 /* ViewedHistoryViewModel.m */; };
+		89D701751DAD2EA700D5A216 /* FavouriteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D701741DAD2EA700D5A216 /* FavouriteViewModel.m */; };
 		89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */; };
 		89EE83D01D6EF5AD006A85AD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83CF1D6EF5AD006A85AD /* WebViewController.m */; };
 		89EE83D31D6EF816006A85AD /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EE83D21D6EF816006A85AD /* UserInfoWebViewController.m */; };
@@ -126,8 +129,8 @@
 		8102A0071DA9014C00CAC725 /* SearchHistoryFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryFooterView.m; sourceTree = "<group>"; };
 		8103AB051D99175400E75AC9 /* MBProgressHUD+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Tools.h"; sourceTree = "<group>"; };
 		8103AB061D99175400E75AC9 /* MBProgressHUD+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Tools.m"; sourceTree = "<group>"; };
-		8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCollectionViewController.h; sourceTree = "<group>"; };
-		8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCollectionViewController.m; sourceTree = "<group>"; };
+		8103AB081D991E6300E75AC9 /* FavouriteCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCollectionViewController.h; sourceTree = "<group>"; };
+		8103AB091D991E6300E75AC9 /* FavouriteCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCollectionViewController.m; sourceTree = "<group>"; };
 		811C707A1D9A075500610BFA /* HeadHitDisableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadHitDisableTableView.h; sourceTree = "<group>"; };
 		811C707B1D9A075500610BFA /* HeadHitDisableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadHitDisableTableView.m; sourceTree = "<group>"; };
 		811C707D1D9A0EEB00610BFA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -274,6 +277,12 @@
 		89D3C1481D6DA41D0064FA67 /* DanmakuDataFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDataFormatter.m; sourceTree = "<group>"; };
 		89D3C14A1D6DA5140064FA67 /* JHDanmakuEngine+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JHDanmakuEngine+Tools.h"; sourceTree = "<group>"; };
 		89D3C14B1D6DA5140064FA67 /* JHDanmakuEngine+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JHDanmakuEngine+Tools.m"; sourceTree = "<group>"; };
+		89D7016C1DAD1E2400D5A216 /* ViewedHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewedHistoryViewController.h; sourceTree = "<group>"; };
+		89D7016D1DAD1E2400D5A216 /* ViewedHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewedHistoryViewController.m; sourceTree = "<group>"; };
+		89D701701DAD288700D5A216 /* ViewedHistoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewedHistoryViewModel.h; sourceTree = "<group>"; };
+		89D701711DAD288700D5A216 /* ViewedHistoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewedHistoryViewModel.m; sourceTree = "<group>"; };
+		89D701731DAD2EA700D5A216 /* FavouriteViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewModel.h; sourceTree = "<group>"; };
+		89D701741DAD2EA700D5A216 /* FavouriteViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewModel.m; sourceTree = "<group>"; };
 		89E574C11D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"; path = "TucaoForiOS/Tools/MJRefreshAutoNormalFooter+DefaultRefreshStyle.h"; sourceTree = SOURCE_ROOT; };
 		89E574C21D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; path = "TucaoForiOS/Tools/MJRefreshAutoNormalFooter+DefaultRefreshStyle.m"; sourceTree = SOURCE_ROOT; };
 		89EE83CE1D6EF5AD006A85AD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -608,8 +617,10 @@
 				8930E9D11D6C206D003C1B44 /* MineViewController.m */,
 				8939827A1D88552B00E88C14 /* SearchListViewController.h */,
 				8939827B1D88552B00E88C14 /* SearchListViewController.m */,
-				8103AB081D991E6300E75AC9 /* MineCollectionViewController.h */,
-				8103AB091D991E6300E75AC9 /* MineCollectionViewController.m */,
+				8103AB081D991E6300E75AC9 /* FavouriteCollectionViewController.h */,
+				8103AB091D991E6300E75AC9 /* FavouriteCollectionViewController.m */,
+				89D7016C1DAD1E2400D5A216 /* ViewedHistoryViewController.h */,
+				89D7016D1DAD1E2400D5A216 /* ViewedHistoryViewController.m */,
 				81396A3E1D9E3C1500221615 /* DownloadViewController.h */,
 				81396A3F1D9E3C1500221615 /* DownloadViewController.m */,
 			);
@@ -653,6 +664,10 @@
 				8939826F1D884C2500E88C14 /* SectionViewModel.m */,
 				893982741D8851F200E88C14 /* SearchViewModel.h */,
 				893982751D8851F200E88C14 /* SearchViewModel.m */,
+				89D701701DAD288700D5A216 /* ViewedHistoryViewModel.h */,
+				89D701711DAD288700D5A216 /* ViewedHistoryViewModel.m */,
+				89D701731DAD2EA700D5A216 /* FavouriteViewModel.h */,
+				89D701741DAD2EA700D5A216 /* FavouriteViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -945,6 +960,7 @@
 				89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */,
 				89E574C31D772D6900415F97 /* MJRefreshAutoNormalFooter+DefaultRefreshStyle.m in Sources */,
 				8930E9D71D6C2649003C1B44 /* BaseViewController.m in Sources */,
+				89D7016E1DAD1E2400D5A216 /* ViewedHistoryViewController.m in Sources */,
 				8939827C1D88552B00E88C14 /* SearchListViewController.m in Sources */,
 				89154B921D6EE7050039E551 /* VideoInfoEpisodeCollectionViewCell.m in Sources */,
 				8103AB071D99175400E75AC9 /* MBProgressHUD+Tools.m in Sources */,
@@ -952,6 +968,7 @@
 				89CA5D091D7865B4003C56BE /* BaseSectionViewController.m in Sources */,
 				89C25BFD1D86EAD7008E85F8 /* SectionCollectionViewCell.m in Sources */,
 				893982791D8852F500E88C14 /* SearchNetManager.m in Sources */,
+				89D701721DAD288700D5A216 /* ViewedHistoryViewModel.m in Sources */,
 				817572631D9D00A200A5EC67 /* PlayerSlideView.m in Sources */,
 				89D3C1401D6D99390064FA67 /* VideoNetManager.m in Sources */,
 				811C707C1D9A075500610BFA /* HeadHitDisableTableView.m in Sources */,
@@ -964,10 +981,11 @@
 				818DDE7E1D87F7AD00B22A59 /* MineCenterTableViewCell.m in Sources */,
 				8930E9DA1D6C2E5B003C1B44 /* BaseNetManager.m in Sources */,
 				81396A401D9E3C1500221615 /* DownloadViewController.m in Sources */,
-				8103AB0A1D991E6300E75AC9 /* MineCollectionViewController.m in Sources */,
+				8103AB0A1D991E6300E75AC9 /* FavouriteCollectionViewController.m in Sources */,
 				893982701D884C2500E88C14 /* SectionViewModel.m in Sources */,
 				8930E9DE1D6C2E88003C1B44 /* AFHTTPDataResponseSerializer.m in Sources */,
 				89154B951D6EEEBF0039E551 /* VideoInfoUserTableViewCell.m in Sources */,
+				89D701751DAD2EA700D5A216 /* FavouriteViewModel.m in Sources */,
 				8930E9EA1D6C32B1003C1B44 /* BaseModel.m in Sources */,
 				8102A0081DA9014C00CAC725 /* SearchHistoryFooterView.m in Sources */,
 				893982731D884E8500E88C14 /* BaseVideoListViewController.m in Sources */,

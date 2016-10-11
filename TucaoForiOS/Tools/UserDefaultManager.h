@@ -11,9 +11,9 @@
 
 @interface UserDefaultManager : NSObject
 + (instancetype)shareUserDefaultManager;
-@property (strong, nonatomic, readonly) NSArray *mineCollectionVideos;
-- (void)addMineCollectionVideo:(VideoModel *)model;
-- (void)removeMineCollectionVideo:(VideoModel *)model;
+@property (strong, nonatomic, readonly) NSArray *favouriteCollectionVideos;
+- (void)addFavouriteCollectionVideo:(VideoModel *)model;
+- (void)removeFavouriteCollectionVideo:(VideoModel *)model;
 
 @property (strong, nonatomic, readonly) NSArray <VideoModel *>*downloadVideos;
 - (void)addDownloadVideo:(VideoURLModel *)model;
@@ -22,6 +22,10 @@
 @property (strong, nonatomic) NSMutableArray *historySearchKeys;
 - (void)addSearchKey:(NSString *)keyWord;
 - (void)removeSearchKey:(NSString *)keyWord;
+
+@property (strong, nonatomic, readonly) NSArray *viewedHistoryVideos;
+- (void)addViewedHistory:(VideoModel *)video;
+- (void)removeViewedHistory:(VideoModel *)video;
 
 @property (strong, nonatomic, readonly) NSString *downloadPath;
 @end

@@ -12,8 +12,9 @@
 #import "JHSearchBar.h"
 
 #import "SearchListViewController.h"
-#import "MineCollectionViewController.h"
+#import "FavouriteCollectionViewController.h"
 #import "DownloadViewController.h"
+#import "ViewedHistoryViewController.h"
 
 #import <YYKeyboardManager.h>
 
@@ -60,8 +61,13 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (indexPath.row == 1) {
+        ViewedHistoryViewController *vc = [[ViewedHistoryViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     else if (indexPath.row == 2) {
-        MineCollectionViewController *vc = [[MineCollectionViewController alloc] init];
+        FavouriteCollectionViewController *vc = [[FavouriteCollectionViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
