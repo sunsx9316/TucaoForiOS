@@ -36,7 +36,6 @@
 		818DDE811D880A7300B22A59 /* UserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 818DDE801D880A7300B22A59 /* UserDefaultManager.m */; };
 		82679C4FCDA9936D98E0B03A /* libPods-TucaoForiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 893E1699DDDFE43A3E508912 /* libPods-TucaoForiOS.a */; };
 		8905B69F1D79D5770008D25B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B69E1D79D5770008D25B /* PlayerView.m */; };
-		8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8905B6A31D79D6210008D25B /* PlayerUIView.m */; };
 		89154B881D6E8C230039E551 /* VideoInfoNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */; };
 		89154B8C1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8B1D6EDC660039E551 /* VideoInfoButtonTableViewCell.m */; };
 		89154B8F1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89154B8E1D6EE4F40039E551 /* VideoInfoEpisodeTableViewCell.m */; };
@@ -168,8 +167,6 @@
 		818DDE801D880A7300B22A59 /* UserDefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultManager.m; sourceTree = "<group>"; };
 		8905B69D1D79D5770008D25B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		8905B69E1D79D5770008D25B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
-		8905B6A21D79D6210008D25B /* PlayerUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerUIView.h; sourceTree = "<group>"; };
-		8905B6A31D79D6210008D25B /* PlayerUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerUIView.m; sourceTree = "<group>"; };
 		89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoNumberTableViewCell.h; sourceTree = "<group>"; };
 		89154B871D6E8C230039E551 /* VideoInfoNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoNumberTableViewCell.m; sourceTree = "<group>"; };
 		89154B8A1D6EDC660039E551 /* VideoInfoButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -373,8 +370,6 @@
 				817572621D9D00A200A5EC67 /* PlayerSlideView.m */,
 				8905B69D1D79D5770008D25B /* PlayerView.h */,
 				8905B69E1D79D5770008D25B /* PlayerView.m */,
-				8905B6A21D79D6210008D25B /* PlayerUIView.h */,
-				8905B6A31D79D6210008D25B /* PlayerUIView.m */,
 			);
 			name = "视频UI";
 			sourceTree = "<group>";
@@ -394,6 +389,7 @@
 		89154B821D6E85CE0039E551 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8985368F1DB36C4700C334D2 /* 选择分集 */,
 				89E0BBA71DA68645003A15C8 /* 分集下载 */,
 				8905B6A01D79D5E70008D25B /* 视频UI */,
 				89154B861D6E8C230039E551 /* VideoInfoNumberTableViewCell.h */,
@@ -681,6 +677,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8985368F1DB36C4700C334D2 /* 选择分集 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "选择分集";
+			sourceTree = "<group>";
+		};
 		89C25BFA1D86EAC1008E85F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -949,7 +952,6 @@
 				893C3A311DA541D80097500E /* JHSearchBar.m in Sources */,
 				81396A371D9DFD5C00221615 /* VideoInfoDownloadSheetTableViewCell.m in Sources */,
 				8930E9E71D6C32A3003C1B44 /* VideoCollectionModel.m in Sources */,
-				8905B6A41D79D6210008D25B /* PlayerUIView.m in Sources */,
 				8905B69F1D79D5770008D25B /* PlayerView.m in Sources */,
 				8930E9E11D6C2EA8003C1B44 /* TucaoErrorModel.m in Sources */,
 				8930E9F11D6C5B63003C1B44 /* HomePageSectionTableViewCell.m in Sources */,

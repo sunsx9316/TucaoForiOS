@@ -309,6 +309,7 @@
                 }];
             }
         }];
+        
         _playerView.alpha = 0;
     }
     return _playerView;
